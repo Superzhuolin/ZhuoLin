@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box1{
+				width: 100px;height: 100px;
+				background-color: red;
+				position: fixed;
+			}
+			#box2{
+				width: 100px;height: 100px;
+				background-color: blueviolet;
+				border: 1px solid greenyellow;
+				position: fixed;
+				left: 200px;top: 200px;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+				/* 拖拽box1元素:
+				拖拽的流程:
+					1.当鼠标在被拖拽元素上按下时,开始拖拽onmousedown
+					2.当鼠标移动时,被拖拽元素跟随鼠标移动onmousemove
+					3.当鼠标松开时,被拖拽元素固定在当前的位置onmouseup*/
+					var box1 = document.getElementById("box1");
+					var box2 = document.getElementById("box2");
+					var img1 = document.getElementById("img1");
+				// 开启box1/2
+				drag(box1);
+				drag(box2);
+				drag(img1);
+			}
+			/* 提取一个专门用来设置拖拽的函数
+			 参数:开启拖拽的对象
+			 */
+			function drag(obj){
+				// 为obj绑定鼠标按下事件
+				//1.当鼠标在被拖拽元素上按下时,开始拖拽onmousedown
+				obj.onmousedown=function(event){
+					var ol = event.clientX - obj.offsetLeft;
+					var ot = event.clientY - obj.offsetTop;
+					/* element.offsetLeft	返回当前元素相对其定位父元素的水平偏移量
+					   element.offsetTop	返回当前元素相对其定位父元素的垂直偏移量 */
+					// dive的偏移量=鼠标.clientX - 元素.offsetLeft
+					// dive的偏移量=鼠标.clientY - 元素.offsetTop
+					
+					// 2.当鼠标移动时,被拖拽元素跟随鼠标移动onmousemove
+					document.onmousemove  = function (event){
+						event= event||window.event;
+						// (2)解决鼠标位置问题
+						// 获取鼠标的坐标
+						var left = event.clientX-ol;
+						var top = event.clientY-ot;
+						
+						// 修改obj的位置
+						obj.style.left =left+"px";
+						obj.style.top = top +"px" ;
+					}
+					// 3.当鼠标松开时,被拖拽元素固定在当前的位置onmouseup
+					document.onmouseup =function(event){
+						event= event||window.event;
+						// 取消document.onmousemove事件
+						document.onmousemove =false;
+						
+						//取消document.onmouseup事件
+						document.onmouseup =false;
+					}
+					// (3)解决浏览器搜索导致的拖拽问题 
+					return false;//取消浏览器默认行为
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<img src="img/服务栏1.png" id="img1" style="position: fixed;">
+	</body>
+</html>

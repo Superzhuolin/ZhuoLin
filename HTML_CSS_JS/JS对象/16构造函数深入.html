@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 在Person构造函数中,为每一个对象都添加了一个sayName方法,
+			     目前我们的方法是在构造函数中创建的,
+				   也就是构造函数每执行一次就会创建一个新的sayName方法
+				   也就是所有的sayName都是不同的,浪费内存资源
+				   可以将函数定义在全局作用域中让所有对象共享同一个方法*/
+/* 			function Person(name,age,gender){
+				this.name=name;
+				this.age=age;
+				this.gender = gender;
+				this.sayName = function(){
+					alert("我是:"+this.name);
+				};
+			} */
+			
+			function Person(name,age,gender){
+				this.name=name;
+				this.age=age;
+				this.gender = gender;
+				this.sayName = fun;
+				}
+			
+			/* 将函数定义在全局作用域中  (存在浪费内存的问题)
+			缺点:1.污染了全局作用域的命名空间
+					(占用了此命名,别的函数也用此名会覆盖掉此函数)
+				 2.定义在全局作用域不安全(容易被覆盖)
+			 */
+			
+			function fun(){
+				alert("我是:"+this.name);
+			}
+			//实例化Person对象
+			var p = new Person('孙悟空',142,"男");
+			var p1 = new Person('沙和尚',42,"男");
+			
+			// p1.sayName();
+			console.log(p.sayName  == p1.sayName);
+
+
+
+
+
+
+			
+			// var a = {
+			// 	name: "李白",
+			// 	age:11
+			// }
+			// console.log(a);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#d1{
+				background-color: antiquewhite;border: 1px solid red;
+				width: 300px; height: 200px;
+				/* 调整内边距会让原本的盒子变大，
+				   因为内边距不会侵占块标签的内部容量，只会使用缝隙向外拓展 */
+				padding: 20px;
+			}
+				
+			#d2{
+				background-color: gray; border: 1px solid blue;
+				width: 100px; height:  120px;
+				/* 调整外边距不会让内外盒子大小产生变化  只会产生间隙 */
+				/* margin: 20px; */
+			}
+		</style>
+	</head>
+	<body>
+		<div id='d1'>
+			<div id="d2"> </div>
+		</div>
+	</body>
+</html>

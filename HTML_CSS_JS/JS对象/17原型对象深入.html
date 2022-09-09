@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			
+			function Person(){
+				
+			}
+			// 向Person的原型中添加name属性
+			Person.prototype.name = "我是原型中的名字";
+			// 实例化类
+			var p = new Person();
+			console.log(p.name);
+			p.age =18;
+			/* in 运算符  检查对象中是否含义指定某个属性名	
+				语法: "属性名" in 对象	*/
+			// in运算符检查对象是否含义某属性,对象中没有,原型中有,也会返回true
+			console.log("name" in p);
+			console.log("hasOwnProperty" in p);
+			console.log("--------------------");
+			// 使用hasOwnProperty()检查对象自身中是否含有该属性
+			console.log(p.hasOwnProperty("name"));
+			console.log(p.hasOwnProperty("age"));
+			console.log("--------------------");
+			//hasOwnProperty()在对象的原型的原型里里
+			console.log(p.hasOwnProperty("hasOwnProperty"));
+			console.log(p.__proto__.hasOwnProperty("hasOwnProperty"));
+			console.log(p.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));
+			//一般就两层
+			console.log(p.__proto__.__proto__.__proto__);
+			console.log(p.hello);//都没有的属性返回undefined
+		
+			// 通过__proto__来访问该属性的原型对象
+			/* 原型对象也是对象,所以他也有原型
+				当我们使用一个对象的属性或方法时,会现在自身中寻找,
+				找不到就去原型中寻找,原型中找不到,就去原型的原型(一般为Object)中寻找(一般就两层)
+					直到找到Object对象的原型(Object对象的原型没有原型 值为null),
+					若Object中依然没有则返回undefined
+					
+				__proto__对象原型的意义就在于为对象成员查找机制提供了一个方向或一条路线
+				*/
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

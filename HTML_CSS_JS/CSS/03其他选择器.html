@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		/* 层级选择器  	使用空格  通过层次关系定位样式的作用范围
+						层级选择器的每个层级的确定可以是标签名也可以是 id(#)  class(.)*/
+			#p1  .c1{
+				color: blue;
+			}
+			
+			/* 属性选择器    	使用[] 根据标签的某个属性的特定属性确定样式的作用范围
+								语法层级[文本类型]*/
+			#i1,#i2[type=password]{
+				width: 30%;height: 23%;
+			}
+			/* 分组选择器   
+			使用 逗号, 将多个不同层级关系,不同class属性/id属性/标签名同时使用的样式效果*/
+			h2,#j2,h3,#i11{
+				width: 30%;height: 23%;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 层级选择器 -->
+		<span> 今天我可真帅</span>
+		<p id="p1">
+			<!-- <font>	定义文字的字体、尺寸和颜色。该标签已经过时,HTML5不支持使用 -->
+			<font>
+				<span class="c1">今天要好好加油哦</span>
+			</font>
+			<span>今天很努力哦</span>
+		</p>
+		<h1>很好</h1>
+		<p>好</p>
+		<!-- 属性选择器 -->
+		<input type="text"  id="i1"  class="i">
+		<input type="password" id="i2" class="i">
+		<input type="password" id="i3">
+		<input type="password" id="i4">
+		<!-- 层级选择器 -->
+		<h2>我很棒</h2>
+		<h3 class="i3">很帅</h3>
+		<span id="j2">很酷</span>
+		<p id="i11">好</p>
+	</body>
+</html>

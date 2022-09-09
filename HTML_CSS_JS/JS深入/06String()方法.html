@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* String()  大部分方法都不会对原字符串产生影响 */
+			var s = "hello"
+			/* 字符串在底层以数组方式存储 
+				["h","e","l",..]
+			*/
+		   // length	字符串的长度
+		   console.log(s.length);
+		   console.log(s[2]);
+			// charAt()	返回在指定位置(依据索引)的字符
+			console.log(s.charAt(1));
+			console.log(s);
+			
+			/* charCodeAt()	返回在指定的位置的字符的 Unicode 编码。 */
+			console.log("h的Unicode编码为:"+s.charCodeAt(0));
+			
+			/* fromCharCode()	(通过构造函数调用)将 Unicode 编码转为字符 
+			语法:String.fromCharCode(n1, n2, ..., nX)*/
+			// 十六进制  0X开头	八进制  0开头	二进制 0b开头 
+			console.log("Unicode编码为104的字符为:"+String.fromCharCode(104,66,77));
+			
+			
+			/* concat()	连接两个或更多字符串，并返回新的字符串。
+						作用和+一样*/
+			console.log(s.concat("你好","我是李白"));
+			console.log(s);
+			
+			/* indexOf()	返回某个指定的字符串值在字符串中首次出现的位置
+							如果没有找到匹配的字符串则返回 -1。
+			语法:string.indexOf(searchvalue,start)
+				searchvalue		必需。规定需检索的字符串值。
+				start			可选的整数参数。规定在字符串中开始检索的位(默认为0)
+							它的合法取值是 0 到 string Object.length - 1
+			注意： indexOf() 方法区分大小写。 
+			
+			lastIndexOf() 	返回一个指定的字符串值最后出现的位置(从后往前找)
+					如省略第二个参数，则将从字符串的最后一个字符处开始检索*/
+			
+			console.log("lo首次出现的位置:"+s.indexOf("lo"));
+			console.log(s.lastIndexOf("l"));
+			
+			/* slice()	提取字符串的片断，并在新的字符串中返回被提取的部分 
+			使用 start(包括)和 end(不包括) 参数来指定字符串提取的部分。
+				
+			substring()   与slice()类似,但是它不能传负值
+			而且它会自动调整参数,当第二个参数小于第一个的时候,自动交换位置
+			
+			substr()	从起始索引号提取字符串中指定数目的字符
+						第二个参数为截取长度
+			注意:ECMAscript 没有对该方法进行标准化，因此反对使用它。
+			*/
+			
+			var a = "dasdsafgcxs";
+			console.log("slice后:"+a.slice(0,-1));
+			//等于a.substring(0,1)
+			console.log("substring后:"+a.substring(1,0));  
+			console.log(a.substr(2,2));
+			
+			/* split()	把字符串或正则表达式分割为字符串数组
+			语法:string.split(separator,limit)
+			separator	可选。从该参数指定的地方分割
+			limit	可选。该参数可指定返回的数组的最大长度。
+			如果设置了该参数，返回的子串不会多于这个参数指定的数组。
+			如果没有设置该参数，整个字符串都会被分割，不考虑它的长度。
+			
+			 提示： 如果把空字符串 ("") 用作 separator，
+			 那么 stringObject 中的每个字符之间都会被分割。*/
+			var b = "abc,der,sdas";
+			var c = "ABDSADSAdsa2";
+			var d = "1q2f3c4e5e6sc5s6";
+			var result = b.split(",");
+			console.log(" 传递空格后:"+c.split(""));
+			console.log("正则后:"+d.split(/[A-z]/));
+			// var result = b.split("d");
+			console.log(result);
+			console.log("result类型:"+typeof result);
+			console.log(Array.isArray(result));
+			console.log(result[0]);
+			console.log(result.length);
+			
+			/* toLowerCase()	把字符串转换为小写
+			   toUpperCase()	把字符串转换为大写 */
+			// console.log(b.toLocaleUpperCase().toLocaleLowerCase());
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

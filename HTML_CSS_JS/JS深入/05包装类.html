@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+		/* 包装类: 将基本数据类型转换为对象,使之具有对象的功能
+				浏览器(解析器)自己用的
+		
+		有三种基元包装类型(他们都是构造函数):String，Number和Boolean。
+				在读取字符串，数字或布尔值时，会在幕后自动创建原始包装类型。
+		
+		注意:任何使用基本数据类型的对象,在做一些比较时可能会带来一些不可预期的结果
+				不建议使用
+		 */
+			var num = new Number(6);
+			var num2 = new Number(6);
+			var str = new String("hello");
+			var str2 = new String("hello");
+			console.log(num);
+			//虽然值相等,但是对象比较的是地址,地址不同返回false
+			console.log("Number:"+num  == num2);
+			console.log("String:"+str  == str2);
+			console.log(typeof num);
+			console.log(str);
+			console.log(typeof str);
+			// 基本数据类型没有属性和方法
+		/* 		var n = 1;
+			n.hello = "你好";
+			console.log(n);
+			console.log(n.hello); */
+			//向num对象中添加属性
+			num.hello = "你好";
+			console.log(num.hello);
+			
+			
+			
+			// 对象转布尔	都是true
+			// var b   =new Boolean(false);
+			// if(b){
+			// 	alert("我运行了");
+			// }
+			
+			/* 方法和属性只能被对象添加,不能被基本数据类型添加
+				-当我们使用基本数据类型的值去调用属性和方法时
+					浏览器会临时对其使用包装类转换为对象,
+					任何再调用对象的属性和方法,调用完之后转回基本数据类型*/
+			
+			var a = 123;
+			// 相当于省略了把Number类型转换为对象这步
+			// a = new Number(a);
+			/* 使用对象的toString方法 */
+			a = a.toString();
+			console.log(a);
+			console.log(typeof a);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

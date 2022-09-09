@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{	//外边距离margin   内边距padding
+				margin: 0px;padding: 0px;
+			}
+			#outer{
+				width: 190px;
+				/* margin外边距   距离块标签外部和父级块标签之间的距离
+								  可以通过auto来完成横向居中*/
+				margin: 50px auto;
+				padding: 10px;
+				background-color: aqua;
+				/* 设置文本居中 */
+				text-align: center;
+			img{
+				width: 190px;height: 160px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				
+				/* 切换图片，也就是修改img标签的src属性 */
+				// 4.获取img标签
+				var img = document.getElementsByTagName("img")[0];
+				// alert(img);
+				
+				/* 点击按钮切换图片 */
+				//3.创建数组保存图片路径
+				var imgArr = ["img/服务栏1.png", "img/服务栏2.png", "img/服务栏3.png","img/服务栏4.png","img/服务栏5.png"];
+				// 2.创建变量保存图片的索引
+				var index = 0;
+				
+				//1.获取两个按钮
+				var prev = document.getElementById("prev");
+				var next = document.getElementById("next");
+				//1.1为两个按钮绑定单击响应函数
+				prev.onclick = function(){
+					// alert("上一张");
+					index--;
+					if(index<0){
+						// 小于0时，跳到最后一张
+						index=imgArr.length-1;
+					}
+						//更新src位置
+					img.src = imgArr[index];
+					// 点击按钮重新设置文本信息
+					info.innerHTML = "一共"+imgArr.length +"张图片当前第"+(index+1)+"张";
+				}
+				
+				next.onclick = function(){
+					// alert("下一张");
+					index++;
+					if(index>imgArr.length-1){
+						//大于最后一张的时候跳到第一张
+						index = 0;
+					}
+					//更新src位置
+					img.src = imgArr[index];
+					// 点击按钮重新设置文本信息
+					info.innerHTML = "一共"+imgArr.length +"张图片当前第"+(index+1)+"张";
+				}
+				
+				//设置提示文字
+				// 5.获取id为info的p元素
+				var info = document.getElementById("info");
+				//设置起始文字
+				info.innerHTML = "一共"+imgArr.length +"张图片当前第"+(index+1)+"张";
+				 
+			}
+		</script>
+	</head>
+	<body>
+		<!-- 网页的布局基本都是用块标签来完成
+			一般做布局	使用的标签是div	帮助我们将网页划分为多个小方块 -->
+		<div id="outer">
+		<p ><small id="info"></small> </p>
+			<img src="img/服务栏1.png" alt="服务栏1"/>
+			<button id="prev">上一张</button>
+			<button id="next">下一张</button>
+		</div>
+	</body>
+</html>

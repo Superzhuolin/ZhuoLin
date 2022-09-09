@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box1{
+				width: 200px;height: 200px;
+				/* margin: 100px auto; */
+				background-color: red  ;
+				/* background-color: red  !important; */
+				/* !important  非常重要,设置之后js无法改变 */
+			}
+		</style>
+		<script>
+			window.onload = function(){
+				// 点击按钮以后修改box1的大小(width ,height)
+				
+				// 获取box1
+				var box1 = document.getElementById("box1");
+				// 为按钮绑定单击响应函数
+				var btn01 = document.getElementById("btn01");
+				btn01.onclick =function(){
+					// 修改box1的宽度
+					/* JS修改样式
+					 语法:元素.style.样式名 =样式值 
+					 注意:样式中含有-,这种名称在JS中是不合法的,需要将其改为驼峰命名法
+					 即去掉-并将-后的字母大写 */
+			 /* 标识符命名规则:
+				1.可以含有字母/数字/_/$
+				2.不能以数字开头
+				3.不能是ES中的关键字或保留字
+				4.命名规范:驼峰命名法 	首字母小写,其余首字母大写 helloWord*/
+				
+				/* 通过style属性设置的都是内敛样式,
+				 内敛样式具有较高的优先级,JS改变样式后往往会立即显示
+				 
+				 但是如果在样式中写了!important,则此时样式具有最高的优先级,
+				 会导致js修改样式失败,尽量不要使用
+				 */
+				
+					 box1.style.width = "400px";
+					 box1.style.height = "400px";
+					 box1.style.backgroundColor="blue";
+				};
+				
+				// 点击按钮2以后,读取元素的样式
+				var btn02 = document.getElementById("btn02");
+				btn02.onclick =function(){
+				 /* 读取语法:元素.style.样式名
+				  通过style属性设置和读取的都是内联样式,样式表中的样式无法读取
+				  
+				  */
+					console.log("width:"+box1.style.width);
+					console.log("height:"+box1.style.height);
+					console.log("backgroundColor:"+box1.style.backgroundColor);
+				};
+				
+			};
+			
+			
+		</script>
+	</head>
+	<body>
+		<button id="btn01">点我一下</button>
+		<button id="btn02">点我</button>
+		<br><br>
+		<!-- 网页的布局基本都是用块标签来完成
+			一般做布局	使用的标签是div	帮助我们将网页划分为多个小方块 -->
+		<div id="box1"></div>
+	</body>
+</html>

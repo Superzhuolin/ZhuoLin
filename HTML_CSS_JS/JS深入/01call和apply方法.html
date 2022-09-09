@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+		/* 使用call/apply和bind函数调用时,this是指定的那个对象*/
+		/* 主要应用场景:
+		 1.call经常做继承
+		 2.apply经常跟数组有关系,比如借助于属性对象实现数组最大指*/
+			
+		/* call()和apply()方法		
+	作用:将一个对象指定第一个参数，使之成为函数的this
+		-都是函数对象的方法,需要函数对象,来调用
+		-1.当对函数调用call()和apply()方法时都会调用函数执行
+		-2.调用call和apply()可以将一个对象指定第一个参数(之后的其他参数才是函数的实参)
+		-	此时这个对象将会成为函数执行时的this(实参是谁,this就是谁)
+		
+		-call()方法可以将实参在对象之后依次传递
+		-apply()方法需要将实参封装到一个数组(即[])中传递
+			主要应用:借助属性数学中的内置对象求最大值
+		*/	
+	   var arr = [1,2,46,6,44,66];
+	   var max =  Math.max.apply(null,arr);
+	   console.log(max);
+	   
+	   
+	   
+			// function fun(){
+			// 	alert(this);
+			// }
+		// fun();
+		// fun.apply();
+		// fun.call();
+			function fun(a,b){
+				console.log("a="+a);
+				console.log("b="+b);
+				console.log(this);
+				console.log(this.name);
+			}
+			var obj = {
+				name:"obj",
+				sayName:function(){
+					// alert(this.name);
+				}
+			};
+			var obj2 = {name:"obj2"};
+			
+			fun.call(obj,1,2);
+			// fun.apply(obj,[2,3])
+			
+			// fun.apply(obj);
+			// fun.apply(obj.name);
+			fun();
+			obj.sayName();
+			
+			
+			// 实参是谁,this就是谁
+			// obj.sayName.apply(obj2);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

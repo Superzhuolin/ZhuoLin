@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* toString()方法   Object对象原型中的方法 */
+			function Person(name,age,gender){
+				this.name=name,
+				this.age=age,
+				this.gender=gender
+			}
+			var p = new Person("孙悟空",18,"男");
+			var p1 = new Person("沙和尚",28,"男");
+		
+			//修改Person原型中的prototype方法
+			Person.prototype.toString = function  pToString() {
+				return "Person[name="+this.name+" age="+this.age
+				+" gender="+this.gender+"]";
+			}	
+			
+			//修改p对象的toString()方法
+	/* 	自定义的toString()方法不能够传入参数，并且必须返回一个字符串。
+		定义的toString可以返回我们任何需要的值 */
+		
+		/* 	p.toString = function(){
+				return "Person[name="+this.name+" age="+this.age
+				+" gender="+this.gender+"]";
+			}	 */	
+		
+			console.log(p1.toString());
+			console.log(p1);
+			console.log(p1.toString()  == p1);
+			console.log("------------");
+			//直接在页面上打印对象时,返回的是对象的toString()方法的返回值
+			
+			var result = p.toString();
+			console.log(result);
+			console.log(p);
+			
+			//可以修改对象的toString方法()
+			
+			// 使用hasOwnProperty()检查对象自身中是否含有该属性
+			/* p对象的toString()方法在原型的原型中 */
+			// console.log(p.__proto__.__proto__.hasOwnProperty("toString"));
+			//hasOwnProperty()在对象的原型的原型里里
+			//console.log(p.__proto__.__proto__.hasOwnProperty("hasOwnProperty"));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* ! 非 布尔取反   两次取反,值不变化
+					对非布尔类型,则会先转换为布尔值再取反
+						基于该特点,可以将一个其他数据类型进行两次取反转换为布尔值
+						(隐式类型转换)a = !!a;原理和Boolean()函数一样,但更简便
+			   && 与(爱情)		两个值只要有一个false就为false,只有两个true才为true
+						JS中的"与"为短路与,第一个值为false,则不会看第二个值
+			   
+			   ||或(亲戚)		两个值只要有一个true就为true,只有两个false才为false
+								JS中的"或 "为短路或,第一个值为true,则不会看第二个值
+			 */
+			var a =0;
+			a = !!a;
+			// a = Boolean(a);  效果一样
+			console.log(a);
+			console.log(typeof a);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

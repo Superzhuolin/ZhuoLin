@@ -1,0 +1,211 @@
+
+			/* ----------导航栏样式----------------- */
+				/* 取消边界、内外边界为0px */
+			*{border: 0px;
+			margin: 0px;
+			padding: 0px;
+			}
+			.navi{
+				/* border: 1px solid red; */
+				height: 40px;
+				background-color: #3b99fc;
+			}
+				
+			.navi_item,.navi_item1{
+				/* border: 1px solid black; */
+				width: 145px;height: 40px;
+				float: left;
+				/* 取消列表上的· */
+				list-style: none;
+				/* 文本居中 */
+				text-align: center;
+				line-height: 40px;
+				/* 文本颜色 */
+				color: white;
+			}
+			.navi ul{
+				width: 1160px;height: 40px;
+				/* border: 1px solid  red ; */
+				margin: 0px auto;
+			}
+			/* 设置鼠标悬停 */
+			.navi .navi_item:hover{
+				background-color: #3685ec;
+			}
+			/* 长按绿色 */
+		/* 	.navi .navi_item:active{
+				background-color: green;
+			} */
+			.navi .navi_item1{
+				background-color: #3685ec;
+			}
+			/* 默认字体16px */
+			.navi ul li{
+				font-size: 18px;
+			}
+			/* ----------服务栏-------------- */
+			/* 统一图片宽高 */
+			.service img{
+				width: 80px;height: 70px;
+			}
+			/* 设置dl框宽高 */
+			.service_item{
+				width: 90px;height:95px;
+				float: left;
+			}
+			.service_item dd{
+				text-align: center;
+			}
+			.service_item dt {
+				text-align: center;
+			}
+			/* 取消超链接下划线 */
+			.service_item  a{
+				text-decoration: none;
+			}
+			/* 调整文字大小及色号 */
+			.service_item font{
+				font-size: 14px; color: black;
+			}
+				
+			.service {
+				width: 630px;
+				height: 95px;
+				margin: 0px auto;
+				/* border: 1px solid red; */
+			}
+			/* ------------提示栏-------------- */
+			.note1,.note2{
+					width: 80px;
+				}
+					
+				.note1{
+					height: 160px;
+					margin-bottom: 10px;
+				}
+				.note2{
+					height:115px;
+				}
+				
+				.note{
+					width: 80px;  height:625px;
+					position: fixed;
+					right: 0px; top:150px;
+				}
+				
+			.note1 img{
+				width:80px;height: 160px;
+			}
+			.note2 img{
+				width:80px;height: 115px;
+			}
+			
+			/* -----------特色栏--------- */
+			.d1{
+				width: 1600px;
+				height: 560px;
+				margin: 0px auto;
+			}	
+			.c{
+				width: 780px; height: 270px;
+				float: left;
+			}
+			.c img{
+				width: 780px; height: 270px;
+				/* 1560+40 
+				   540+20*/
+			}
+				
+			#c1,#c3{
+				margin-right: 40px;
+			}
+			#c3,#c4{
+				margin-top: 20px;
+			}
+			/* -------------介绍栏--------------- */
+			/* 选中body中的所有标签 */
+			*{
+				/* border: 1px solid red; */
+				margin: 0px; padding:0px ;
+			}
+				
+			.introduce{
+				width: 298px; height: 298px;
+				border: 1px solid #3b99fc;
+				float: left;
+			}
+			.introduce h3{
+				height: 40px;
+				background-color: #3b99fc;
+				color: white;
+				text-align: center;
+				line-height: 40px;
+			}
+			/* 设置ul的外边距 */
+			.introduce ul{
+				/* border: 1px solid yellowgreen; */
+				margin-left: 50px;
+				margin-top: 30px;
+				
+			}
+			/* 取消超链接下划线  改变字体大小及色号 */
+			.introduce a{
+				text-decoration: none;
+				font-size: 14px;
+				color: dimgray;
+			}
+			/* 设置li高度 */
+			.introduce li{
+				height: 40px;
+				list-style: none;
+				list-style-image: url(..//img/小蓝点1.png);
+			}
+			.introduce a:hover{
+				color: black;
+			}
+			.out_intruduce{
+				/* border: 1px solid red; */
+				width: 920px;height: 300px;
+				margin: 0px auto;
+			}
+			#in1,#in2{
+				margin-right: 10px;
+			}
+			/* ----------旅游栏----------- */
+			.travle_item{
+				width:288px;height: 330px;
+				border: 1px solid red;
+				float: left;
+				margin: 5px;
+			}
+			.travle_item img{
+				width:288px;height: 244px;
+			}
+			.travle_item a{
+				text-decoration: none;
+			}
+			.travle_item p{
+				color: black;
+				font-size: 10px;
+				line-height: 40px;
+			}
+			.travle_item p:hover{
+				color: #3b99fc;
+			}
+			
+			.travle_item span{
+				color: #FF8201;
+				font-size: 20px;
+			}
+			.travle_item font{
+				font-size:14px;
+			}
+			.travle_item dt{
+				padding-left: 10px;
+			}
+			/* 1190 674*/
+			.travel {
+				width: 1200px;height: 684px;
+				/* border: 1px solid greenyellow; */
+				margin: 0px auto;
+			}

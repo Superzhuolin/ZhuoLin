@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 数组中的方法都保持在数组原型对象中 */
+			console.log(Array.prototype);
+			console.log(Array.prototype.prototype);
+			
+			
+			/* 创建数组 */
+			var arr = ["孙悟空","猪八戒","沙和尚"];
+			
+			/* push()  向原数组尾部添加一个或多个元素,
+						并返回新的长度(即该方法返回值为长度)
+						将要添加的元素作为函数参数传递
+			 */
+			// console.log(arr.length);
+			// var result = arr.push("蜘蛛精","唐僧","白龙马");
+			// console.log("arr数组="+arr);
+			// console.log(arr.length );
+			// console.log("result="+result) ;
+			// console.log(arr.length  == result);
+			
+			/* unshift()	向数组开头添加一个或多个元素,并返回新的数组长度 
+							其他元素索引会依次调整*/
+		var result1 = arr.unshift("白小帅","李玉清");
+			console.log(arr);
+			console.log(result1);
+			
+			/* pop()  删除最后一个元素,并将被删除的元素作为返回值返回 */
+			var result2 =  arr.pop();
+			console.log(result2);
+			console.log(arr);
+			
+			/* shift  删除并返回数组第一个元素 */
+			
+			var result3 = arr.shift();
+			console.log(arr);
+			console.log(result3);
+			
+		</script>
+		
+	</head>
+	<body>
+	</body>
+</html>

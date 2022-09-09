@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+		/* Location
+			-代表当前浏览器的地址栏信息,可以用来获取地址栏信息或者跳转浏览器的页面 */
+			
+			window.onload = function(){
+				
+				// 获取按钮对象
+				var btn = document.getElementById("btn");
+					
+				btn.onclick =function(){
+					// 直接打印,获取地址栏信息(当前页面的完整信息路径)
+					// alert(location);
+					
+					/* 修改location后,页面会自动跳转到修改后路径,并生成相应历史记录 */
+					// location="https:baidu.com";
+					// location="test01.html";
+					
+					/* assign()		跳转页面,和直接修改location一样 */
+					// location.assign("https:baidu.com");
+					
+					/* reload()  刷新页面 
+					参数:true  强制清空缓存(除了火狐都自带)*/
+					// location.reload();
+					
+					/* replace()
+						可以使用新的页面替代当前页面,调用完毕也会跳转页面
+					ps:不会生成历史记录,不能使用回退按钮回退*/
+					location.replace("test01.html");
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<button type="button" id="btn">点我</button>
+		<input type="text">
+		<a href="test01.html">去test01</a>
+		<h1>History</h1>
+	</body>
+</html>

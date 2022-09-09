@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button>点击 </button>
+		<button>点击 </button>
+		<button>点击 </button>
+		<script>
+			// bind非常重要   不会调用原来的函数
+			
+			
+		/* Function.prototype.bind()  捆绑方法 (该方法不会自动调用)   
+				bind()方法主要就是将函数绑定到某个对象(第一个参数值)使之称为函数对象的this，
+			同时返回一个函数,例如，f.bind(obj)，实际上可以理解为obj.f()，
+			f函数体内的this自然指向的是obj 
+			PS:用于某些函数不需要立即调用,但是需要改变该函数的内部this执行  (bind()最常用)*/
+			var o = { name:"andy"};
+			function fun(a,b){
+				console.log(this);
+				console.log(a+b);
+			}
+			var newFun = fun.bind(o,1,2);
+			console.log(newFun());
+			console.log(newFun);
+			
+			/* 功能:点击按钮后该按钮被禁用,三秒之后才开启这个按钮 */
+			// 获取按钮
+			var that;
+			// var btn = document.querySelector("button");
+			// btn.onclick = function(){
+			// 	/* 使用this的好处就是没有定死,修改方便 */
+			// 	this.disabled = true;
+			// 	that = this;
+			// 	// 三秒后开启
+			// 	setTimeout(function(){
+			// 		//定时器中的this指向的是window,window中没有disableed属性
+			// 		// this.disabled =false;
+			// 		// that.disabled =false;//方法一:使用that,使this指向btn
+			// 		this.disabled =false;  //此时this指向btn
+			// 	//方法二:给定时器函数绑定bind方法,bind中的this是指btn,绑定后定时器中的this指向btn
+			// 	}.bind(this),3000)
+			// }
+			
+			var btns = document.querySelectorAll("button");
+			for(var i = 0;i<btns.length;i++){
+				btns[i].onclick = function(){
+					this.disabled = true;
+					setTimeout(function(){
+						this.disabled = false;
+					}.bind(this),2000);
+					// bind()函数一定要写在定时器函数的外面
+				}
+			}
+			
+		</script>
+	</body>
+</html>

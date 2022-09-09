@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 文本框  单行输入,无法控制宽高-->
+		账号:<input  type="text"/> <br />
+		<!-- 密码框	 文本内容隐藏 -->
+		密码:<input  type="password"/> <br />
+		<!-- 单选框  多选一
+			相同的name值的单选框会具有互斥效果
+			checked属性可以控制某个选项默认被选中,同时选中同一个name时,只选中最后一个-->
+		性别: <input  type="radio"  name="gender" checked/>  男
+		     <input  type="radio"  name="gender"/> 女 <br />
+		<!-- 复选框  多选多(那怕name值相同) -->
+		爱好:<input type="checkbox"/> 篮球
+			<input type="checkbox"  checked/> 足球
+			<input type="checkbox"/> 乒乓球
+			<input type="checkbox"/> 羽毛球
+			<input type="checkbox"/> 网球
+			<input type="checkbox"/> 排球  <br />
+		<!-- 文件框 -->
+		请选择照片:<input  type="file"/> <br />
+		<!-- 文本域 -->
+		个人简介:<textarea style="width: 40%; height:100px;"></textarea> <br />
+		<!-- 下拉框   mutiple 同时显示四个框    selected默认选中-->
+		籍贯:<select	 multiple> 
+				<option>吉林</option>
+				<option>广东</option>
+				<option>福建</option>
+				<option>黑龙江</option>
+				<option>福南</option>
+				<option>福南</option>
+				<option>福南</option>
+				<option>福南</option>
+				<option selected >--选择省份---</option>
+			</select>
+	</body>
+
+</html>

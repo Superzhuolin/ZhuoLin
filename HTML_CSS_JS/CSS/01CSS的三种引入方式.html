@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			/* 选择器	定义span标签样式 */
+			span{
+				font-size: 20px;color: blue;background-color: gold;
+			}
+		</style>
+		<!-- 链接式 		rel告诉浏览器引入的是什么文件   stylesheet样式表的意思-->
+		<link rel="stylesheet"  href="css/myCSS.css"/>
+		
+	</head>
+	<body>
+		<!-- HTML   搭建网页的主体结构    		毛胚房
+			 CSS 	修饰网页 让网页更加的漂亮     精装修
+			 JS 	做交互						智能家居
+		 -->
+		 
+		 <!--  1.行内引入   借助标签的style属性引入
+				style属性的语法为  样式名:样式值;样式名:样式值;.....
+			   2.内嵌式 		将CSS样式的代码 抽取出来  通过选择器确定样式的作用范围
+							在head标签中  使用一对style标签  定义CSS样式
+							减少相同代码的编写量  减少代码的维护量
+			   3.链接式  	行内式只能将代码作用于当前标签
+							内嵌式可以将样式作用于多个标签但不能作用其他网页
+							链接式可以将样式的作用范围扩大多个不同网页
+							链接式可以将CSS代码放入独立的.CSS文件中  使页面更简洁
+							每一个需要引入样式的HTML  在head标签中使用link标签引入css文件即可
+			   4.优先级      就近原则(谁里span标签近谁优先)	
+		  -->
+		 <!-- 行内引入 -->
+		 <span style="font-size: 30px;color: blue;background-color: burlywood;">
+			 欢迎来到我的世界
+		 </span><br>
+		 
+		 <span >你很棒哦d1 </span><br>
+		 <span >你很棒哦 </span><br>
+		 <span >你很棒哦 </span><br>
+		 <h1>会很好</h1>
+		 
+		 
+	</body>
+</html>

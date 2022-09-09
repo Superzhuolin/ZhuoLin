@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* position属性指定一个元素（静态的，相对的，绝对或固定）的定位方法的类型。
+			  默认值：	static */
+			/* 绝对定位	当位置改变 该位置的坐标原点就会释放		
+						后续的其他标签就可以占用该位置*/
+			.d1{
+				width: 300px; height: 200px;
+				background-color: greenyellow;
+				position: absolute;
+				top: 200px;
+				left: 120px;
+			}
+			.d2{
+				width: 300px; height: 200px;
+				background-color: aliceblue;
+				position: absolute;
+				top: 400px;
+				left: 120px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d1">1</div>
+		<div class="d2">2</div>
+		
+	</body>
+</html>

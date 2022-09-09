@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 条件运算符又叫三元运算符(三目运算符) 
+			语法: 条件表达式?语句1(true时运行):语句2(false)
+			返回执行结果
+			条件表达式值若为非布尔值,则会将其转换为布尔值
+			 
+			 */
+			
+			var a = 110;
+			var b = 51;
+			// var max =a>b?a:b
+			// 获取a/b中最大值
+			// console.log(max);
+			// 获取a/b/c中最大值
+			var c =22;
+			// console.log(max > c? max:c);
+			
+			/* 嵌套使用三元运算符(不方便阅读,不推荐使用) */
+			var max = a>b? (a>c?a:c) : (b > c? b:c);
+			console.log(max);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

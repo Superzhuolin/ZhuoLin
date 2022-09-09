@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			var a;//执行之前声明
+			
+	/* 变量的声明提前:
+		-使用var关键字声明的变量,
+			会在所有的代码执行之前被声明(但不会赋值)
+		-不使用var关键字声明的变量,则不会提前	
+			
+		函数的声明提前:
+		-
+			*/
+			
+			// console.log("a="+a);
+			// var  a =1;//此时才赋值
+			fun(1,2);
+			console.log(fun2);
+			// fun2();
+			
+			//函数声明,提前创建(可以在声明前调用)
+			function fun(a,b){
+				console.log("我是fun函数");
+				console.log("a+b:"+ (a+b));
+			}
+			// 函数表达式,不会提前创建(不可在声明前调用)
+			var fun2 = function (){
+				console.log("我是fun2函数");
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			
+			function Person(name,age){
+				this.name=name,
+				this.age=age
+			};
+	// 修改Person原型prototype中的toString方法
+	Person.prototype.toString = function(){
+		return "Person[name="+this.name+" age="+this.age+"]";
+			}	
+			// 创建Peoson对象
+			var p = new Person("孙悟空",18);
+			var p2 = new Person("猪八戒",28);
+			var p3 = new Person("沙和尚",38);
+			var p4 = new Person("二郎神",1);
+			var p5 = new Person("蜘蛛精",16);
+			
+			// 将这些对象放入数组中
+			var arr = [p,p2,p3,p4,p5];
+			console.log(arr);
+			console.log(arr.toString());
+			
+			/*  创建一个函数将arr数组中的满18岁的Person取出来,
+			封装于新的数组并返回
+			arr 形参,要被提取信息的数组
+			
+			*/
+		   
+		   //优化版
+		   function getAdult(arr){
+			   var newArr = [];
+				for(i=0;i<arr.length;i++){
+					if(arr[i].age>=18 ){
+						newArr.push(arr[i]);
+					}
+				}
+				return newArr;
+		   }
+		   console.log(  getAdult(arr));
+		 
+		   
+		   
+			// function  getAdult(arr){
+			// 	var newArr=[];
+			// 	// 遍历arr ,获取arr中的Person对象
+			// 	for(i=0;i<arr.length;i++){
+			// 		//创建对象p  保存数组
+			// 		var p = arr[i];
+			// 	// 判断P对象的age是否大于等于18
+			// 		if(p.age>=18){
+			// 	//如果大于等于18,则将这个对象添加到newArr中
+			// 		newArr.push(p);
+			// 		}
+			// 	}
+			// 	return newArr;
+			// }
+			// var result = getAdult(arr);
+			// console.log(result);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

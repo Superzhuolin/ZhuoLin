@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box1{
+				width: 200px;height: 210px;
+				background-color: aqua;
+				padding: 10px;
+				border: 10px solid red;
+				/* margin: 10px; */
+			}
+			#box4{
+				width: 200px;height: 280px;
+				background-color: darkorange;
+				/* overflow属性指定如果内容溢出一个元素的框，会发生什么。
+				默认值：	visible
+				值			描述
+				visible	默认值。内容不会被修剪，会呈现在元素框之外。
+				hidden	内容会被修剪，并且其余内容是不可见的。
+				scroll	内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。
+				auto	如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。
+				inherit	规定应该从父元素继承 overflow 属性的值。
+				ps:滚动条会占据15px可视内容
+				*/
+				overflow: scroll;
+			}
+			#box5{
+				width: 600px;height: 600px;
+				background-color: greenyellow;
+			}
+			
+		</style>
+		<script>
+			// 只读属性,改只能通过style方式
+			
+			window.onload = function(){
+				// 获取按钮
+				var btn01 = document.getElementById("btn01");
+				// 获取box
+				var box01 = document.getElementById("box1");
+				var box04 = document.getElementById("box4");
+				
+				btn01.onclick = function(){
+			/* 1.element.clientHeight	返回元素的可视高度（包括边距，不包括边框或滚动条）
+			     element.clientWidth	返回元素的可视宽度（包括边距，不包括边框或滚动条）
+			注意:这些属性都是不带px的只读属性,返回的都是数字,可以直接进行计算
+			会获取元素的宽度和高度,包括内容区和内边距padding
+				*/
+					// alert(box01.clientHeight);
+					// alert(box01.clientWidth);
+	    	/*  2.element.offsetHeight	返回元素的高度
+				  element.offsetWidth	返回元素的宽度
+			返回元素的整个高度和宽度,包括内容区/内边距和"边框"
+			*/		
+					// alert(box01.offsetHeight);
+					// alert(box01.offsetWidth);
+			
+			/* 3.element.offsetParent	返回元素的偏移容器(定位父元素) 
+			ps:会获取离当前元素最近的开启了定位的祖先元素(即非默认值static),若都没有返回body*/		
+			/*position属性指定一个元素（静态的，相对的，绝对或固定）的定位方法的类型。
+			默认值：	static 
+			relative(相对定位) 	相对于原来位置的定位
+			ps:当位置发送改变时,不会释放原来的位置,其他标签不能占用其位置 */
+			var op = box01.offsetParent;
+					// alert(box01.offsetParent.id);
+					
+			/* 3.element.offsetLeft	返回当前元素相对其定位父元素的水平偏移量
+				 element.offsetTop	返回当前元素相对其定位父元素的垂直偏移量
+			*/
+					// alert(box01.offsetLeft);
+					// alert(box01.offsetTop);
+			
+			/*4.element.scrollHeight	返回整个元素的滚动区域高度（包括带滚动条的隐蔽的地方）
+				element.scrollWidth		返回元素的整个滚动区域宽度（包括带滚动条的隐蔽的地方）
+				ps: 若内部div大小没有超过本体大小,滚动条将会占据15px,即返回值-15px
+				
+				element.scrollLeft	返回当前视图中的实际元素的左边缘和左边缘之间的距离
+					即水平滚动条滚动的距离
+				element.scrollTop	返回当前视图中的实际元素的顶部边缘和顶部边缘之间的距离
+					即垂直滚动条滚动的距离
+				ps:获取滚动条滚动距离
+				 */		
+				// ps:滚动条会占据15px可视内容
+				// alert(box04.clientHeight);//265
+				// alert(box04.scrollHeight);
+				// alert(box04.scrollTop);
+				
+				/*scrollHeight-scrollTop == clientHeight(常用)
+				  scrollWidth-scrollLeft == scrollWidth
+				  说明滚动条滚动到底了*/
+				// alert(box04.scrollHeight - box04.scrollTop);
+				
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn01">点我</button>
+		<div id="box4">
+			 <div id="box5"></div> 
+		</div>
+		
+		<br><br>
+		<div id="box3" style="position: relative;padding: 10px;background-color: green;"  >
+			<div id="box2" style="position: relative; padding: 100px;background-color: yellow;">
+				<div id="box1"  style="position: relative; "></div>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

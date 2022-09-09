@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">.
+		<title></title>
+		<script>
+	/* 强制转换为Number
+	方法一:使用Number()函数
+		字符串-->数字
+			1.纯数字字符串,则直接转化为数字
+			2.含非数字的字符串及undefined,则转换为NaN
+			3.空串或全是空格的字符串,则转换为0
+		布尔-->数字 	trul->1  false->0
+		null-->数字  null->0
+		undefined->NaN
+	方法二:专门用来对付字符串
+			parseInt()将字符串中的有效整数(小数点.不算(向下取整))内容取出转换为整数
+			parseFloat()转换为浮点数(可以取小数)  
+			parseInt()转换为整数
+		对于非String使用parseInt()/parseFloat()
+			它会先将其转换为String,然后再操作
+	方法三:对于非Number类型的值前面使用+(-)号,会先转换为Number再运算
+				原理与Number()函数一样,但比- * / 0 转换还简单
+	 */
+			var a = "123";
+			a = Number(a);
+			console.log(a);
+			console.log(typeof a);
+			
+			a = true;
+			a = null;
+			a = undefined;
+			// a = Number(a);
+			a = "100.12px";
+			// a = parseInt(a);
+			a = parseFloat(a);
+			
+			console.log(a);
+			console.log(typeof a);
+			
+			// 使用parseInt()取整
+			var b = 12.622;
+			b = parseInt(b);
+			console.log("parseInt()取整:"+b);
+			console.log(typeof b);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

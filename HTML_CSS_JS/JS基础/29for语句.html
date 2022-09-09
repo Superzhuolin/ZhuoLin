@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 执行顺序
+				for(1.初始化表达式;2.条件表达式;4.更新表达式){
+				3.语句
+				}
+				
+				初始化表达式只会执行一次
+				条件表达式为false终止循环
+			*/
+				
+			// for (var i = 0;  i<10;i++){
+			// 	document.write(i+"<br/>");
+			// }
+			//三部分可以省略,只写;;(死循环,慎用!) ,也可以写在外部
+			var c = 1;
+			for (;c<6;){
+				alert("你好:"+c++);
+			}
+			for (;;){
+				alert("你好:");
+			}
+			/* while语句三个步骤 */
+			// 1.创建初始化变量 
+	/* 		var i =1;
+			// 2.在循环中设置一个条件表达式
+				
+			while(i<400){
+				//3.定义更新表达式更新初始化变量
+				document.write(i++ +"<br/>");
+			} */
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

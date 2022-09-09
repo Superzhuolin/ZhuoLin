@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box1{
+				width: 300px;height: 230px;
+				background-color: rebeccapurple;
+				/* 方法一：改为相对浏览器定位 （更简单）*/
+				position: fixed;
+				/* 方法二、三：开启box1的绝对定位（一般绝对） */
+				/* position: absolute; */
+			}
+			body{
+				height: 2200px;
+				width: 2000px;
+			}
+		</style>
+		<script>
+			window.onload  = function(){
+				/* 使div跟随鼠标移动 */
+				// 获取box1
+				var box1 = document.getElementById("box1");
+				document.onmousemove = function(event){
+					// 解决兼容性问题
+					event = event || window.event; 
+					
+					
+					/* element.scrollTop	
+						 返回当前视图中的实际元素的顶部边缘和顶部边缘之间的距离 */
+					// 获取滚动条滚动的距离
+					/* Chrome 认为浏览器的滚动条是body的，可以通过body.scrollTop来获取
+					 火狐等浏览器认为浏览器的滚动条是html的
+					 */
+					// var st = document.documentElement.scrollTop;
+					var st = document.body.scrollTop  ||document.documentElement.scrollTop;
+					var sl = document.body.scrollLeft ||document.documentElement.scrollLeft;
+					console.log(st);
+					
+					/* clientX和clientY
+					 用于获取鼠标在当前的可见窗口的坐标*/
+					// 方法一：获取鼠标相对浏览器的坐标的坐标 ，并将position修改为fixed
+					var left = event.clientX;
+					var top = event.clientY;
+					
+					// 方法二：水平坐标加上滚动条的距离sl;垂直坐标加上滚动条的距离st
+					// var left = event.clientX+sl ;
+					// var top = event.clientY +st ;
+					
+					// 方法三：pageX和pageY（IE9+）获取鼠标相对于当前页面的坐标
+					// var left = event.pageX;
+					// var top  = event.pageY ;
+					
+					// 设置div的偏移量(样式中left带单位px, 而变量left只是一个数值缺乏单位)  
+					box1.style.left = left+"px";
+					box1.style.top = top+"px";
+					
+				};
+				
+				// 取消box2冒泡,让box1进入不了box2
+				// 获取box2
+				var box2 = document.getElementById("box2");
+				box2.onmousemove = function(event){
+					event = event||window.event;
+					event.cancelBubble = true;
+					
+				}
+				
+			};
+		</script>
+	</head>
+	<body>
+		<div id="box2" style="width: 500px;height: 500px;background-color: chartreuse;"></div>
+		<div id="box1"></div>
+	</body>
+</html>

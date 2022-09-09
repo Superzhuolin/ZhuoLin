@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			
+			/* 电子邮件hello.nihao@abc.com.cn
+		hello 		.nihao(可有可无)     @	abc
+		任意字母数字_		.任意字母数字_ 	@	任意字母数字
+		\w{3,}			(/.\w+)*		@	[A-z0-9]
+		.com		.cn		(\.[A-z]{2,5}){1,2}
+		.任意字母(2-5位)		.任意字母(2-5位)
+		*/
+		// 	[A-z]	任意字母和 ^ _ `  	
+			
+		var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+		var email = "hefdsf.d@abccom.dn";
+		console.log(emailReg.test(email));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

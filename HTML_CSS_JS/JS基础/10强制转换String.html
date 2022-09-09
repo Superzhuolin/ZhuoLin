@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 强制类型转换		将一个数据类型转换为其他数据类型
+				主要转换为 String  Number Boolean
+			
+			转换为String类型:
+				方法一: 调用被转换数据类型的toString()方法
+						*该方法不会改变原变量,它会将转换的结果返回
+						* 但是注意:null和undefined没有toString方法,调用会报错
+				方法二: 调用String()函数,并将需要转换的数据作为参数传递给函数
+						*对Number和Boolean实际上就是调用toString()方法
+						*但是对于null和undefined,不会调用toString()方法
+						* 而是将null 直接转换为 "null"
+						*  undefined 转换为 "undefined"
+				方法三:将任意类型+"空格"转换为String
+						例:c=null c=c+" ";
+			 */
+			var a = 123;
+			console.log(a);
+			console.log(typeof a);
+			//调用a的toString()方法
+			//调用xx的yy()方法就是,xx.yy();
+			var b = a.toString();
+			console.log(b);
+			console.log(typeof b);
+			//将a的数字类型转换为String
+			var a = a.toString();
+			console.log(a);
+			console.log(typeof a);
+			
+			//null和undefined没有toString方法,调用会报错
+/* 			a = null;
+			a = undefined;
+			a = a.toString();
+			console.log(a);
+			console.log(typeof a); */
+			
+			// 方法二: 调用String()函数,并将需要转换的数据作为参数传递给函数
+			a = null;
+			a = String(a);
+			console.log("null转换为String的值为:"+a);
+			console.log(typeof a);
+			
+			
+		</script>
+		
+	</head>
+	<body>
+	</body>
+</html>

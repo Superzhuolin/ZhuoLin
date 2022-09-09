@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				// var body = document.getElementsByTagName("body")[0];
+				// console.log(body);
+				
+				/* 1.document中有一个属性body,保存了body的引用 */
+				var body = document.body;
+				console.log(body);
+				
+				/* 2.document.documentElement  保存的是html根标签 */
+				var html = document.documentElement;
+				console.log(html);
+				
+				/* 3.document.all	表示页面中的所有元素 */
+				var all = document.all;
+				console.log(all);
+				// 方法二:获取页面所有元素(更麻烦)
+				all = document.getElementsByTagName("*");
+				console.log(all);
+				
+				/* 根据元素的clas属性值查询一组元素节点对象
+				 getElementsByClassName()可以根据class属性值获取一组元素节点对象
+				注意:该方法不兼容IE8及以下浏览器   (避免使用)
+				 */
+				var box1 = document.getElementsByClassName("box1");
+				console.log(box1);
+				
+			/*  1.标签名(元素)选择器	标签名{样式}
+				2.id选择器				#id值{ 样式 }
+				3.类选择器				.class属性值{样式}
+				 
+				层级选择器  	使用空格  通过层次关系定位样式的作用范围		
+					如:#p1 .c1{样式}
+				 */
+				
+				/* document.querySelector()		选择器(#id .class都可以)
+				-需要一个选择器的字符串作为参数,可以根据一个CSS选择器查询"一个"元素节点对象
+					注:1.该方法支持IE8及以上浏览器  
+					   2.该方法只会返回一个元素,若有多个,返回第一个
+					虽然不能使用 getElementsByClassName()但是可以使用querySelector()代替
+				 */
+				
+				// 获取class为box1中的(首个)div
+				var div = document.querySelector(".box1 div");//默认获取第一个div
+				console.log(div);
+				
+				
+				/* querySelectorAll()	
+					将全部元素节点封装到一个类数组对象中返回(即使只有一个元素)*/
+				/* Node List    类似数组的对象 */
+				// 获取clas为box1中的所有div
+				var div = document.querySelectorAll(".box1 div");//获取全部div
+				// var div = document.querySelectorAll(".box1 div")[1];//获取第二个div
+				console.log(div);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box1">
+			<div>我是内部div1</div>
+			<div>我是内部div2</div>
+			<div>我是内部div3</div>
+		</div>
+		<div class="box1"</div>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 顺序要求     link visited >hover>active   否则不生效*/
+			/* 未被访问的链接 */
+			a:link{
+				color:black;
+			}
+			/* 已被访问的链接 */
+			a:visited{
+				color:green;
+			}
+			/* 鼠标悬停在链接上 */
+			a:hover{
+				color: blue;
+			}
+		/* 	长按链接 */
+			a:active{
+				color:yellow;
+			}
+			
+			
+			div{
+				border: 1px double  red;
+				width: 20%;height: 20px;
+				background-color: aqua;
+			}
+				
+			div:hover{
+				background-color: blue;
+			}
+			div:active{
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 伪类选择器  用于向某些选择器添加特殊的效果 
+			语法  selector : 选择器伪类名称{property: value ()样式值}-->
+		<a href="https://www.baidu.com">百度</a> 
+		
+		<div></div>
+	</body>
+</html>

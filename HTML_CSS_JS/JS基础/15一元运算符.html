@@ -1,0 +1,27 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/*  +   对数字不产生影响   
+				- 	对数字取负
+				+-对非Number值,先转换为Number再运算   
+			 */
+			/* 对于非Number类型的值前面使用+(-)号,会先转换为Number再运算
+				原理与Number()函数一样,但比- * / 0 转换还简单
+				
+			 */
+			var a =+"123";
+			 // a = +true;
+			console.log(a);
+			console.log(typeof a);
+			// var b = 1 + "2" + 3;
+			var b = 1 + +NaN + 3;
+			console.log(b);
+			console.log(typeof b);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

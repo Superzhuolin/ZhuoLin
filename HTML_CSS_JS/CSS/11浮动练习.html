@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/*1.引入图片，并设置图片的宽高（img及div样式同时设置）
+			  2.通过图片宽高，及上下边距 确定大边框像素  （设置边界线并居中）
+			  3.设置浮动
+			  4.设置上下边距
+			*/
+			.d1{
+				border: 1px solid red;
+				width: 1600px;
+				height: 560px;
+				margin: 0px auto;
+			}	
+			.c{
+				width: 780px; height: 270px;
+				float: left;
+			}
+			img{
+				width: 780px; height: 270px;
+				/* 1560+40 
+				   540+20*/
+			}
+				
+			#c1,#c3{
+				margin-right: 40px;
+			}
+			#c3,#c4{
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d1">
+			<div class="c" id="c1">
+				<a href="https://www.baidu.com" target="_blank">
+					<img src="img/铁路1.png"/>
+				</a>
+			</div>
+			<div class="c" id="c2">
+				<img src="img/铁路2.png"/>
+			</div>
+			<div class="c" id="c3">
+				<img src="img/铁路3.png"/>
+			</div>
+			<div class="c" id="c4">
+				<img src="img/铁路4.png"/>
+			</div>
+		
+			
+		</div>
+	</body>
+</html>

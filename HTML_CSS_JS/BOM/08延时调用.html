@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			var num =1;
+			// 开启定时器
+			/* setInterval((function(){
+				console.log(num++);
+			}),2000) */
+			
+			/* 延时调用:调用一个函数不马上执行,而是隔一段时间再执行.
+			ps:与定时调用区别,定时调用执行多次,延时调用只会执行一次	
+			延时调用和定时调用实际上是可以互相代替的,在开发中根据需要选择*/
+			
+			var timer = setTimeout((function(){
+				console.log(num++);
+			}),2000)
+			// 使用clearTimeout()来关闭一个延时调用
+			clearTimeout(timer);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

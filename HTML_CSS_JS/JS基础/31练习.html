@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			span{
+				width: 100px;
+				border: 1px solid red;
+				display: inline-block; 
+			}
+			body {
+				width: 1500px;
+			}
+		</style>
+		<script>
+			/* 1.九九乘法表 */
+			/* 第一个打印的i=1,最后一个打印的i=9 */
+			for(var i = 1; i<10;i++){
+					for(var j=1;j<i+1;j++){
+						document.write("<span>"+j+"*"+i+"="+i*j+ "</span>" );
+					}
+					document.write("<br/>")
+			}
+			
+			/* 2.打印1-100的所有质数 */
+			//先打印2-100的所有数
+			
+			/* 性能测试	使用计时器consol.time("计时器名字") 开启计时 */
+			//开启计时
+			console.time("test");
+			for (var i=2;i<=100;i++){
+				var flag = true;
+				//获取2-i之间的所有数
+				// for(var j = 2; j<i;j++){
+				for(var j = 2; j<=Math.sqrt(i);j++){
+					/* 不是质数 */
+					if(i % j == 0){
+						flag=false;
+			//一旦进入循环说明不是质数,此时没必要再增大j继续比较
+						break;
+						//有break;  19ms    2.5ms
+						// 没有break  186ms   5.5ms
+					}
+				}
+					if(flag){
+						console.log("质数为:"+i);
+					}
+			}
+			//终止计时 console.timeEnd("计时器名字");
+			console.timeEnd("test");
+			
+			
+			/* 可以通过Math.sqrt()对一个数开方 */
+			// var reslut = Math.sqrt(97);
+			// console.log(reslut);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

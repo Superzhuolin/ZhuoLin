@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 数组中的元素可以是任意数据类型(包括对象,函数,数组(也称二维数组)) */
+			var obj = {
+				name:"猪八戒"
+			};
+			function fun(){
+				alert("你好");
+			}
+			// var arr = ["hello",1,null,undefined,true,obj,fun,[11,22,33]];
+			// console.log(arr);
+			// console.log(arr[6]);
+			//调用数组中的fun函数方法
+			// arr[6]();
+			// 1.使用构造函数创建数组
+			// var arr = new Array();
+			
+			/* 2.使用字面量创建数组(常用)		语法:[] */
+			var arr = [];
+			console.log("数组类型为:"+ typeof arr);
+			
+			/* 使用字面量创建数组,可以在创建对象时就为数组赋值 */
+			
+			var  arr = [1,2,3,undefined,5.2,"你好"];
+			console.log(arr);
+			console.log(arr.length);
+			
+			/* 使用构造函数创建数组,也可以在创建对象时就为数组赋值
+					将要添加的元素作为构造函数的参数传递*/
+			
+			var arr2 = new Array(1,2,3,4);
+			console.log(arr2);
+			console.log(arr2.length);
+			console.log("-----------------");
+			//创建只有一个元素10的数组
+			var arr3 = [10];
+			console.log(arr3);
+			console.log(arr3[0]);
+			// 创建长度为10的数组
+			var arr4 = new Array(10);
+			console.log(arr4);
+			console.log(arr4.length);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

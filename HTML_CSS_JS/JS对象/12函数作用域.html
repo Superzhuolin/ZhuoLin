@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 1.函数作用域
+				-调用函数是创建函数作用域,函数执行完毕,作用域销毁
+				-每调用一次函数就会创建一个新的作用域,且他们之间互不影响
+				-在函数作用域中可以访问到全局作用域的变量(局部可以访问全局)
+					但在全局作用域中无法访问函数作用域中的变量(全局无法访问局部)
+				-当在函数作用域中操作一个变量时,它会先在自身的作用域中寻找
+					如果没有则先上一级作用域中寻找,直到找到位置(就近原则,谁近找谁)
+					如果在全局作用域中仍然没有,
+						则会报错 ReferenceError(引用错误；刷新错误；读取不存在变量)
+				-如果想在在函数作用域中使用全局变量,则在变量前加window.
+			*/
+			var a = "我是全局作用域中的a";
+			function fun (){
+				var a = "我是函数作用域中的a";
+				var b= 2;
+				
+				console.log(a);
+				//如果想在在函数作用域中使用全局变量,则在变量前加window.
+				// console.log(window.a);
+			}
+			fun();
+			console.log(a);
+			
+			// console.log("全局变量b="+b);
+			
+			/* --------------------------- */
+			/* 2.在函数作用域中也有声明提前的特性
+				使用var关键字声明的变量,会在函数中所有代码执行之前被声明
+				函数声明也会在函数中所有代码执行之前调用
+			 */
+			function fun2(){
+				// var a;
+				
+				console.log("函数作用域中的a="+a);
+				var a = 11;
+			}
+			fun2();
+			
+			// fun4();
+			function fun4(){
+				alert("我是函数fun4");
+			}
+			
+			
+			/* 3.函数中,不使用var变量声明的变量都会成为全局变量 */
+			var c =33;
+			function fun5(){
+				console.log("fun5函数中的c="+c);
+				//局部没有c,更改上一级(全局)c的值为10
+				 c=10;
+				 
+				 //局部的c
+				 // var c = 10;
+				 
+				 // 没有使用var关键字则会设置为全局变量(相当于window.d)
+				 d =10;
+			}
+			console.log("调用fun5之前:c="+c);
+			//调用fun5()将全局变量c的值改为10;
+			// console.log("调用fun5之前全局变量d="+d);  //d未定义
+			fun5();
+			console.log("调用fun5之后:c="+c);
+			console.log("全局变量d="+d);
+			
+			/* 4.订形参就相当于在函数中,声明了变量 */
+			function fun6(e){
+				// var e;
+				// alert(e);
+			}
+			fun6();
+			
+			/* 练习 */
+			
+			var  text= 1;
+			function  fun7(text){
+				alert(text);
+				text = 2;
+			}
+			fun7()
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

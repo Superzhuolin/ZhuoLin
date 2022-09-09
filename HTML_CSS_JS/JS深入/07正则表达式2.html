@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 1.使用构造函数创建	
+			var reg = new RegExp("\\b"+cn+"\\b");
+			更灵活:可以传变量cn
+			*/
+			var reg1=new RegExp("a","i"); 
+			
+			/* 2.使用字面量的方式创建(更简单)
+			 语法:var patt=/pattern/modifiers; */
+			 
+			 var reg = /a/i;
+			 
+			 console.log(reg.test("asdsdsdg"));
+			/* 检查字符串中是否含有a或b   
+					1.使用:  |
+					2.[]里面的内容也是或的关系
+				[a-z] 任意小写字母   [A-Z]  任意大写字母
+				[A-z]	任意字母和 ^ _ `  	
+				[0-9] 任意数字 		[^0-9]  除了数字
+			 */
+			reg = /a|b/;
+			reg = /[ab]/;
+			reg = /[a-z]/;
+			reg = /[A-Z]/;
+			reg = /[A-z]/;
+			reg = /\w/;
+			console.log(reg.test("bsdsdsdg"));
+			// console.log("[A-z]后:"+reg.test("213134432"));
+			console.log("\\w后:"+reg.test("&^&^&^`"));
+			
+			/* 检查字符串中是否含有abc或adc或aec */
+			reg = /a[bde]c/;
+			console.log(reg.test("bsaecdsdsdg"));
+			
+			/* [^] 除了 */
+			// 检查是否含有除了ab  之外的元素
+			reg = /[^ab]/
+			console.log(reg.test("ba"));
+			console.log(reg.test("badsa"));
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* Math（算数）		作用：执行常见的算数任务。
+			它提供多种算数值类型和函数。无需在使用这个对象之前对它进行定义。
+			直接用 “对象名.成员”的格式来访问其属性或者方法。
+			*/
+		   
+		 /*   Math对象中的属性   派Π
+		   PI	返回圆周率（约等于3.14159） */
+		   console.log(Math.PI);
+		   
+		   /* abs(x)	返回 x 的绝对值。*/
+		   console.log(Math.abs(-22));
+		   
+		    /* ceil(x)	 对数进行上舍入(天花板)
+			返回值:大于等于 x，并且与它最接近的整数(小数位只要有值就自动进1)
+			floor(x)	对 x 进行下舍入(地板)
+			返回值:返回小于等于x的最大整数
+			round(x)	四舍五入取整
+			
+			parseInt()将字符串中的有效整数(向下取整)
+			parseFloat()转换为浮点数(可以取小数)
+		   */
+		  console.log(Math.ceil(1.6));
+		  console.log(Math.floor(1.7));
+		  console.log("四舍五入取整:"+Math.round(1.5));
+		  console.log("---------------------------");
+		   
+		   /* random()	返回介于0(包含)~1(不包含)之间的一个随机数。
+						-生成0-x之间的随机数:
+							Math.round(Math.random()*X)
+						-生成x-y之间的随机数:
+							Math.round(Math.random()*(y-x))+x
+		   */
+		  for(var i=0;i<40;i++){
+			  // console.log("1-10的整数:"+ Math.floor((Math.random()*10)+1));
+			  // console.log("1-10的整数:"+ Math.round((Math.random()*10)+1));
+			  // console.log("2-8的整数:"+ Math.round((Math.random()*6)+2));
+		  }
+			// 生成0到100的整数(四舍五入)
+			// console.log("0-100的整数:"+ Math.round(Math.random()*100));
+			
+			// 生成0到100的整数(向下取整)
+			// console.log(Math.floor(Math.random()*100));
+			
+			/* max(x,y,z,...,n)	返回 x,y,z,...,n 中的最大值
+			   min(x,y,z,...,n)	返回 x,y,z,...,n中的最小值 */
+			   
+			   var max = Math.max(10,22,33,55);
+			   var min = Math.min(10,22,33,1);
+			   // console.log(max);
+			   // console.log(min);
+			
+			/* pow(x,y)	返回 x 的 y 次幂
+			   sqrt(x)	返回数的平方根。*/
+			console.log(Math.pow(3,3));
+			console.log(Math.sqrt(9));
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

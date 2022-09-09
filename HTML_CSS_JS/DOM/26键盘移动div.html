@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			#box1{
+				width: 100px;height: 100px;
+				background-color: blanchedalmond;
+				position: absolute;
+			}
+		</style>
+		<script>
+			window.onload =function(){
+				/* 功能:使div可以根据方向键上下左右移动*/
+				/* 37左 38上 39右 40下 */
+				
+				var box1 = document.getElementById("box1");
+				// document按下绑定事件
+				document.onkeydown =function(event){
+					event = event||window.event;
+					//定义速度
+					 var speed = 10;
+					 // 用户按下CTRL后加速
+					 if(event.ctrlKey){
+						 speed = 50;
+					 }
+					
+					switch(event.keyCode){
+						case 37:
+							// alert("左");  left值减小
+							box1.style.left = box1.offsetLeft -speed+"px";
+							break;
+						case 39:
+							// alert("右");
+							box1.style.left = box1.offsetLeft +speed+"px";
+							break;
+						case 38:
+							// alert("上");
+							box1.style.top = box1.offsetTop -speed+"px";
+							break;
+						case 40:
+							// alert("下");
+							box1.style.top = box1.offsetTop +speed+"px";
+							break;
+					}
+					/* 问题:待解决流畅性 */
+					
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box1"></div>
+	</body>
+</html>

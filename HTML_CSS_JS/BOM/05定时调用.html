@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+				// 获取count
+				var count = document.getElementById("count");
+				
+				// JS代码执行速度非常快,若要代码间隔调用,需使用定时调用
+ 			/* for(var i = 0;i<10;i++){
+					count.innerHTML= i;
+					alert(i);
+				} */
+				
+				/*setInterval()		定时调用 
+				 
+				 返回值:返回一个Number类型的数字,这个数字是作为定时器的唯一标识
+				 */
+				
+				var num = 1;
+				var timer =   setInterval(function(){
+					count.innerHTML = num++;
+					if(num == 11){
+						// 清除计时器,需要传入计时器的标识
+						clearInterval(timer);
+					}
+				},1000);
+				console.log(timer);
+			}
+		</script>
+	</head>
+	<body>
+		<h1 id="count"></h1> 
+	</body>
+</html>

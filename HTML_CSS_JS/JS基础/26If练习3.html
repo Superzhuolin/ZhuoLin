@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 通过+转换为Number类型 */
+			var num1 = +prompt("请输入数字1");
+			var num2 = +prompt("请输入数字2");
+			var num3 = +prompt("请输入数字3");
+			// alert(num1+","+num2+","+num3);
+			// var max = num1>num2?(num1>num3?num1:num3):(num2>num3?num2:num3);
+			// alert(max);
+			// alert( typeof num1);
+				/* num1 最小 */
+			if(num1<num2&&num1<num3){
+				// num2 num3 比较
+				if(num2<num3){
+					alert(num1+","+num2+","+num3);
+				}
+				else{
+					alert(num1+","+num2+","+num2);
+				}
+			}//num2最小
+			else if(num2<num1&&num2<num3){
+				// num1 num3 比较
+				if(num1<num3){
+					alert(num2+","+num1+","+num3);
+				}
+				else{
+					alert(num2+","+num3+","+num1);
+				}
+			}//num3最小
+			else{
+				//比较num1 num2
+				if(num1<num2){
+					alert(num3+","+num1+","+num2);
+				}
+				else{
+					alert(num3+","+num2+","+num1);
+				}
+			}
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

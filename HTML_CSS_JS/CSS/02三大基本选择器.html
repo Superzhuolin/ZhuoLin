@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/*  1.标签名(元素)选择器	标签名{样式}
+				2.id选择器				#id值{ 样式 }
+				3.类选择器				.class属性值{样式}
+			 */
+			/* 1.标签名选择器 		给页面所有同名的标签定义样式的选择器
+								语法		标签名{样式}*/
+			span{
+				font-size: 20px;color: blue;
+				background-color: azure;font-family:楷体;
+			}
+			/* 	2.id选择器   
+				一般body中任何一个属性都有id属性
+				id属性的值一般在同一个网页上是不允许有重复值
+				id属性的值一般用于帮助我们定位到页面上的唯一一个标签
+				id属性命名规则:
+					1.不能有空格和一些特殊符号  
+					2.特殊符号只能使用_和$  不推荐$会和jQuery命名冲突
+					3.不能以数字开头
+					推荐写法  应为字母开头  数字放在后面
+				语法:  #id值{ 样式 }
+				优先级  id选择器>标签名选择器
+			 */
+			#p1{
+				border: 1px  dotted blueviolet; background-color: azure; color: green;
+				width: 100px;height: 152px;
+			}
+		
+			/* 3.类选择器   通过标签的class属性确定样式的作用范围
+						   一般body中的所有标签都有class属性
+						   多个不同的标签可以有
+			语法 .class属性值{样式}
+			 */
+			.c1{
+				background-color: cornflowerblue; color: yellow;
+				border: 1px  solid  red; font-family: 宋体;
+				text-decoration: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<span id="s1">今天挑不起</span><br>
+		<span id="s2">今天挑不起</span><br>
+		<p id="p1"  >今天卡没钱了</p>
+		<p id="p2" class="c1">今天卡没钱了</p>
+		<h1 class="c1">今天我很有钱</h1>	
+		<a href="#" class="c1">百度云</a>
+	</body>
+</html>

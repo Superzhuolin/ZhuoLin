@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 关系运算符     > >= < <=
+				对于非数值情况,则会先转换为数字,然后再比较
+					-任何值与NaN比较都是false
+					-比较两个字符串时,比较的是字符串的字符编码(Unicode编码)
+						-值一样时,比较下一位,所以可以用来做英文排序
+						-比较中文没有意义(中文使用康熙词典编排)
+					-比较两个字符串型的数字时,一定要转型
+			 */
+			var result = 5 > 10;
+			result = 5 > 4;
+			result = 5 < undefined;
+			result = 5 < "11";
+			 console.log("result="+result);
+			 console.log(typeof result);
+			 
+			 var a ;
+			 a = "b" < "ba";
+			 a = "11" < "5";
+			 console.log("a="+a);//true
+			 console.log("戒">"我");//true
+			 
+			 /* 比较两个字符串型的数字时,可能会得到不可预期的效果.所以一定要转型 */ 
+			 console.log("21342354"<+"5");
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

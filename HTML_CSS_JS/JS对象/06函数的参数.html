@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 定义求两数之和的函数  */
+			function sun (a,b){
+				console.log(a+b);
+				console.log(b);
+				
+			}
+			//函数重载
+			// function sun (a,b,c,d){
+			// 	console.log(a+b+c+d);
+			// }
+			/* 调用函数,在()中指定实参
+				实参将会赋值给对应的形参
+				*/
+			// sun(1.2,2);
+			/* 		函数的实参可以是任意的数据类型	
+				调用函数时,解析器不会检查实参的类型,
+				因而要注意是否可能接受到非法的参数,如果有则需进行类型的检查
+			  */
+			 // sun("你好",true);
+			 // sun(null,11);
+			 
+			 /* 调用函数时,解析器不会检查实参的数量
+					多余的值不会被赋值*/
+					
+					
+			 sun(11,22,34,"b");
+			 //如果实参的数量少于形参数量,则没有对应实参的形参是undefined
+			 sun(1);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

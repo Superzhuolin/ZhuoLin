@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/*原型  即确保函数只有一个(不浪费资源)
+				又不会影响全局作用域
+				总结:创建构造函数,可以将对象共有的属性和方法统一添加到原型对象中,
+				如此可以不必为每个对象都重复添加(污染命名空间且浪费资源,以及增加代码重复率),
+				也不会影响全局作用域,这样每个对象都可以使用这些属性和方法
+				
+			一般来说,公共属性定义到构造函数中,公共方法放到原型对象里面
+				
+			 */
+			
+			function Person(name,age,gender){
+				this.name=name;
+				this.age=age;
+				this.gender = gender;
+				//  this.sayName = fun;
+				}
+			// function fun(){
+			// 	alert("我是:"+this.name);
+			// }
+				
+			//向原型对象中添加类共有方法sayName()
+			Person.prototype.sayName = function (){
+				alert("我是:"+this.name);
+			}
+			
+			//实例化Person对象
+			var p = new Person('孙悟空',142,"男");
+			var p1 = new Person('沙和尚',42,"男");
+			
+			p.sayName();
+			console.log(p.sayName  == p1.sayName);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			/* 行内元素设置宽和高未必有效
+			   块元素设置宽和高必定生效*/
+			.d1{
+				background-color: blue;
+				color: red;
+				width: 300px;height: 400px;
+				margin: 0px auto;
+			}
+			.s1{
+				background-color: green; color: yellow;
+				width: 120px;height: 200px;
+				
+			/* span 是一个行内元素	
+					是无语义的行内元素，它可以对元素进行分组，使它们以不同的样式显示
+			提示：被 <span> 元素包含的文本，您可以使用 CSS 对它定义样式，或者使用 JavaScript 对它进行操作*/
+			
+			/* 	行内元素没有盒子模型	没有办法设置内边距和外边距的特征
+				有块标签才有盒子模型 才可以设置内边距和边距
+				(块标签需要借助浮动才能使元素在同一行内)
+				如果行内元素要使用盒子模型  需要转换为块元素
+				语法 display：block 行内转换为块  inlin 块转换为行内 */
+				
+				display:  block;
+				margin: 0px auto   ;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="d1">
+			<span class="s1">
+				今天天气不错
+			</span>
+		</div>
+		<span style="width: 200px;height: 200px;border: 1px solid red;display: block;">
+		hen</span>
+	</body>
+</html>

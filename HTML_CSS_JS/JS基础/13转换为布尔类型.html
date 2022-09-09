@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			// 其他语言无法对非布尔值进行运算
+			/* 转换为布尔类型 使用Boolean()函数
+			 数字与字母转布尔		除了0和NAN,其余都是true
+			 字符串转布尔		除了空串,其余都是true
+			 null和undefined  都是false
+			 对象转布尔		都是true
+			 
+			 
+			 只有0/NaN/空串/null和undefined  是false
+			 
+			 对象也会转换为true
+			 
+			 (隐式类型转换)a = !!a;原理和Boolean()函数一样,但更简便
+			 */
+			
+			var a =100;
+			a = Boolean(a);
+			console.log(a);
+			console.log(typeof a);
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

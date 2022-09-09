@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- Form 将页面上输入的数据向后台传递使用的标签表
+			 单标签在网页上没有任何的显示效果 form表单标签包裹的范围就是可以向后台传递的范围
+		
+			 1.使用form标签包裹数据提交的范围
+			 2.通过action属性 确定数据要提交的地址
+			 3.通过method属性确定提交的方式
+				get方式
+					1.数据通过地址栏传播,地址栏有长度限制,传播的数据量有限
+					2.地址栏只能存放文字 get方式只能提交文本类型数据 不能上传文件
+					3.数据显示在地址栏上,数据相对不安全
+				post方式
+					1.数据不通过地址栏,单独打成数据包发送,数据包大小一般认为没有限制,数据传输量较大
+					2.数据包可以放文字,也可以放文件,可以上传文件
+					3.数据不显示在地址栏上,数据相对较安全
+			4.准备一个提交按钮
+					不能是button button只是一个简单的按钮  不具备提交的功能
+					应该是用sumit sumit具备提交数据的功能
+					submit 必须在form表单内部 标志提交的是当前所在的表单
+			5.给需要提交数据的  "输入框" 添加name(给数据命名,以区分不同数据含义)和value属性(输入框上输入的值)
+			6.如果需要准备一个清空按钮	
+				-->
+		<form  action="https:baidu.com"  method="GET">
+			账号:<input  type="text" name="username"/> <br />
+			密码:<input  type="password" name="psw"/> <br />
+			<!-- 选择框需备注value   因为选择框与文本内容无关,需value标注 -->
+			性别:<input  type="radio"  name="gender" value="男" checked/>  男  
+				 <input  type="radio"  name="gender" value="女"/ > 女 <br />
+			
+			爱好:<input type="checkbox" name="hobby" value="1" checked/> 足球
+				<input type="checkbox" name="hobby" value="2" /> 乒乓球
+				<input type="checkbox" name="hobby" value="3"/> 羽毛球
+				<input type="checkbox" name="hobby" value="4"/> 网球 <br />
+			请选择照片:<input  type="file"/> <br />
+			个人简介:<textarea style="width: 40%; height:100px;" name="introduction">
+					请介绍自己
+					</textarea> <br />
+			籍贯:<select	 name="province"  multiple> 
+					<option value="1">吉林</option>
+					<option value="2">广东</option>
+					<option value="3">福建</option>
+					<option value="4">黑龙江</option>
+					<option value="5">福南</option>
+					<option selected  value="0">--选择省份---</option>
+				</select> <br />
+			<input type="submit" value="提交">
+			<input type="reset" value="清空"/>
+		</form>
+		
+	</body>
+
+</html>

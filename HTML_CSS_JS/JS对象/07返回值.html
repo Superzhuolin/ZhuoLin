@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 
+			return后的值(任意类型)将会作为函数的执行结果返回
+			可以定义一个变量来接受该结果
+			
+			注意:return后的语句都不会执行
+			 */
+			// 创建函数 ,用来计算三数之和
+			function sum (a,b,c){
+				return a+b+c;
+				//alert("你好");
+		// return ; 等于 renturn  undefined; 等于  不写return;
+			}
+			//使用变量接受函数返回值
+			var result = sum(4,5,6);
+			console.log(result);
+			
+		// var result = alert("你好");
+		// //alert没有返回值
+		// console.log(typeof result);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

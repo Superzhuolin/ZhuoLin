@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			
+		//break  continue  return 功能区分
+		function fun(){
+			console.log("函数开始了");
+			for (var i=0;i<5;i++){
+				if(i ==2){
+					//break跳出当前循环
+					// break;
+					
+					// continue;
+					
+					//return 直接结束整个函数的运行
+					return  ;
+				}
+				console.log(i);
+			}
+			console.log("函数结束了");
+		}	
+		// fun();
+		
+		
+		
+		
+		/* 返回值类型可以是对象 */
+			
+		function fun2(){
+			// var obj = {name: "李白"};
+			// return obj;
+			
+			return {name: "李白"};
+		}
+			// var a = fun2();
+		/* 	console.log("a="+a);
+			console.log("a="+a.name);	 */
+			console.log("fun2()="+fun2());
+			console.log("fun2()="+fun2().name);
+			
+			
+			
+		//函数的返回值可以是函数
+		function  fun3(){
+			function fun4(){
+				alert("我是fun4");
+			}
+			// 函数返回函数fun4
+			return  fun4;
+			/* 函数返回函数fun4的返回值 */
+			// return fun4();
+		}
+		//把fun3()函数的返回值函数fun4赋值给a
+		// 即a就是fun4;
+		var a = fun3();
+		// a();
+		//调用fun3的返回值fun4
+		// fun3()();
+		console.log(a);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

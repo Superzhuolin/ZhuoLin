@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/*  */
+			var score = 80;
+			//取整parseInt(score/10)
+			// switch (parseInt(score/10)){
+			// 	//利用true后语句全部执行进行情况压缩
+			// 	case  10:
+			// 	case  9:
+			// 	case  8:
+			// 	case  7:
+			// 	case  6:
+			// 		console.log("合格");
+			// 		break;
+			// 	default:
+			// 		console.log("不合格");
+			// 		break;
+			// }
+		/* JS特有做法   case情况判断*/
+			switch(true){
+				case score>=60:
+					console.log("合格");
+					break;
+				default:
+					console.log("不合格");
+					break;
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

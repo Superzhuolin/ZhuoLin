@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 使用工厂方法创建的对象,使用的构造函数都是Object
+				所以创建的对象都是Object类型,
+				就导致我们无法区分多种不同类型的对象*/
+			
+			/* 构造函数(首字母大写) 	 普通函数,创建方式与普通函数没有区别
+				唯独普通函数是直接调用,构造函数需要使用new关键字
+				  执行流程:
+				  1.立即在堆内存中创建一个新的对象
+				  2.将新建对象设置为函数中的this,
+				  在构造函数中可以使用this来引用新建对象
+				  3.逐行执行函数中的代码
+				  4.将新建对象作为返回值返回	
+				  
+				  new在执行时会做的四件事情:
+				  1.在内存中创建一个新的空对象
+				  2.让this指向这个新的对象
+				  3.执行构造函数里面的代码,给这个新对象添加属性和方法
+				  4.返回这个新对象(因而构造函数不需要return)
+				  
+			使用同一个构造函数创建的对象,称为一类对象,也将构造函数称为一个类
+				构造函数创建的对象称为该类(构造函数)的实例
+				
+			构造函数中的属性和方法称为成员,成员可以添加
+			1.实例成员就是构造函数内部通过this添加的成员  比如name,age,sing
+			 实例成员只能通过实例化对象访问,不能通过类来访问实例成员
+			2.静态成员 在构造函数本身上添加的成员(函数的成员)  sex就是静态成员
+			      Start.sex = "男";
+				  静态成员只能通过构造函数访问,不能通过实例化对象访问
+			*/
+			
+			function Person(name,age,gender){
+				this.name= name,
+				this.age=age,
+				this.gender=gender,
+				this.sayName = function(){
+					alert(this.name);
+				};
+			}
+			
+			function Dog (name,age){
+				this.name= name,
+				this.age=age
+			}
+			// 普通函数
+			// var  p = Person();
+			// 构造函数
+			var  p1 = new Person("孙悟空",11,"男"); 
+			var  p2 = new Dog("旺财",21,); 
+			
+			console.log(p1);
+			console.log(p2);
+			console.log(p1.toString());
+			console.log(p2.toString());
+			
+			/* instanceof  检查一个对象是否是一个类的实例
+				语法:对象  instanceof 构造函数
+			*/
+		   console.log(p1 instanceof Person);
+		   console.log(p2 instanceof Dog);
+			// 所有对象都是Object对象的实例
+		   console.log(p1 instanceof Object);
+		   console.log(p2 instanceof Object);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

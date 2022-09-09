@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 在页面上接受一个用户输入的数字,并判断是否为质数
+				质数:只能被1和它本身整除的数,1不是质数也不是合数.
+				质数必须是大于1的自然数
+			 
+			 */
+			
+			var flag = true;
+			while(true){
+				var num = prompt("请输入一个数字");
+				if( !(num <=1)&& !isNaN(num)){
+					break;
+				}
+				alert("这个数字不合法");
+			}
+			//获取2-num之间的数
+			for(var i = 2;i <num;i++){
+				//判断是否为质数
+				if(num%i == 0){
+				//不是质数
+				flag = false;
+				}
+			}
+			//若为质数输出
+			if(flag){
+				alert(num+"是质数");
+			}else{
+					alert(num+"不是质数");
+				}
+			
+			// var b = 21;
+				
+			// if(!(b <20)) {
+			// alert(b)}
+			
+			// var c = 11;
+			// // console.log(!isNaN(c));
+			// if(isNaN(c)){
+			// 	console.log("c是字符串");
+			// }else if (!isNaN(c)){
+			// 	console.log("c不是字符串");
+			// }
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>

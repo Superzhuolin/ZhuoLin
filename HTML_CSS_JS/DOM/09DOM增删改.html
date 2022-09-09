@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* DOM操作就两件事
+				1.找对象		DOM查询
+				2.搞对象		DOM增删改 */
+				
+			/* 1.父节点.appendChild(子节点)	为(父)元素添加一个新的子元素
+			   2.父节点.removeChild(子节点)	删除一个子元素
+					子节点.parentNode.removeChild(子节点)		常用
+			   3.父节点.replaceChild(新节点,旧节点)	替换一个子元素
+					旧节点.parentNode.replaceChild(新节点,旧节点)
+			   4.父节点.insertBefore(新节点,旧节点)	现有的子元素之前插入一个新的子元素
+					旧节点.parentNode.insertBefore(新节点,旧节点)
+					
+			   5.document.createAttribute()	 创建一个属性节点
+			   6.document.createElement("元素节点")	 创建元素节点
+					为传入的一个标签名参数创建元素节点对象,并将其返回
+			   7.document.createTextNode("文本内容")	 创建文本节点
+					为传入的一个文本内容参数创建文本节点,并将其返回
+			   8.element.getAttribute()	返回指定元素的属性值
+			   9.element.setAttribute()	设置或者改变指定属性并指定值
+			 */
+			window.onload = function(){
+				
+				/* (1)创建一个"广州"节点,添加到#city下 */
+				/* 创建广州文本,将其放入li节点,再将li节点放入city节点 */
+				myClick("btn01",function(){
+					// 1.创建广州节点  <li>广州</li>
+						// 1.1创建li节点
+						var li = document.createElement("li");
+						// 1.2创建广州文本节点
+						var gzText = document.createTextNode("广州");
+						// 1.3将gzText设置为li的子节点
+						li.appendChild(gzText);
+						
+					//2.将广州节点添加到city下
+						// 2.1获取id为city的节点
+						var city = document.getElementById("city");
+						// 2.2将li节点添加到city下
+						city.appendChild(li);
+				})
+				
+				// (2)将"广州"节点插入到#bj前面
+				myClick("btn02",function(){
+					// 创建广州节点
+					var li = document.createElement("li");
+					var gzText = document.createTextNode("广州");
+					li.appendChild(gzText);
+					
+					// 获取父节点city
+					var city = document.getElementById("city");
+					// 获取bj节点
+					var bj = document.getElementById("bj");
+					city.insertBefore(li,bj);
+				})
+				
+				// (3).使用"广州"节点替换#bj节点
+				myClick("btn03",function(){
+					// 创建广州节点
+					var li = document.createElement("li");
+					var gzText = document.createTextNode("广州");
+					li.appendChild(gzText);
+					
+					// 获取city节点
+					var city = document.getElementById("city");
+					// 获取bj节点
+					var bj = document.getElementById("bj");
+					
+					// 替换节点
+					city.replaceChild(li,bj);
+				})
+				
+				// (4).删除#bj节点
+				myClick("btn04",function(){
+					// 获取bj节点
+					var bj = document.getElementById("bj");
+					
+					// 删除节点  1.通过创建父节点调用
+					// var city = document.getElementById("city");
+					// city.removeChild(bj);
+					// 2.通过获取父节点直接调用(更常用)		parentNode获取父节点	
+					bj.parentNode.removeChild(bj);
+				})
+				// (5).读取#city内的HTMl代码
+				myClick("btn05",function(){
+					// 获取city节点
+					var city = document.getElementById("city");
+					alert(city.innerHTML);
+				})
+				
+				// (6).设置#bj内的HTMl代码
+				myClick("btn06",function(){
+					// 获取bj节点
+					var bj = document.getElementById("bj");
+					bj.innerHTML = "昌平";
+				})
+				// (7)使用innerHTML在city下添加广州	(更简单,但是动静太大,不建议使用)
+				myClick("btn07",function(){
+					var city = document.getElementById("city");
+					// city.innerHTML += "<li>广州</li>";	//动静太大,不建议使用
+					/* 两者结合使用		推荐使用 */
+					
+					// 创建li
+					var li = document.createElement("li");
+					// 在li中创建文本(不用创建广州文本,两步变一步)
+					li.innerHTML = "广州";
+					city.appendChild(li);
+				});
+			
+			}
+			// 定义一个函数,为指定的元素绑定单击相应函数
+			function myClick(idStr,fun){
+				var btn = document.getElementById(idStr);
+				btn.onclick = fun;
+			}
+		</script>
+	</head>
+	<body>
+		<div id="total">
+			<div class="inner">
+				<p>你喜欢那个城市</p>
+				<ul id="city">
+					<li id="bj">北京</li>
+					<li>上海</li>
+					<li>东京</li>
+					<li>首尔</li>
+				</ul>
+			</div>
+		</div>
+		
+		</div>
+			<div id="btnList">
+				<div><button id="btn01">1.创建一个"广州"节点,添加到#city下</button></div>
+				<div><button id="btn02">2.将"广州"节点插入到#bj前面</button></div>
+				<div><button id="btn03">3.使用"广州"节点替换#bj节点</button></div>
+				<div><button id="btn04">4.删除#bj节点</button></div>
+				<div><button id="btn05">5.读取#city内的HTMl代码</button></div>
+				<div><button id="btn06">6.设置#bj内的HTMl代码</button></div>
+				<div><button id="btn07">7.使用innerHTML在city下添加广州</button></div>
+			</div>
+	</body>
+</html>

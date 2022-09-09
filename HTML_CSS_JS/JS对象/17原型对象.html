@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 将函数定义在全局作用域中
+			缺点:1.污染了全局作用域的命名空间
+					(占用了此命名,别的函数也用此名会覆盖掉此函数)
+				 2.定义在全局作用域不安全(容易被覆盖)
+			 */
+			
+			/* 原型对象 	prototype	构造函数通过原型分配的函数都是所有对象所共享的
+			 对象的原型   __proto__	它是非标准属性,在实际开发中不能使用这个属性(包括赋值)
+				每创建一个函数(普通函数/构造函数),
+				解析器(浏览器)都会向函数中添加属性prototype(每个函数的都不一样)
+					这个属性对应的对象就是prototype
+					prototype对象指向原型对象的地址
+					
+				普通函数调用prototype没有任何作用
+				构造函数调用时,它所创建的对象中会有一个隐含的__proto__属性,它指向
+				该构造函数的原型对象(的地址) ,因此实例对象中的__proto__属性与构造函数中的
+				prototype是等价的
+				PS:这也是为什么实例化对象可以使用构造函数中prototype原型对象的属性和方法,
+				正是因为有__proto__原型存在
+					
+				原型对象相当于一个公共区域,所有的同一个类的实例都可以访问这个原型对象,
+					因而可以将对象的共有内容,统一到原型对象中
+				
+				当我们访问对象的一个属性或方法时,它会先在自身中寻找,
+				如果有直接使用;如果没有则在原型对象中寻找,如果找到直接使用
+			 */
+			
+			/* 对象原型__proto__ 和原型对象prototype里面有个属性constructor(称为构造函数)
+			 ,它指向构造函数本身,用于记录该对象用于那个构造函数,它可以使原型对象重新指向原来的函数
+			 */
+			
+			/*  */
+			function Person(){
+				
+			}
+			
+			var p = new Person();
+			var p1 = new Person();
+			//函数的prototype属性中添加共有属性a
+			Person.prototype.a =123;
+			
+			// 向Persond类的原型中添加一个方法
+			Person.prototype.sayHello = function(){
+				alert("hello");
+			}
+			
+			//在p对象中添加属性a
+			p.a = "我是p中的a";
+			//函数对象p,先在自身p对象中找a,找不到再从原型对象中寻找
+			console.log(p.a);
+			console.log(p1.a);
+			
+			// 通过__proto__来访问该属性的原型对象
+			// 实例对象中的__proto__属性与构造函数中的prototype是等价的
+			// console.log(p1.__proto__  == Person.prototype );
+			
+			p1.sayHello();
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

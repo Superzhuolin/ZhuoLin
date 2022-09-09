@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 除了用for循环遍历数组之外,还可以用forEach 
+				farEach()   只支持IE8以上的浏览器
+							由于开发项目要兼容IE8,所以不建议使用
+							移动端(手机领域)可以使用
+				
+				-像这种,由我们创建但不由我们调用的,称为回调函数
+				-数组有几个元素函数就会执行几次,每次执行时,浏览器会将遍历
+				到的元素以实参形式传递进来,我们可以定义形参,来读取这些内容
+			
+			-浏览器会在回调函数中,传递三个参数:
+				第一个参数,就是当前正在遍历的元素
+				第二个参数,就是当前正在遍历的元素索引
+				第三个参数,就是正在遍历的数组(调用该方法的数组)
+			
+			*/
+			var  arr=["孙悟空","猪八戒","白骨精","白龙马"];
+			
+			arr.forEach(function(value,index,obj){
+				// console.log(value);
+				// console.log(index);
+				console.log("索引:"+index+"   属性值:"+value);
+				// console.log(obj);
+				// console.log(obj ==arr);
+				
+			})
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

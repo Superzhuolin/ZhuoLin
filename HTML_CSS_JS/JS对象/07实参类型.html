@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			// 1.定义函数,判断一个数是否为偶数
+			// 是 返回 true  不是返回false
+			function isOu(num){
+				return num%2==0;
+			}
+			console.log( "该数是否是偶数:"+isOu(5));
+			
+			// 2.定义函数,可以根据半径计算圆的面积,并返回结果
+			
+			function area(r){
+				return  3.14*r*r;
+			}
+			console.log("面积为:"+area(2));
+			
+			// 3.定义函数,输出个人信息(name age gender address)
+			// function imformation(name,age,gender,address){
+			// 	return  "名字:"+name+"\n年龄:"+age+"\n性别:"+gender+"\n地址:"+address;
+			// } 
+			
+			// console.log(imformation("李白",18,"男","唐朝"));
+			/* ----------------------------------------------------------- */
+			
+			
+			
+			/* 实参可以是任意的数据类型,
+			1.也包括对象
+					参数过多时,可以将参数封装到对象中,通过对象传递*/
+			function information(p){
+				// return  "名字:"+p.name+"\n年龄:"+p.ag e+"\n性别:"+p.gender+"\n地址:"+p.address;
+				  console.log("名字:"+p.name+"\n年龄:"+p.age+"\n性别:"+p.gender+"\n地址:"+p.address);
+			 } 
+			
+			var people = {
+				name:"李白",
+				age: 18,
+				gender:"男",
+				address:"唐朝"
+			}
+			information(people);
+			
+			/* 2.实参也可以是一个函数 */
+			function fun(a){
+				// console.log("a="+a);
+				/* 这里的形参a是一个函数,需要people作为参数
+				 这里运行information函数后
+				 information函数调用的实参是people这个对象*/
+				a(people);
+				
+				/* 相当于对象people作为函数information的实参, 
+				函数information又作为fun函数的实参
+				总结:fun函数的作用是,使对象people
+				作为函数information的实参输出*/
+				
+				/* information(people){
+					  console.log("名字:"+people.name+"\n年龄:"+people.age
+					  +"\n性别:"+people.gender+"\n地址:"+people.address);
+				 } */
+			}
+			//使用fun函数调用information函数,
+			// information既是函数又是实参
+			fun(information);
+			
+			// fun(area(10));
+			// fun(area);
+			/*
+			 fun(area(10))   传递的是函数的返回值
+							调用函数功能,相当于使用函数的返回值
+							(冰淇淋生产,返回的冰淇淋)
+			fun(area);   传递的是函数本身
+			函数对象,相当于直接使用函数对象(冰淇淋车)*/
+			
+			/* fun     函数本身
+			   fun()  函数返回值*/
+					
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

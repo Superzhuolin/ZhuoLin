@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 打印1-100奇数之和  */
+			// var sum = 0;
+		/* 	for (var i = 0 , sum = 0; i<100;i++){
+					
+				if(i%2 == 1) {
+					// document.write(i);
+					// console.log(i);
+					sum +=i;
+				}
+			}
+				console.log(sum);
+			 */
+			
+			
+			
+			/* 打印1-100之间7的倍数的个数及总数之和 */
+			// for(var i =0,a = 0,sum = 0; i<=100;i++){
+					
+			// 	if(i%7==0){
+			// 		console.log(i);
+			// 		a++;
+			// 	sum += i; //7的倍数之和
+			// 	}
+			// 	// sum += i;注意写在这里为算1-100总数
+			// }
+			// console.log("7的倍数的个数为:"+a);
+			// console.log("总数为:"+sum );
+			
+			//水仙花数
+				
+			for(var i=0;i<1000;i++){
+				var hundred = parseInt(i/100);
+				var ten = parseInt(i/10 ) %10;
+				var bit = i%10;
+				// console.log(bit);
+					
+				if (hundred*hundred*hundred+ten*ten*ten+bit*bit*bit  == i){
+					console.log(i);
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			// arguments(参数列表,实参)   暂时用不上留个印象
+			/* 调用函数时,浏览器 每次都会传递两个隐含的参数:
+				1.函数的上下文对象this
+				2.封装实参的对象arguments 
+					-类数组对象(即使不定义形参,也可以使用arguments使用实参)
+						-用索引arguments[n]来操作对象
+						-用arguments.length获取数组长度
+						-用arguments.callee获取正在指向的函数对象
+					-调用函数时,传递的实参都会封装到arguments中
+				
+				
+				*/
+			function fun(){
+				console.log(arguments);
+				
+				// instanceof  检查一个对象是否是一个类的实例
+				// console.log(arguments  instanceof Array);  //false
+				//用数组的方法检查arguments是不是数组
+				// console.log(Array.isArray(arguments));
+				
+				console.log(arguments.length);
+				console.log(arguments[3]);
+				
+				console.log(arguments.callee  );
+				console.log(arguments.callee ==fun );
+				
+			}
+			fun(1,2,3,4);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

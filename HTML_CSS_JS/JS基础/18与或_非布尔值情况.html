@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+	/* && || 非布尔值情况会先转换为布尔值,然后再运算,并且返回原值
+		与运算&&:如果第一个值为ture,则必然返回第二个值
+			  如果第一个值为false,则必然返回第一个值
+		或运算||:如果第一个值为ture,则必然返回第一个值
+			  如果第一个值为false,则必然返回第二个值
+	*/
+   
+		/* 与运算: */
+		var result = 5 && 7;
+		console.log(result);
+		
+		var result = 0 && NaN;
+		console.log(result);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

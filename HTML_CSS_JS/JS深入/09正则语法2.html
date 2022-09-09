@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 元字符（Metacharacter）是拥有特殊含义的字符： */
+			
+			/* 点.	查找单个字符，除了换行和行结束符。
+			
+				若要查找 点.		使用转义字符\. 
+				\\	表示 \
+			 */
+			// 查找.
+			var reg = /\./;
+			var reg = /\\/;
+			//  两个\\  转义时只有一个\
+			console.log(reg.test("dsa.\\大厦"));
+			
+			//构造函数中使用斜杠\  需要使用\\代替
+			var reg = new RegExp("ab");
+			var reg = new RegExp("\\.");
+			//检查是否含有 \. 或.\
+			console.log(reg.test("ads\.af"));
+			console.log(reg);
+			
+			/*  \w	查找单词字符
+						单词字符包括：a-z、A-Z、0-9，_
+				\W	查找非单词字符
+				
+				\d	查找数字
+				\D	查找非数字字符
+				
+				\s	查找空白字符
+				\S	查找非空白字符
+				\b	匹配单词边界
+				\B	匹配非单词边界 */
+			reg = /\w/;
+			reg = /\W/;
+			reg = /\d/;
+			reg = /\D/;
+			reg = /\s/;
+			reg = /\S/;
+			
+			console.log(reg.test("das"));
+			/* 检查字符串中是否含有child 
+				注:child前后没有单词
+				单词边界*/
+			reg = /\bchild\b/;
+			console.log(reg.test("dsadas children"));
+			console.log(reg.test("dsadas child"));
+			
+			var str = "             hel     lo      ";
+			/* 去除字符串中的(所有)空格 */
+			console.log(str.replace(/\s/g,"") );
+			/* 去除字符串中的(首)空格 */
+			console.log(str.replace(/^\s*/g,"") );
+			/* 去除字符串中的(尾)空格 */
+			console.log(str.replace(/\s*$/g,"") );
+			
+			
+			/* 去除字符串中的(首尾)空格 */
+			console.log(str.replace(/^\s*|\s*$/g,"") );
+			console.log(str.replace(/^\s+|\s+$/g,"") );//+也可
+			
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

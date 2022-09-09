@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			// 十六进制  0X开头
+			var  a = 0x10;
+				 a = 0xff;
+			console.log(a);
+			//八进制  0开头
+			var  b = 010;
+			console.log(b);
+			// 二进制 0b开头 	不是所有浏览器都支持
+			var  c = 0b10;
+			console.log(c);
+			
+			// 像"070"这样子的数值,容易被浏览器当成8进制,有些会当成10进制
+			c = "070";
+			// c = parseInt(c);
+			c = parseInt(c,16);
+			console.log(c);
+			console.log(typeof c);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

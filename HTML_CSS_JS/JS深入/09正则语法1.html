@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 创建正则检查字符串中是否含有aaa */
+			/* 量词		设置内容出现次数 
+						量词只对前面的内容起作用
+						{m,n} 出现m-n次
+						{m,}	出现m次以上
+						+	至少一个,相当于{1,}
+						*	0个或多个,相当于{0,}
+						?	0个或1个,相当于{0,1}	
+			*/
+			
+			var reg = /a{3}/;
+			reg = /(ab){3}/;
+			reg = /ab{3}c/;
+			reg = /ab{1,3}c/;
+			reg = /ab+c/;
+			reg = /ab*c/;
+			reg = /ab?c/;
+			/* 检查字符串是否以a开头 或结尾
+				^ 表示开头
+				$ 表示结尾
+			 */
+			reg = /^a/;//匹配开头的a
+			reg = /a$/;	//匹配结尾的a
+			reg = /^a$/ //即以a开头又以a结尾  即只有一个a
+			// reg = /^a|a$/ //以a开头或以a结尾
+			// reg = /^a&a$/  //以a开头且以a结尾?
+			
+			console.log(reg.test("a"));
+			
+			// console.log(reg.test("dafgadaaadf"));	
+			
+			/* 手机号的规则:1 3 567897855 
+					1.以1开头	
+					2.第二位3-9任意数字
+					3.三位以后任意数组9个
+					^1 [3-9] [1-9]{9}$
+			*/
+			var phoneStr = "13567897855";
+			var phoneReg = /^1[3-9][1-9]{9}$/
+			console.log("手机号检查后:"+phoneReg.test(phoneStr));
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

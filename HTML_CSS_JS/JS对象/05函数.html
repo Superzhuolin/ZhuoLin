@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 万物皆对象
+			函数(也是对象)
+				函数可以封装一些功能(代码),在需要时可以执行这些功能(代码)
+				可以保存一些代码在有需要时调用
+			*/
+		   
+		   /* 1.使用构造函数创建一个对象 
+			可以将要封装的代码以字符串的形式传递给函数
+			但是在实际开发中很少用构造函数创建一个对象
+			PS:(1)所有的函数都是Function的实例(对象)
+			*/
+			
+			var fun = new Function("console.log('11');");
+			// console.log(fun);
+			// console.log(typeof fun);
+			
+			/* 代码会在函数调用时执行
+			 语法:函数对象();   此时函数中的代码会按顺序执行*/
+			// fun();
+			
+			//PS:(2)函数对象具有普通对象的所有功能
+			// fun.hello = "你好";
+			// console.log(fun.hello);
+			
+			/* 2.使用函数声明创建函数        推荐使用	
+			 语法:function 函数名([形参1,形参2...形参N]){
+				 语句..
+			 }  (其后可以不写分号;)
+			 */
+				
+			function fun2(){
+				console.log('这是第二个函数');
+				// alert("开心");
+				// alert("难过");
+			}
+			fun2();
+			
+			/* 3.使用函数表达式创建对象
+			即创建匿名函数,同时将匿名函数变量赋值给对象 
+			var 函数名 = function([形参1,形参2...形参N]){
+				语句...
+			}; */
+			var fun3 = function(){
+				console.log("我是匿名函数中的代码");
+			};
+			fun3();
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

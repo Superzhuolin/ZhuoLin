@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>添加删除记录练习</title>
+		<script>
+			
+		window.onload = function(){
+			/* 1.点击超链接,删除员工的信息 */
+			// 获取所有的超链接
+			var allA = document.getElementsByTagName("a");
+			
+			/* 问题:点击第二个超链接,i是如何变为1的?i是在何时完成自加操作的? */
+			
+			// 为每个超链接都绑定一个单击响应函数
+			for(var i =0;i<allA.length;i++){
+				
+				allA[i].onclick = function(){
+				/* 1.点击删除后,删除超链接所在的行元素 */
+				// 这里this指的是所点击的那个超链接
+				// alert(this );
+				
+				/*for循环会在页面被加载完成之后立即执行,
+				而响应函数会在超链接被点击时才执行
+				因而:响应函数执行时,for循环早已执行完毕 */
+				// 所以这里this != allA[i]; 因为for循环执行完毕使i=3;
+				// 所以只能用this,不能用allA[i]
+				
+				// 获取当前tr
+				var tr = this.parentNode.parentNode;
+				
+				// 获取要删除员工的名字
+				// var name = tr.getElementsByTagName("td")[0].innerHTML;
+				var name = tr.children[0].innerHTML;
+				
+				/* confirm()	显示带有一段消息以及确认按钮和取消按钮的对话框 
+				返回值:点确定返回true;点取消返回false;*/
+				
+				var flag = confirm("确定删除"+name+"吗?");
+				//若用户点击确定,进行删除
+				if(flag==true){
+				//删除tr
+				tr.parentNode.removeChild(tr);
+				}
+				/* 点击超链接,跳转页面,这是超链接的默认行为
+				   可在响应函数,return false;来取消默认行为
+				*/
+				return false;
+				};
+			} 
+			
+		};
+		</script>
+	</head>
+	<body>
+		<table id="employeeTable" align="center"border="1px"  cellspacing="0px" cellpadding="011px">
+			<tr>
+				<th>name</th>
+				<th>Emaile</th>
+				<th>Salary</th>
+				<th>功能</th>
+			</tr>
+			<tr>
+				<td>Tom</td>
+				<td>tom@tom.com</td>
+				<td>5000</td>
+				<td><a href="deleteEmp?id=001">Delete</a></td>
+				
+				<!-- 取消超链接默认跳转方法二,设置href为javascript:; -->
+				<!-- <td><a href="javascript:;">Delete</a></td> -->
+			</tr>
+			<tr>
+				<td>Jerry</td>
+				<td>tom@tom.com</td>
+				<td>8000</td>
+				<td><a href="deleteEmp?id=002">Delete</a></td>
+			</tr>
+			<tr>
+				<td>Bob</td>
+				<td>bob@tom.com</td>
+				<td>10000</td>
+				<td><a href="deleteEmp?id=003">Delete</a></td>
+			</tr>
+		</table>
+		
+		<div  id="formDiv" align="center" border="1px"  cellspacing="0px" cellpadding="011px">
+			
+			<h4>添加新员工</h4>
+			
+			<table>
+				<tr>
+					<td class="word">name:</td>
+					<td class="inp">
+						<input type="text"  name="empName" id="empName" />
+					</td>
+				</tr>
+				<tr>
+					<td class="word">email:</td>
+					<td class="inp">
+						<input type="text"  name="email" id="email" />
+					</td>
+				</tr>
+				<tr>
+					<td class="word">salary:</td>
+					<td class="inp">
+						<input type="text"  name="salary" id="salary" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"  align="center">
+					<button	id="addEmpButton" value="abc">
+						Submit
+					</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+			
+	
+	</body>
+</html>

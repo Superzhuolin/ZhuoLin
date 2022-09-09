@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* 数据类型指的是字面量的类型
+				JS中一共有六种属性类型
+				基本数据类型:
+				String 字符串  Number 数字   Boolean 布尔值
+				Null  空值	Undefined 未定义
+				
+				只要不是以上五种基本数据类型,那就是对象
+				引用数据类型: Object
+				*/
+			
+			/* 基本数据类型是相互独立/互相之间没有联系的单一值,不能成为一个整体
+				例如  个人信息(name,age,gender)
+				
+				对象			就好像一个塑料袋一样,把东西包/存起来	
+							装属性的容器
+					复合数据类型,可以保存多个不同数据类型的属性
+					1.内建对象
+						有ES标准中的对象,在任何的ES中实现都可以使用
+				例如:Math String  Number   Boolean Null  Undefined 
+					2.宿主对象
+						由JS的运行环境提供的对象.目前来讲主要指浏览器提供的对象
+						比如BOM(浏览器数据模型)  DOM(文档数据模型)
+					3.自定义对象	  开发人员自己创建的对象
+			 */
+			
+			/* 1.创建对象 
+				new关键字调用的是构造函数constructor(创建对象的函数)
+				typeof检查对象,返回object*/
+			var obj = new Object();
+			// console.log(obj);
+			// console.log("类型:"+typeof obj);
+			/* 2.向对象里面添加属性(对象里面保存的值)
+				语法:对象.属性名 = 属性值;*/
+			obj.name = "孙悟空";
+			obj.age = 18;
+			obj.gender = "男";
+			console.log(obj);
+			/* 3.读取对象中的属性  语法:对象.属性名
+				如果读取对象中没有该属性,不会报错而是会返回undefined
+				*/
+			console.log(obj.name);
+			/* 4.修改对象属性值(与添加值一样,覆盖) 
+			 语法:对象.属性名 = 新值 */
+			obj.name = "李白";
+			console.log(obj.name);
+			/* 5.删除对象的属性  语法:delete 对象.属性名*/
+			delete obj.name;
+			console.log(obj.name);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

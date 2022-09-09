@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			var obj = {
+				name : "孙悟空",
+				age:18,
+				gender: "男",
+				address: "花果山"
+			};
+			
+			/* 枚举对象中的属性
+			 使用for...in 语句 对象有几个属性,循环体就会执行几次
+				 每次执行,会将对象的应该属性名赋值给变量
+			 语法:for(var 变量 in 对象){
+				 
+			 }
+			 */
+			for(var n in obj){
+				// console.log("属性名:"+n);
+				
+				// obj对象中没有n属性,所以结果为undefined
+				// console.log(obj.n);
+				
+				// n值是name,就从obj中找name属性  以此类推
+				// n值是什么就找什么属性
+				// console.log("属性值:"+obj[n]);
+				
+				console.log("属性名:"+n+" 	属性值:"+obj[n]);
+			}
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

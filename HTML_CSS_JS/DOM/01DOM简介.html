@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			/* DOM操作就两件事
+				1.找对象		DOM查询(获取按钮,并通过标签名或者id值获取节点)
+				2.搞对象		DOM增删改 */
+				
+			/* 	对象			
+				复合数据类型,可以保存多个不同数据类型的属性
+				1.内建对象
+					有ES标准中的对象,在任何的ES中实现都可以使用
+			例如:Math String  Number   Boolean Null  Undefined 
+				2.宿主对象
+					由JS的运行环境提供的对象.目前来讲主要指浏览器提供的对象
+					比如BOM(浏览器数据模型)  DOM(文档对象模型)
+				3.自定义对象	  开发人员自己创建的对象 */
+			
+			/* DOM(文档对象模型)			document object model
+									作用:通过JS随心所欲的操作网页
+			 文档:整个HTML网页文档
+			 对象:将网页中的每一个部分都转换为一个对象
+			 模型:表示对象之间的关系,方便我们获取对象
+			 
+			 节点：网页中的所有内容都是节点 (标签、属性、文本、注释等），
+					DOM中用 node(结点) 表示
+				节点属性:
+					文档结点(#document):整个HTML文档
+					元素结点(标签名):HTML文档中的HTML标签
+					属性结点(属性名):元素的属性
+					文本结点(#text):HTML标签中的文本内容
+					
+			 元素：网页中的标签，DOM中使用 element 表示			 
+			 属性：标签的属性
+  			 注：DOM 把文档、节点、元素都看作是对象	 */
+			
+			/* DOM分为四个重要部分（都是操作）
+			操作元素内容
+			操作元素属性
+			操作表单属性
+			操作元素类名 */
+		</script>
+	</head>
+	<body>
+		<button id ="btn">按钮</button>
+		<script>
+			/* document就是文档结点  通过整个对象可以获取整个网页 */
+			console.log(document);
+			// 获取id="btn"的按钮对象
+			var btn = document.getElementById("btn");
+			console.log(btn);
+			// 修改按钮的文字
+			console.log(btn.innerHTML);
+			btn.innerHTML = "我是按钮";
+			console.log(btn.innerHTML);
+		</script>
+		
+	</body>
+</html>
