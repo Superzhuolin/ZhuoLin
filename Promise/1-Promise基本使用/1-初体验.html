@@ -37,10 +37,10 @@
 
             // 2.Promise形式实现    Promise是函数,所以可以对象实例化
             // 实例化需要接受函数类型值的参数,并且还有两个形参 
-            // resolve 解决  函数类型的数据  异步任务成功时
-            // reject  拒绝  函数类型的数据  异步任务失败时
+            // resolve 解决  函数类型的数据  异步任务成功时value
+            // reject  拒绝  函数类型的数据  异步任务失败时reason
             const p = new Promise((resolve,reject)=>{
-                // Promise可以包裹异步操作
+                // Promise可以包裹异步操作  
                  setTimeout(() => {
                     let n = rand(1, 100);
                     if(n <= 30){
@@ -48,16 +48,16 @@
                     }else{
                         reject(n); // 将 promise 对象的状态设置为 『失败』
                     }
-                }, 1000);
+                }, 500);
             })
-
+            console.log(p);
             //调用then方法  (调用时需要接收两个函数类型值的参数)
             // 第一个是对象成功时的回调 第二个是失败时的回调
-            p.then(()=>{
-                alert("恭喜恭喜, 奖品为 10万 RMB 劳斯莱斯优惠券");
+            p.then((value)=>{
+                alert("恭喜恭喜, 奖品为 10万 RMB 劳斯莱斯优惠券,您的中奖数字为:"+value);
             },
-            ()=>{
-                alert("再接再厉");
+            (reason)=>{
+                alert("再接再厉,您的号码为:"+reason);
             })
         })
 
