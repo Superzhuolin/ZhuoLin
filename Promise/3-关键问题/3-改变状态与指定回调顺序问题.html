@@ -7,6 +7,21 @@
 </head>
 <body>
     <script>
+        let p = new Promise((resolve,reject)=>{
+            //先改变状态后指定回调:当执行器函数当中的任务是同步任务,直接调用resolve时
+            //先指定回调后改变状态:当执行器函数是一个异步任务时, 即需要进入队列等待一段时间时 (更常用)
+            setTimeout(() => {
+                resolve("ok"); 
+            },1000);
+        })
+        // 什么时候拿到数据就是回调函数什么时候执行
+        // 先指定回调后改变状态,回调的执行时机是在调用resolve以后再去执行回调函数内部代码,
+        //      进而对成功或者失败结果做处理
+        p.then(value=>{
+            console.log(value);
+        },reason=>{
+
+        })
     </script>
 </body>
 </html>

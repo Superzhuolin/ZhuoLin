@@ -7,7 +7,19 @@
 </head>
 <body>
     <script>
-        // promise.all方法  包含n个promise的数组  状态由数组中的promise状态决定
+    /*   promise.all方法  包含n个promise的数组  状态由数组中的promise状态决定
+        数组中都为成功才成功  即只要有一个失败就是失败*/
+        let p1 = new Promise((resolve,reject)=>{
+            resolve("ok");
+        })
+        let p2 = Promise.resolve("success");
+        let p3 = Promise.resolve("OH Yeah");
+        let p4 = Promise.reject("error");
+        let p5 = Promise.reject("e2");
+
+        // const result = Promise.all([p1,p2,p3]);//都成功的结果:每一个成功结果的对象组成的数组
+        const result1 = Promise.all([p1,p4,p5]);//失败的结果(数组当中存在失败的promise对象):第一个失败的那个promise对象的结果
+        console.log(result1);
     </script>
 </body>
 </html>

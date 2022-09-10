@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise关键问题 - 如何串联多个任务</title>
+</head>
+<body>
+    <script>
+        /* (1)promise的then()返回一个新的promise, 可以开成then()的链式调用
+           (2)通过then的链式调用串连多个同步/异步任务 */
+           let p = new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve("ok");
+            }, 1000); //3s后回调执行p才会变为成功,then里面的回调才会执行
+           })
+           p.then((value)=>{
+            return new Promise((resolve,reject)=>{
+                resolve(value);
+                // resolve("success");
+                // console.log(222);
+            })  //then方法返回的结果是一个成功的promise,则可以继续用then操作
+            // then返回的promise对象,由它指定的promise对象的返回值决定  
+           }).then(value=>{
+            console.log(value);//这个回调函数的返回值没写就是undefined(非promise类型对象 )
+            // console.log(123);
+           }).then(value=>{
+            console.log(value) ;
+           })
+    </script>
+</body>
+</html>
