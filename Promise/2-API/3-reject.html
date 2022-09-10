@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise API - reject</title>
+</head>
+<body>
+    <script>
+        // 作用:快速返回结果永远都是失败的promise对象
+        let p = Promise.reject(123);//promise状态为失败
+        let p1 = Promise.reject("ddd");//promise状态为失败
+        let p2 = Promise.reject(new Promise((resolve,reject)=>{
+            resolve("ok");
+        }));//即便是成功的promise对象,状态也为失败
+
+        console.log(p2);//失败的结果为传入的参数
+
+    </script>
+</body>
+</html>
