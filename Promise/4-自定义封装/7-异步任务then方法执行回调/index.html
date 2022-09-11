@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise-封装 | 7 - 异步任务 then 方法实现 </title>
+    <script src="./promise.js"></script> 
+</head>
+<body>
+    <script>
+                     /* 调用回调函数的时机 */
+        let p = new Promise((resolve,reject)=>{
+            // 1.若为同步任务,立刻改变对象状态,则回调会在then方法调用时执行
+            // 2.若为异步任务.则在改变对象状态后,再执行回调
+            setTimeout(()=>{
+                // resolve("ok");
+                reject("error");
+            },1000)
+        });
+
+        p.then(value=>{
+            console.log(value);
+        },reason=>{
+            console.warn(reason);
+        })
+        console.log(p);
+    </script>
+</body>
+</html>

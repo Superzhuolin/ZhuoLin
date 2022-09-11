@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise-封装 | 1 - 初始结构搭建</title>
+    <script src="./promise.js"></script>
+</head>
+<body>
+    <script>
+        // [[PromiseState]]中两个[[]]是对象内置的/内部的属性,这些属性无法通过js代码操作
+        let p = new Promise((resolve,reject)=>{
+            // resolve("ok");
+            // reject("error");
+            throw "error"; //抛出异常  
+            // 会报错是因为失败的回调函数没指定失败
+        });
+
+        console.log(p);
+        // p.then(value=>{
+        //     console.log(value);
+        // },reason=>{
+        //     console.warn(reason);
+        // })
+    </script>
+</body>
+</html>
