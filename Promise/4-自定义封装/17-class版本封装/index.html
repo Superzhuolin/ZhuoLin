@@ -8,20 +8,21 @@
 </head>
 <body>
     <script>
-        // let p1 = new Promise((resolve, reject) => {
-        //     setTimeout(() => {
-        //         // resolve("OK");
-        //         reject("Eror");
-        //     })
-        // });
+        let p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("OK");
+                // reject("Eror");
+                // throw "error"; //异步任务不能抛错,抛了也捕获不到
+            })
+        });
 
-        // p1.then(value => {
-        //     console.log(value);
-        // }, reason => {
-        //     console.warn(reason);
-        // });
+        p1.then(value => {
+            console.log(value);
+        }, reason => {
+            console.warn(reason);
+        });
 
-        console.log(Promise.resolve('OK'));
+        console.log( Promise.resolve('OK'));
     </script>
 </body>
 </html>

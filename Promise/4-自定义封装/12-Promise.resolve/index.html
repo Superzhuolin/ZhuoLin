@@ -8,6 +8,9 @@
 </head>
 <body>
     <script>
+        /* Promise.resolve 方法: (value) => {}
+        (1) value: 成功的数据或 promise 对象
+        说明: 返回一个成功/失败的 promise 对象 */
         const p = Promise.resolve('OK');
         const p2 = Promise.resolve(new Promise((resolve, reject) => {
             // resolve('Success');

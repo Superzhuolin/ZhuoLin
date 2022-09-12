@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>
+        /*  返回一个新的 promise, 第一个完成的 promise 的结果状态就是最终的结果状态 */
         let p1 = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve('OK');

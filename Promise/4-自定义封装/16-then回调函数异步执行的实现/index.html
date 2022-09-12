@@ -9,15 +9,18 @@
 <body>
     <script>
         let p1 = new Promise((resolve, reject) => {
-            reject('OK');
+            // resolve("success");
+            reject('fail');
             console.log(111);
         });
 
+        // then指定的回调函数『异步执行』 即需要等同步代码执行完再执行
         p1.then(value => {
             console.log(222);
         }, reason => {
             console.log(444);
         });
+        
 
         console.log(333);
     </script>

@@ -11,12 +11,12 @@
         //实例化对象
         let p = new Promise((resolve, reject) => {
             setTimeout(() => {
-                // reject('OK');
-                resolve('OK');
+                resolve("ok");
+                // reject('error');
             }, 1000);
         });
 
-        //值传递
+        // 异常穿透
         p.then()
         .then(value=>{
             console.log(222);
@@ -25,6 +25,13 @@
         }).catch(reason => {
             console.warn(reason);
         });
+
+        // let res =  p.catch(reason => {
+        //     // console.warn(reason);
+        //     throw "nihao"
+        // });
+        // console.log(p);
+        // console.log(res);
 
 
     </script>

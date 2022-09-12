@@ -11,9 +11,9 @@
         let p1 = new Promise((resolve, reject) => {
             setTimeout(() => {
                 resolve('OK');
-            }, 1000)
+            }, 100)
         })
-        let p2 = Promise.reject('Success');
+        let p2 = Promise.resolve('Success');
         let p3 = Promise.resolve('Oh Yeah');
 
         //调用 all 方法

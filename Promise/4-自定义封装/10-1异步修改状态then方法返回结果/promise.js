@@ -50,8 +50,8 @@ function Promise(executor) {
 
 // 添加then方法
 Promise.prototype.then = function (onResolved, onrejected) {
-    //返回一个回调函数
-    return new Promise((resolve, reject) => {
+    const self = this;
+    return new Promise((resolve, reject) => {//返回一个回调函数
         // 调用回调函数  PromiseState
         // this指向实例对象p
         if (this.PromiseState === "fulfilled") {
@@ -77,7 +77,42 @@ Promise.prototype.then = function (onResolved, onrejected) {
         }
         // 判断panding状态
         if (this.PromiseState == "pending") {
-            this.callbacks.push({ onResolved, onrejected });//给回调函数数组中添加对象元素
+            this.callbacks.push({ 
+                onResolved:()=>{
+                    try {
+                        let result = onResolved(self.PromiseResult);
+                        // 判断
+                        if (result instanceof Promise) {
+                            result.then(v => {
+                                resolve(v);
+                            }, r => {
+                                reject(r);
+                            })
+                        } else {
+                            resolve(result);
+                        }
+                    } catch (e) {
+                        reject(e);
+                    }
+                },
+                onrejected:()=>{
+                    try {
+                        let result = onrejected(self.PromiseResult);
+                        // 判断
+                        if (result instanceof Promise) {
+                            result.then(v => {
+                                resolve(v);
+                            }, r => {
+                                reject(r);
+                            })
+                        } else {
+                            resolve(result);
+                        }
+                    } catch (e) {
+                        reject(e);
+                    }
+                }
+             });//给回调函数数组中添加对象元素
         }
     })
 }

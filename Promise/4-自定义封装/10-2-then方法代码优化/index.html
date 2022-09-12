@@ -11,18 +11,22 @@
         //实例化对象
         let p = new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve('ok');
-                // reject('Error');
-            }, 100);
+                // resolve('ok');
+                reject('Error');
+            }, 600);
         });
 
         //执行 then 方法
         const res = p.then(value => {
             console.log(value);
+            //  return  "hello"
+            // throw "error"
         }, reason=>{
             console.warn(reason);
+            // return  "hello"
+            // throw "error"
         });
-
+        console.log(p);
         console.log(res);
     </script>
 </body>
