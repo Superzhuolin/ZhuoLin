@@ -1,0 +1,34 @@
+-npm init   
+-npm init -y (使用默认值快速安装)
+
+1.得到package.json文件用于管理依赖,内容如下:
+{
+  "name": "npm",    //工程名
+  "version": "1.0.0",   //版本
+  "description": "node.js", //描述
+  "main": "index.js",  //入口js
+  "scripts": {  //运行脚本
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node"  
+  ],
+  "author": "羽",  //开发者
+  "license": "ISC"      //运行协议
+}
+
+2.快速安装依赖第三方模块
+    npm install xxx
+    npm i xxx
+    2.1模块安装在node_modules文件夹中
+    2.2通过requied进行使用
+    2.3通过node xx.js运行  (.js可以省略)
+    2.4CTRL+c 终止
+    2.5安装的依赖包会被记录在package.json中
+        1:package.json会记录依赖模块
+        2.通过npm install可以下载package.json记录的全部依赖模块
+        可以避免重复下载模块,快速集成第三方模块
+        3.如果拷贝node_modules的话,会由于依赖过多(一百几万到几十万),
+        混乱文件过多,导致拷贝很慢
+        4.使用@指定版本号  npm install XXX@版本号
+        
