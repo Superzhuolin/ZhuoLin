@@ -14,14 +14,16 @@
 </head>
 <body>
     <script>
-        //绑定滚动事件
+        // 绑定滚动事件
+        // let  i =0;
         // window.addEventListener('scroll', function(){
-        //     console.log(Date.now());
+        //     // console.log(Date.now());
+        //     console.log(i++);
         // });
 
         window.addEventListener('scroll', throttle(function(e){
             // console.log(Date.now());
-            console.log(e);
+            console.log(e);//打印事件对象e 
         }, 500));
     </script>
 </body>

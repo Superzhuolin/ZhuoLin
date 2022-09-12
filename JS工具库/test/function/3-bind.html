@@ -12,28 +12,26 @@
         //声明一个函数
         function add(a,b){
             // console.log(this);
-            console.log(arguments);
+            console.log(arguments);//获取所有实参 
             return a + b + this.c;
         }
         //声明一个对象
-        let obj = {
-            c: 521
-        };
+        let obj = { c: 521 };
         //添加全局属性
         window.c = 1314;
 
-        //执行  函数
+        //执行函数
         // let fn = bind(add, obj, 10, 20);
-        // console.log(fn());
+        // console.log(fn()); //551
 
-        // let fn2 = bind(add, obj);
-        // console.log(fn2(10, 20));
+        let fn2 = bind(add, obj);
+        console.log(fn2(10, 30)); //561
 
         // let fn3 = add.bind(obj, 10, 20);
         // console.log(fn3(30, 40));
 
-        let fn4 = bind(add, obj, 10, 20);
-        console.log(fn4(30, 50));
+        let fn4 = bind(add, obj, 10, 20);//只有前两个参数参与运算
+        console.log(fn4(30, 50));  //551
     </script>
 </body>
 </html>

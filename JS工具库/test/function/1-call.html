@@ -8,21 +8,20 @@
 </head>
 <body>
     <script>
-        //声明一个函数
+        // 声明一个函数
         function add(a,b){
-            console.log(this);
-            return a + b + this.c;
+            console.log(this); 
+            return a+b+this.c;
         }
-        //声明一个对象
-        let obj = {
-            c: 521
-        };
-        //添加全局属性
+        // 声明一个对象
+        let obj ={c:521};
+        //添加全局变量 
         window.c = 1314;
+        // 执行call函数,并改变函数的this指向
+        console.log(call(add,obj,10,20));
+        console.log(call(add,null,10,20));
 
-        //执行 call 函数
-        console.log(call(add, obj, 10, 20));
-        console.log(call(add, null, 30, 40));
+
     </script>
 </body>
 </html>
