@@ -11,18 +11,19 @@
         //声明一个数组
         const arr = [1,2,3,4,5];
         // map 函数调用
-        const result = map(arr, (item, index) => {
-            console.log(index);
-            return item * 10;
-        });
-
-        console.log(result);
-
-        // let result = arr.reduce(function(res, value){
-        //     return res + value;
-        // }, 0);
+        // const result = map(arr, (item, index) => {
+        //     console.log(index);
+        //     return item * 10;
+        // });
 
         // console.log(result);
+        
+
+        //res上一次的结果值  value当前的结果
+        let result =arr.reduce(function(res,value){
+            return res+value;
+        },0);
+        console.log(result);
 
         //reduce 函数调用
         // let result = reduce(arr, function(res, value){
