@@ -16,43 +16,26 @@
             d: function(){}
         };
         
-        //4. 循环效率问题优化
+        //循环引用
         obj.b.push(obj.c);
         obj.c.j = obj.b;
-
+        //4. 循环效率问题优化
         const result = deepClone4(obj);
-        console.log(obj);
-        console.log(result);
 
         //3. 解决循环引用问题
-        // obj.b.push(obj.c);
-        // obj.c.j = obj.b;
-
         // const result = deepClone3(obj);
-        // console.log(obj);
-        // console.log(result);
 
 
         //2. 递归拷贝
-        // obj.b.push(obj.c);
-        // obj.c.j = obj.b;
         // const result = deepClone2(obj);
-        // result.c.h = 20000;
-        // console.log(obj);
-        // console.log(result);
-
 
         //1. JSON
-        // //循环引用
-        // obj.b.push(obj.c);
-        // obj.c.j = obj.b;
-        // //深拷贝
         // const result = deepClone1(obj);
-        // //修改新数据的属性值
-        // // result.c.h = 20000;
 
-        // console.log(obj);
-        // console.log(result);
+        // 修改新数据的属性值 
+        result.c.h = 20000;
+        console.log(obj);
+        console.log(result);
     </script>
 </body>
 
