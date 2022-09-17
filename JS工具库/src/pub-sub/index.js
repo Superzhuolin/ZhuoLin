@@ -1,72 +1,36 @@
-
-export const PubSub = {
-    //订阅唯一id
-    id:1,
-    //频道与回调保存容器
+/* 消息订阅与发布:对代码进行分离实现代码解耦 
+    事件总线无法实现单独取消某个绑定*/
+// 订阅频道
+const PubSub = {
+    id: 1,//订阅唯一id
+    // 频道与回调保存容器
     callbacks: {
-        // pay: {
-        //     token_1: fn
-        //     token_2: fn
-        // },
-        // cancel: {
-        //     token_3:
-        //     token_4
-        // },
-        // other: {
-        //     token_10
+        // pay:{
+        //     token_1:fn,
+        //     token_1:fn2,
         // }
-     }
+    }
 }
-
-/**订阅频道 */
-PubSub.subscribe = function(channel, callback){
-    //创建唯一的编号
-    let token = "token_" + this.id++;//
-    //pay  token_1  
-    //判断 callbacks 属性中是否存在 pay
-    if(this.callbacks[channel]){
+PubSub.subscribe = function (channel, callback) {
+    // 创建唯一的编号
+    let token = "token_" + this.id++;
+    // 判断callbacks属性中是否存在pay
+    if (this.callbacks[channel]) {
         this.callbacks[channel][token] = callback;
-    }else{
+    } else {
         this.callbacks[channel] = {
-           [token]: callback 
+            [token]: callback,//因为token是变量所以要用[token]表示
         }
     }
-    //返回频道订阅的 id
-    return token;
 }
-
-/* 发布消息 */
-PubSub.publish = function(channel, data){
-    //获取当前频道中所有的回调
-    if(this.callbacks[channel]){
-        //
+// 发布消息
+PubSub.publish = function (channel, data) {
+    // 获取当前频道上的所有回调
+    if (this.callbacks[channel]) {
+        // 
         Object.values(this.callbacks[channel]).forEach(callback => {
-            //执行回调
-            callback(data);
-        })
+            callback(data);//执行回调
+        });
     }
-}
 
-/**取消订阅 */
-//   1). 没有传值, flag 为 undefined
-//   2). 传入token字符串
-//   3). msgName字符串
-PubSub.unsubscribe = function(flag){
-    //如果flag为undeined 则清空所有订阅
-    if(flag === undefined) {
-        this.callbacks = {};
-    }else if(typeof flag === 'string'){
-        //判断是否为 token_ 开头
-        if(flag.indexOf('token_') === 0){
-            //如果是 标明是一个订阅id
-            let callbackObj = Object.values(this.callbacks).find(obj => obj.hasOwnProperty(flag))
-            //判断
-            if(callbackObj){
-                delete callbackObj[flag];
-            }
-        }else{
-            //表明是一个频道的名称
-            delete this.callbacks[flag];
-        }
-    }
 }

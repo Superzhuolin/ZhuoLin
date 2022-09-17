@@ -1,22 +1,21 @@
-
-export function addEventListener(el, type, fn, selector){
-    //判断 el 的类型
-    if(typeof el === 'string'){
+function addEventListener(el,type,fn,selector){
+    // 判断el的类型
+    if(typeof el ==="string"){
         el = document.querySelector(el);
     }
-    //事件绑定
-    //若没有传递子元素的选择器, 则给 el 元素绑定事件
+    //若没有传子元素selector  会给整个el绑定事件
     if(!selector){
-        el.addEventListener(type, fn);
-    }else{
-        el.addEventListener(type, function(e){
-            //获取点击的目标事件源
-            const target = e.target;
-            //判断选择器与目标元素是否相符合
+        el.addEventListener(type,fn);
+    } else {// 若传了子元素selector   则会做事件委托
+        el.addEventListener(type,function(e){
+            const target = e.target;// 获取点击目标事件源
+            // console.log(target);
+            //判断点击的子元素与传入子元素是否匹配
             if(target.matches(selector)){
-                //若符合  则调用回调
-                fn.call(target, e);
+                // 若符合则调用回调  并指定所点元素为this指向
+                fn.call(target,e)
             }
-        });
+        })
     }
+    
 }

@@ -9,27 +9,24 @@
 <body>
     <script>
         //eventBus
-        eventBus.on('login', data => {
-            console.log( data + '用户已经登录');
-        });
-
-        eventBus.on('login', data => {
-            console.log( data + '登录数据已经写入');
-        });
-
-        eventBus.on('logout', data => {
-            console.log( data + '退出登录');
-        });
-        //触发触发
-        // setTimeout(() => {
-        //     eventBus.emit('login', '张三');
-        // }, 2000)
-
-        //解绑事件
-        // eventBus.off('login');
-        eventBus.off();
-
+        eventBus.on("login",data=>{
+            console.log(data+"用户已经登录");
+        })
+        eventBus.on("login",data=>{
+            console.log(data+"登录数据已经写入");
+        })
+        eventBus.on("logout",data=>{
+            console.log(data+"退出登录");
+        })
         console.log(eventBus);
+        // 事件触发
+        setTimeout(() => {
+            eventBus.emit("login","张三")
+        }, ((2000)));
+        // eventBus.off("login");//删除当个事件
+        eventBus.off();//删除全部事件
+
+        // console.log(eventBus);
 
     </script>
 </body>
