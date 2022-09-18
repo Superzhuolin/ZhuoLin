@@ -103,8 +103,9 @@ JS工具库:学了19-30集(11集)
 遇到的问题 
 今日小结 
 1.查阅复习字charAt/charCodeAt/lastIndexOf()方法   
-学习数组/对象属性删除的三种方法  比对includes和indexOf方法  Object.keys/values
-1.JS工具库:学了31-37集(6集)  
+查阅学习数组/对象属性删除的三种方法  比对includes和indexOf方法  
+Object.keys/values   浅拷贝 Object.assign   JSON.stringify 方法
+2.JS工具库:学了31-37集(6集)  
 明日计划: 
 完结为时7天的JS工具库
 同时开启TypeScript语言的学习
