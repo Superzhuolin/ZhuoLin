@@ -9,67 +9,63 @@
 <body>
     <script>
         //函数
-        // axios({
-        //     //请求的类型
-        //     method: 'POST',
-        //     //请求的url
-        //     url: 'https://api.apiopen.top/getJok',
-        //     //url参数
-        //     params: {
-        //         a:100,
-        //         b:200
-        //     },
-        //     //请求体
-        //     data: {
-        //         c:300,
-        //         d:400
+        axios({
+            // 请求类型
+            method:"POST",
+            // 请求URL
+            url:"https://api.apiopen.top/getJok",
+            // url参数
+            params:{
+                a:100,b:200
+            },
+            // 请求体
+            data:{
+                c:300,d:400
+            }  
+        // 函数的返回结果是Promise对象
+        }).then(response=>{// 使用then方法指定成功的回调
+            console.log(response);
+        }).catch(reason=>{
+            console.log(reason);
+        })
+
+        // 调用对象的方法
+        axios.get("http;//127.0.0.1",{
+            params:{
+                a:100,b:200
+            }
+        }).then(response=>{
+            console.log(response);
+        })
+
+        // axios.post("http;//127.0.0.1",{
+        //     params:{
+        //         a:100,b:200
         //     }
-        // }).then(response => {
+        // }).then(response=>{
         //     console.log(response);
-        // }).catch(reason => {
-        //     console.log(reason);
         // })
 
-        // //调用对象方法
-        axios.get('https://api.apiopen.top/getJoke', {
-            params: {
-                a:100,
-                b:200
-            }
-        }).then(response => {
+        axios.put("http;//127.0.0.1",{
+            params:{
+                a:100,b:200
+            }, 
+            data:{
+                c:300,d:400
+            }  
+        }).then(response=>{
             console.log(response);
-        });
+        })
 
-        axios.post('https://api.apiopen.top/getJoke', {
-            params: {
-                a:100,
-                b:200
-            },
-            data: {
-                c:300,
-                d: 400
-            }
-        }).then(response => {
-            console.log(response);
-        });
+        // axios.delete("http;//127.0.0.1",{
+        //     params:{
+        //         a:100,b:200
+        //     }
+        // }).then(response=>{
+        //     console.log(response);
+        // })
 
-        axios.put('https://api.apiopen.top/getJoke', {
-            params: {
-                a:100,
-                b:200
-            }
-        }).then(response => {
-            console.log(response);
-        });
 
-        axios.delete('https://api.apiopen.top/getJoke', {
-            params: {
-                a:100,
-                b:200
-            }
-        }).then(response => {
-            console.log(response);
-        });
     </script>
 </body>
 </html>
