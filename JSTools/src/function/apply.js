@@ -1,4 +1,4 @@
-function apply(Fn,obj,args){
+export function apply(Fn,obj,args){
     // 判断
     if(obj === undefined || obj === null){
         obj = globalThis;

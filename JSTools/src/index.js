@@ -1,18 +1,18 @@
 export function test() {
+    // 向文档中写入字符串测试自定义包  输出test()
     document.write('测试自定义包');
     console.log('test()')
 }
 
-export function TTTT() {
-    console.log('TTTT()')
-}
+// export function TTTT() {
+//     console.log('TTTT()')
+// }
 
 //引入其他文件, 然后再暴露
 //1. 目标文件中暴露数据  export 数据
 // import {chunk} from './array/chunk';
-//2. 暴露数据
+// 2. 暴露数据
 // export {chunk};
-
 
 //数组相关的 API 函数
 export {chunk} from './array/chunk';

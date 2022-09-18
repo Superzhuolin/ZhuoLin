@@ -1,8 +1,8 @@
 
 .history
-.node_modules
-.dist
-Promise成品
+node_modules
+dist
+
 
 # local env files
 .env.local

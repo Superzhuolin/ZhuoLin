@@ -1,15 +1,30 @@
 {
-  "name": "jstools",
-  "version": "1.0.0",
+  "name": "mine-own-util",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/atguigu-utils.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:watch": "webpack --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "atguigu",
+    "aUtils",
+    "array",
+    "object",
+    "function",
+    "string",
+    "axios",
+    "event-bus",
+    "pub-su b"
+  ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^5.16.0",
+    "webpack-cli": "^4.4.0"
+  }
 }

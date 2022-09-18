@@ -1,5 +1,5 @@
 // 使用解构赋值的方式来对参数进行接受收 来直接在函数中使用变量操作变量中的属性
-function axios({method,url,params,data}){
+export function axios({method,url,params,data}){
     // 方法转化大写
     method = method.toUpperCase();
 

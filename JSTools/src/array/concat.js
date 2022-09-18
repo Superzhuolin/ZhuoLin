@@ -2,7 +2,7 @@
  * @param {Array} arr 
  * @param  {...any} args 
  */
-function concat (arr,...args){
+export function concat (arr,...args){
     const result = [...arr];//将arr中的数组元素放在最终结果中
     // 遍历数组   
     args.forEach(item=>{
@@ -20,7 +20,7 @@ function concat (arr,...args){
 /* slice(): 切片
 语法: var new_array = slice(array, [begin[, end]])
 功能: 返回一个由 begin 和 end 决定的原数组的浅拷贝, 原始数组不会被改变 */
-function slice(arr,begin,end){
+export function slice(arr,begin,end){
     if(arr.length ===0){
         return [];
     }
