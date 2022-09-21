@@ -1,13 +1,25 @@
 {
-/* 
+    /* 
     tsconfig.json是ts编译器的配对文件,可以根据它的信息来对代码进行编译
 
 */
     "include": [
-        "./src/**/*"  //*表示任意文件  **表示任意目录
+        "./src/**/*" //*表示任意文件  **表示任意目录
     ],
-    "exclude": [
-        "./src/hello"
-    ]
-
+    // "exclude": [
+    //     "./src/hello"
+    // ]
+    /* 'es3', 'es5', 'es6', 'es2015', 'es2016', 'es2017', 'es2018', 'es2019',
+     'es2020', 'es2021', 'es2022', 'esnext' */
+    "compilerOptions": {
+        "target": "es6",
+        "module": "System",
+        "outDir": "./dist", //编译后文件的所在目录
+        // 结合打包工具使用
+        // "outFile": "./dist/app.js",//将所有的文件编译为一个js文件
+        "allowJs": true, //是否对js文件编译
+        "checkJs": true,
+        "removeComments": true, //是否移除注释
+        "noEmit": true, //不生成编译后的文件
+    }
 }
