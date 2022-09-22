@@ -20,6 +20,14 @@
         "allowJs": true, //是否对js文件编译
         "checkJs": true,
         "removeComments": true, //是否移除注释
-        "noEmit": true, //不生成编译后的文件
+        "noEmit": false, //不生成编译后的文件
+        "noEmitOnError": true, //当有错误时不生成编译后的文件
+
+        // 启用所有的严格检查，默认值为true，设置后相当于开启了所有的严格检查
+        "strict": true,
+        // "alwaysStrict": true, //总是以严格模式对代码进行编译
+        // "noImplicitAny": true, //禁止隐式的any类型
+        // "noImplicitThis": true, //禁止类型不明确的this
+        // "strictNullChecks": true, //严格的空值检查
     }
 }
