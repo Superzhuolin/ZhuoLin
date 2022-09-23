@@ -4,7 +4,7 @@
     "target": "es2015",
     "strict": true,
     "outDir": "./dist",
-    "noEmitOnError": true
+    // "noEmitOnError": true
   },
   "include": [
     "./src/**/*"
