@@ -15,7 +15,10 @@ console.log(sum(123, 456));
 console.log('哈哈');
 console.log(hi);
 
-// let fn = (a: number, b: number) => a + b;
+// console.log(Promise);
 
-// fn(123 , 456);
-// fn(77, 22);
+
+let fn = (a: number, b: number) => a + b;
+
+fn(123 , 456);
+fn(77, 22);

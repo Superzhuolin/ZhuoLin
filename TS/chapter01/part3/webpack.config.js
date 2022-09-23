@@ -33,34 +33,33 @@ module.exports = {
                 test: /\.ts$/,
                 // 要使用的loader
                 use: [
-                    // 配置babel
                     {
                         // 指定加载器
-                        loader: "babel-loader",
+                        loader:"babel-loader",
                         // 设置babel
-                        options: {
+                        options:{
                             // 设置预定义的环境
-                            presets: [
+                            presets:[
                                 [
-                                    // 指定环境的插件
+                                    // 指定环境插件
                                     "@babel/preset-env",
                                     // 配置信息
                                     {
                                         // 要兼容的目标浏览器
-                                        targets: {
-                                            "chrome": "58",
-                                            "ie": "11"
+                                        targets:{
+                                            "chrome":"58",
+                                            "ie":"11"
                                         },
                                         // 指定corejs的版本
-                                        "corejs": "3",
-                                        // 使用corejs的方式 "usage" 表示按需加载
-                                        "useBuiltIns": "usage"
+                                        "corejs":"3",
+                                        // 使用corejs的方式   "usage"表示按需加载
+                                        "useBuiltIns":"usage"
                                     }
                                 ]
                             ]
                         }
                     },
-                    'ts-loader'
+                    "ts-loader"
                 ],
                 // 要排除的文件
                 exclude: /node-modules/
