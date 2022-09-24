@@ -1,8 +1,7 @@
 // object表示一个js对象
 let a: object;
 a = {};
-a = function () {
-};
+a = function () {};
 
 
 // {}用来指定对象中可以包含那些属性

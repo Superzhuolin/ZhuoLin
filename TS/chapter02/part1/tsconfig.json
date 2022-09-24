@@ -4,7 +4,7 @@
     "target": "es2015",
     "strict": true,
     "outDir": "./dist",
-    // "noEmitOnError": true
+    "noEmitOnError": true //有错误的情况下不进行编译
   },
   "include": [
     "./src/**/*"
