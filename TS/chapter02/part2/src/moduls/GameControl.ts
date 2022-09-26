@@ -29,9 +29,8 @@ class GameContral {
         this.run();  
     } 
 
-
     /*
-   *   ArrowUp  Up
+   * * ArrowUp  Up
        ArrowDown Down
        ArrowLeft Left
        ArrowRight Right
@@ -65,7 +64,7 @@ class GameContral {
                 break;
             case "ArrowDown":
             case "Down":
-                // 向下移动 top 增加
+                // 向下移动 Down 增加
                 Y += 10;
                 break;
             case "ArrowLeft":
@@ -75,7 +74,7 @@ class GameContral {
                 break;
             case "ArrowRight":
             case "Right":
-                // 向右移动 left 增加
+                // 向右移动 Right 增加
                 X += 10;
                 break;
         } 

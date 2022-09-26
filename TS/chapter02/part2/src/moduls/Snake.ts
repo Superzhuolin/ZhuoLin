@@ -42,7 +42,6 @@ class Snake {
                 value = this.X+10;
             }
         }
-
         // 移动身体
         this.moveBody();
 

@@ -21,11 +21,10 @@ class ScorePanel {
     addScore() {
         // 使分数自增
         this.scoreEle.innerHTML = ++this.score + '';
-        //  每10分升一级
+        //  每upScore分升一级
         if (this.score % this.upScore === 0) {
             this.levelUp();
         }
-
     }
 
     // 设置提升等级的方法
