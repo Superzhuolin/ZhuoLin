@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <!-- <div v-for="(item,key,index) in useInfo"> -->
+            <div v-for="(item,index) in useInfo">
+               <!-- 通过set方法将对象进行渲染
+            1.全局方法
+            2.实例方法  app.$set(app.useInfo,"address","beijing");
+            3.数组上实例方法(遍历方法/改变数组的引用
+            set方法:Vue.set(app.useInfo,1,6)
+                    app.$set(app.useInfo,2,11))
+            4.对象  (改变数组的引用/set方法)
+        -->
+               <!-- {{item}} ----{{key}}----{{index}} -->
+               {{item}} -------{{index}}
+            </div>
+            
+      
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+      /* v-for的列表渲染 */  
+      var app = new Vue({
+        el:"#app",
+        data:{
+            // 对象         可以通过修改对象引用的方式渲染页面
+           /*  useInfo:{
+                 name:"Dell",
+                age:28,
+                gender:"male",
+                salary:"secret"
+            }*/
+            useInfo:[1,2,3,4]
+            
+        }
+      })
+
+    </script>
+</body>
+</html>

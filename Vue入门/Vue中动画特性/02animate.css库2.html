@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <!-- <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"> -->
+    <link rel="stylesheet" href="/animate.css">
+
+<body>
+    <div id="app">
+        <!-- 简写(自定义class名字)
+        使用animated.css库的样式必须使用自定义的方式，class类里面必须包含animated-->
+        <transition 
+        enter-active-class="animated bounce" leave-active-class="animated shake">
+            <div v-show="show">hello world</div>
+        </transition>
+
+        <button @click="handleclick">切换</button>
+    </div>
+
+
+    <script src="/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                show:true,
+            },
+            methods: {
+                handleclick: function(){
+                    this.show = !this.show;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fade-enter,.fade-leave-to{
+            opacity: 0;
+        }
+        .fade-enter-active,.fade-leave-active{
+            transition: opacity 3s;
+        }
+    </style>
+</head>
+  <link rel="stylesheet" type="text/css" href="/animate.css">
+<body>
+    <div id="app">
+        <!-- 简写(自定义class名字)
+        使用animated.css库的样式必须使用自定义的方式，class类里面必须包含animated
+    type="transition"定义动画时长以transition为准
+    :duration="5000"  定义时长为五秒-->
+        <transition 
+        name="fade"  appear  :duration={enter:5000,leave:3000}
+        enter-active-class="animated bounce fade-enter-active" 
+        leave-active-class="animated shake fade-leave-active"
+        appear-acitve-class="animated bounce" 
+        >
+            <div v-show="show">hello world</div>
+        </transition>
+    <!-- <div class="animated bounce fadeInLeft rotateInDownLeft rollIn infinite">
+     Hello world!
+    </div> -->
+        <button @click="handleclick">切换</button>
+    </div>
+
+
+    <script src="/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                show:true,
+            },
+            methods: {
+                handleclick: function(){
+                    this.show = !this.show;
+                }
+            },
+        })
+    </script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                show:true,
+            },
+            methods: {
+                handleclick: function(){
+                    this.show = !this.show;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

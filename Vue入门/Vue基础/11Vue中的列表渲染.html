@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 模板占位符号:帮助我们包裹元素,但在循环过程中不会被渲染到页面上 -->
+        <template v-for="(item,index) of list" >
+            <div>
+                 {{index}}: {{item.text}} 
+            </div>
+            <span>
+                 {{index}}: {{item.text}} 
+            </span>
+        </template>
+      
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+      /* v-for的列表渲染 */  
+      var app = new Vue({
+        el:"#app",
+        data:{
+            list:[{id:18512151,text:"hello"},{id:18512152,text:"world"},
+            {id:18512153,text:"Lee"}]
+            
+        }
+      })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* !!使用CSS动画 */
+        .v-enter,.v-leac-to{
+            opacity: 0;
+        }
+        .v-leave-active,.v-enter-active{
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <fade :show="show">
+            <div>hello world</div>
+        </fade>
+        <fade :show="show">
+            <h1>hello world</h1>
+        </fade>
+            <button @click="handleClick">切换</button>
+
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+        Vue.component("fade",{
+            props:["show"],
+            template:   /* transition包裹内容里面会有过渡动画效果  */
+            `
+        <transition>
+            <slot v-if="show"></slot>
+        </transition>
+            `
+        })
+
+        var app = new Vue({
+            el: '#app',
+            data:{
+                show: false,
+            },
+            methods:{
+                handleClick:function(){
+                  this.show = !this.show;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

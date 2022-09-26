@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <table>  <!-- 使用is属性解决模板标签bug问题 -->
+            <!-- H5中编码规范要求table中的tbody只能放tr标签-->
+            <!-- <tbody>
+                <tr is = "row"></tr>
+                <tr is = "row"></tr>
+                <tr is = "row"></tr>
+            </tbody> -->
+            <!-- ul/ol标签下支持li标签 -->
+            <ul>
+                <li is="row"></li>
+                <li is="row"></li>
+                <li is="row"></li>
+            </ul>
+            <!-- select标签中必须写option -->
+        </table>
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+        Vue.component("row",{
+            template:"<tr><td>this is a row</td></tr>"
+        })
+
+        var app = new Vue({
+            el:"#app",
+            data:{
+
+            }
+        })
+    </script>
+</body>
+</html>

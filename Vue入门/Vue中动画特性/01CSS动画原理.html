@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .v-enter, 
+    .v-leave-to{
+        opacity: 0;
+    }
+    .v-enter-active,
+    .v-leave-active{
+        transition: opacity 1s;
+    }
+</style>
+<body>
+    <div id="app">
+        <!-- transition包裹内容里面会有过渡动画效果 
+            v-show、v-if甚至是动态组件都可以-->
+        <transition >
+            <div v-show="show">hello world</div>
+        </transition>
+
+        <button @click="handleclick">切换</button>
+    </div>
+<script src="/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                show:true,
+            },
+            methods: {
+                handleclick: function(){
+                    this.show = !this.show;
+                }
+            },
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .v-enter,.v-leave-to{
+            opacity: 0;
+        }
+        .v-enter-active,.v-leave-active{
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <transition mode="out-in"> 
+            <!-- 动态组件 -->
+            <component :is="type"></component>
+            <!-- <child v-if="show"></child>
+            <child-one v-else="show"></child-one> -->
+        </transition>
+        <button @click="handleclick ">切换</button>
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+        Vue.component("child",{
+            template:"<div>child</div>",
+        })
+        Vue.component("child-one",{
+            template:"<div>child-one</div>",
+        })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            // show: true,
+            type: "child",
+        },
+        methods: {
+            handleclick:function(){
+                // this.show=!this.show;
+                this.type = this.type==="child-one" ? "child" : "child-one";
+            }
+        }
+    })
+    </script>
+</body>
+</html>

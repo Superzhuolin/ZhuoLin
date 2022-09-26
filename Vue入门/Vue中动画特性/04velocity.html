@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/velocity.js"></script>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 入场动画 -->
+        <transition   
+        @before-enter="handleBeforeEnter"
+        @enter="handleEnter"
+        @after-enter="handleAfterEnter">  <!-- before-enter显示之前触发事件 -->
+            <div v-show="show">hello world</div>
+        </transition>
+        <button @click="handleclick">切换</button>
+    </div>
+    <script>
+        // 使用Vue中的钩子实现动画效果
+        var app = new Vue({
+            el: '#app',
+            data:{
+                show:true,
+            },
+            methods: {
+                handleclick: function(){
+                    this.show = !this.show;
+                },
+                handleBeforeEnter: function(el){
+                    el.style.opacity=0;
+                },
+                handleEnter:function(el,done){
+                  Velocity(el,{opacity:1},{duration:1000,complete:done});      
+                },
+                handleAfterEnter:function(el){
+                    alert("结束动画");
+                }
+            },
+        })
+    </script>
+</body>
+</html>

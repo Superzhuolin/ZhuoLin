@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 子组件内容根据外部传递内容来显示 -->
+        <child content="Dell"></child>
+        <child content="Lee"></child>
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+        /* 非父子组件传值：
+        1.使用Vues（较复杂，放在项目讲解）
+        2.使用总线机制(Bus、总线、发布订阅模式、观察者模式) */
+       /*  在Vue的prototype上挂载了属性bus  bus属性指向Vue的实例 
+        以后在调用Vue实例或者是创建Vue组件时，每个组件上都会有bus属性
+        （因为每个组件、每个Vue实例都是通过Vue创建的，并且每个通过Vue类创建的对象，
+        即Vue的实例都会有bus属性，都指向同一个Vue实例   */
+        Vue.prototype.bus = new Vue();
+
+        Vue.component("child",{
+            //-3 解决单项数据流问题
+            data:function(){
+                return {
+                    selfcontent :this.content
+                }
+            },
+            props:{
+                content:String
+            },
+            template:'<div @click="handleClick">{{selfcontent}}</div>',
+            methods: {
+                handleClick:function(){
+                    // --1触发change事件，该事件携带内容this.selfcontent
+                    this.bus.$emit('change',this.selfcontent);
+                }
+            },
+            // -2mounted，组件被挂载时，执行的函数
+            mounted:function() {
+                // this的作用域发生了变化
+                var this_ = this;
+                // 该组件监听bus的改变  监听到了触发函数
+                this.bus.$on('change',function(msg){
+                    this_.selfcontent=msg;
+                    // 两次弹窗（一个change组件触发change时，两个child组件都触发了事件的监听
+                    // alert(msg);
+                })
+            }
+            
+        })
+        var app = new Vue({
+            el:"#app",
+        });
+    </script>
+</body>
+</html>

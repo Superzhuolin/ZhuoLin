@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .v-enter,.v-leave-to{
+            opacity: 0;
+        }
+        .v-enter-active,.v-leave-active{
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- in-out 要展示元素先进来,要隐藏的再隐藏 -->
+        <!-- out-in 先隐藏后展示 -->
+        <transition mode="out-in"> 
+            <!-- 多个元素动画切换效果 -->
+            <!-- 在动画切换时,会进行dom的复用,导致动画效果不会出现 需要使用不同的key -->
+            <div v-if="show" key="hello">Hello world</div>
+            <div v-else key="bye">By world</div>
+        </transition>
+        <button @click="handleclick ">切换</button>
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            show: true,
+        },
+        methods: {
+            handleclick:function(){
+                this.show=!this.show;
+            }
+        }
+    })
+    </script>
+</body>
+</html>

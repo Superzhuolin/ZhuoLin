@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 入场动画 -->
+        <transition  name="fade" 
+        @before-enter="handleBeforeEnter"
+        @enter="handleEnter"
+        @after-enter="handleAfterEnter">  <!-- before-enter显示之前触发事件 -->
+        <!-- 出场动画 -->
+        <!-- <transition  name="fade" 
+        @before-leave="handleBeforeEnter"
+        @leave="handleEnter"
+        @after-leave="handleAfterEnter">  -->
+            <div v-show="show">hello world</div>
+        </transition>
+        <button @click="handleclick">切换</button>
+    </div>
+    <script src="/vue.js"></script>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                show:true,
+            },
+            methods: {
+                handleclick: function(){
+                    this.show = !this.show;
+                },
+                handleBeforeEnter: function(el){
+                    el.style.color="red"
+                },
+                handleEnter:function(el,done){
+                    setTimeout(function(){
+                        el.style.color="green";
+                    },2000);
+                    setTimeout(function(){
+                        el.style.color="green";
+                        done();//表示事件执行完毕
+                    },4000);
+                },
+                handleAfterEnter:function(el){
+                    el.style.color="black";
+                }
+            },
+        })
+    </script>
+</body>
+</html>

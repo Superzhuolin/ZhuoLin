@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .v-enter,.v-leac-to{
+            opacity: 0;
+        }
+        .v-leave-active,.v-enter-active{
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 列表过渡(动画) -->
+        <transition-group>
+            <div v-for="item of list" :key="item.id">{{item.title}}</div>
+        </transition-group>
+            <button @click="handleClick">添加</button>
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+        var count=0;
+        var app = new Vue({
+            el: '#app',
+            data:{
+                list:["番茄","茄子"],
+            },
+            methods:{
+                handleClick:function(){
+                    this.list.push({
+                        id:count++,
+                        title:"hello world!",
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -16,7 +16,6 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         // 打包后文件的文件
         filename: "bundle.js",
-
         
         environment: {
             arrowFunction: false,// 告诉webpack不使用箭头

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 动态组件  会根据is里面数据的变化，自动显示不同组件 -->
+        <!-- <component :is="type"></component> -->
+        <child-one v-if='type ==="child-one"'></child-one>
+        <child-two v-if='type ==="child-two"'></child-two>
+        <button @click="handleBtnClick">change</button>
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+
+        Vue.component("child-one",{
+            // 放入v-once指令可以有效提高动态内容的展示效率
+            template:"<div v-once>child-one</div>",
+        })
+        Vue.component("child-two",{
+            template:"<div v-once>child-two</div>",
+        })
+        
+        var app = new Vue({
+            el:"#app",
+            data:{
+                type:'child-one'
+            },methods: {
+                handleBtnClick:function(){
+                    this.type = this.type === 'child-two' ?
+                                  'child-one' : 'child-two';
+                }
+            },
+
+        })
+    </script>
+</body>
+</html>

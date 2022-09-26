@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 使用index作为key值会在频繁操作dom元素时费性能,让vue无法充分复用到节点  不建议使用! -->
+        <!--  使用id作为key值  性能最高-->
+        <!-- 总结:key值唯一且不使用index作为key值,可以提高性能 -->
+        <div v-for="(item,index) of list" :key="item.id">
+            {{item.id}}:{{item.text}} {{index}}
+        </div>
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+      /* v-for的列表渲染 */  
+      var app = new Vue({
+        el:"#app",
+        data:{
+            list:[{id:18512151,text:"hello"},{id:18512152,text:"world"},
+            {id:18512153,text:"Lee"}]
+            //浏览器上: 不能通过修改数组下标的方式修改数组(页码不会跟着响应) 
+            //1.通过数组遍历方法  
+            // 2.改变数据的引用
+        }
+      })
+
+    </script>
+</body>
+</html>

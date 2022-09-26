@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 自定义事件 -->
+        <child @click="handleClick"></child>
+    </div>
+    <script src="/vue.js"></script>
+    <script>
+        Vue.component("child",{
+            // 两层传递太过于麻烦
+            // 1.点击触发原生事件 Click，并向外触发click事件让父组件监听触发handleClick函数
+            template:"<div @click='Click'>Child</div>",
+            methods: {
+                Click:function(){
+                    alert("Click !");
+                    this.$emit("click");
+                }
+            },
+        })
+
+        var app = new Vue({
+            el:"#app",
+            methods: {
+                handleClick:function(){
+                    alert("Click me!");
+                }
+            },
+        })
+    </script>
+</body>
+</html>
