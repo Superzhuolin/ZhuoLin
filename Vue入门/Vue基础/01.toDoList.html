@@ -7,25 +7,25 @@
     <title>Document</title>
 </head>
 <body>
+    <script src="/vue.js"></script>
     <div id="app">
-        <input type="text"  v-model = "inputValue">
-        <button @click="add">点我添加</button>
+        <input type="text" v-model="inputValue">
+        <button @click="handleBtnClick">提交</button>
         <ul>
             <li v-for="item in list">{{item}}</li>
         </ul>
     </div>
-    <script src="/vue.js"></script>
     <script>
         var app = new Vue({
-            el: '#app',
+            el:"#app",
             data:{
-                list:[],
-                inputValue: 'ni'
+                list:["1","2",3],
+                inputValue:"1",
             },
             methods:{
-                add:function(){
-                   this.list.push(this.inputValue);
-                   this.inputValue=""
+                handleBtnClick:function(){
+                    this.list.push(this.inputValue);
+                    this.inputValue="";
                 }
             }
 

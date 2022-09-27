@@ -15,37 +15,30 @@
             <!-- <li v-for="item in list">{{item}}</li> -->
         <!-- 通过v-for把list中的数据传给item   再将item值通过V-bind中的content传给todo-item -->
         <!-- <TodoItem v-bind="item" v-for="item in list"></TodoItem> -->
-            <todo-item v-bind:content="item" 
-                       v-for="item in list">
+            <todo-item :content="item" v-for="item in list">
             </todo-item>
+
         </ul>
     </div>
     <script src="/vue.js"></script>
     <script>
-         /* 组件:将页面分成很多个的部分,每个部分称之为一个组件  或者说就是页面上的一个区域
-        大而化小,提高效率 */
-         
-        // Vue中创建全局组件的方法      template模板
-        //1. 创建全局组件ToDoItem  组件内容为<li>{{content}}</li>
-        /* 注意字母大小写驼峰之和要加- */
-/*         Vue.component("TodoItem",{
-            // (1)prop 表示外部传入的数据,要接受的话就要将其定义在其里面
-            props:['content'],
-            // (2)子组件的模板  也就是组件标签里面的内容会被组件模板的内容替换掉
-            template:"<li>{{content}}</li>"
-        }) */
+        // 1.全局组件
+        // Vue.component("TodoItem",{
+        //     props:["content"],
+        //     template:"<li>{{content}}</li>",
+        // })
 
-        //2.局部(对象)组件的方法 
-        var  TodoItem ={
-            props:['content'],
-            template:"<li>{{content}}</li>"
+        //2.局部组件
+        var TodoItem = {
+            props:["content"],
+            template:"<li>{{content}}</li>",
         }
 
         var app = new Vue({     //Vue是最外层父组件
             el: '#app',
             // 注册局部组件
             components:{
-                TodoItem:TodoItem
+                TodoItem
             },
             data:{
                 list:[],

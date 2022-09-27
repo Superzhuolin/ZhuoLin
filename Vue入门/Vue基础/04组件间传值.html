@@ -15,15 +15,15 @@
         <ul>
             <!-- 3.v-for将list值传递给item,v-bind将item值与content绑定,并将其显示在表单上
             从而表单显示内容为输入框输入值 -->
-            <todo-item v-bind:content="item" 
-                       v-for="(item,index) in list"
+            <todo-item :content="item" 
                        :index="index"
+                       v-for="(item,index) in list"
                        @delete="Delete">
                        <!-- -3监听delete事件 -->
             </todo-item>
         </ul>
     </div>
-    <script src="/vue.js"></script>
+    <script src="./../vue.js"></script>
     <script>
         var  TodoItem ={
             // -1子组件想用那个属性就必须接受那个属性
