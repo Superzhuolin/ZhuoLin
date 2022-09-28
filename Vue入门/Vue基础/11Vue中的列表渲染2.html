@@ -21,8 +21,11 @@
       var app = new Vue({
         el:"#app",
         data:{
-            list:[{id:18512151,text:"hello"},{id:18512152,text:"world"},
-            {id:18512153,text:"Lee"}]
+            list:[
+                {id:18512151,text:"hello"},
+                {id:18512152,text:"world"},
+                {id:18512153,text:"Lee"}
+            ]
             //浏览器上: 不能通过修改数组下标的方式修改数组(页码不会跟着响应) 
             //1.通过数组遍历方法  
             // 2.改变数据的引用

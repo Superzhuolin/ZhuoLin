@@ -5,48 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="/vue.js"></script>
 </head>
 <body>
-    <div id="app">{{fullName()}} {{age}}</div>
-    <!-- 非常重要 -->
-    <script src="/vue.js"></script>
+    <div id="app">{{fullName}} {{age}}</div>
     <script>
         var app = new Vue({
             el: '#app',
             data:{
                 firstName:"Dell",
-                lastName:"Rock",
-                // fullName:"Dell Rock",
+                lastName:"Lee",
+                fullName:"Dell Lee",
                 age:18
             },
-            // 3.侦听器     (具备缓存机制,但是语法复杂)
-           /*  watch:{
-                // 侦听firstName的改变
+            watch:{
                 firstName:function(){
-                        console.log("计算了一次");
-                    this.fullName = this.firstName+" "+this.lastName;
+                    console.log("计算了一次");
+                    this.fullName= this.firstName+" "+this.lastName;
                 },
                 lastName:function(){
-                        console.log("计算了一次");
-                    this.fullName = this.firstName+" "+this.lastName;
-                }
-            } */
-            methods: {
-                //2.使用方法实现该功能        不如计算属性有效(没有缓存)
-                // 不依赖的属性改变,计算属性也会重新计算一次
-                fullName:function(){
-                        console.log("计算了一次");
-                        return this.firstName+" "+this.lastName;
-                     }
+                    console.log("计算了一次");
+                    this.fullName= this.firstName+" "+this.lastName;
+                },
             },
-            /* computed:{
-                    // 1.计算属性  (首选) 
-            // 内置缓存  依赖的属性改变,计算属性会重新计算一次
-                     fullName:function(){
-                        console.log("计算了一次");
-                        return this.firstName+" "+this.lastName;
-                     }
-                } */
+            methods:{
+                // fullName:function(){
+                //     console.log("计算了一次");
+                //     return this.firstName+" "+this.lastName;
+                // }  
+            },
+            computed:{
+                // fullName:function(){
+                //     console.log("计算了一次");
+                //     return this.firstName+" "+this.lastName;
+                // }  
+            }
         })
     </script>
 </body>

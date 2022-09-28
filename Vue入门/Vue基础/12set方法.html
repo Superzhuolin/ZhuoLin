@@ -10,13 +10,16 @@
     <div id="app">
             <!-- <div v-for="(item,key,index) in useInfo"> -->
             <div v-for="(item,index) in useInfo">
-               <!-- 通过set方法将对象进行渲染
-            1.全局方法
+               <!-- 通过set方法进行页面渲染
+            1.全局方法  Vue.set(app.useInfo,"address","beijing");
             2.实例方法  app.$set(app.useInfo,"address","beijing");
-            3.数组上实例方法(遍历方法/改变数组的引用
-            set方法:Vue.set(app.useInfo,1,6)
+
+            数组上实例方法:
+              1.遍历方法/改变数组的引用
+              2.set方法:Vue.set(app.useInfo,1,6)
                     app.$set(app.useInfo,2,11))
-            4.对象  (改变数组的引用/set方法)
+            对象:
+                (改变对象的引用/set方法)
         -->
                <!-- {{item}} ----{{key}}----{{index}} -->
                {{item}} -------{{index}}
@@ -32,7 +35,7 @@
         data:{
             // 对象         可以通过修改对象引用的方式渲染页面
            /*  useInfo:{
-                 name:"Dell",
+                name:"Dell",
                 age:28,
                 gender:"male",
                 salary:"secret"

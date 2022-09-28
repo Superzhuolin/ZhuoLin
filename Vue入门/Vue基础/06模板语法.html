@@ -5,22 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <!-- 插值表达式 -->
-        {{name +' Lee'}}
-        <!-- 在表达式还可以加js表达式,例如   字符串 -->
+        {{name}}
         <div v-text="name+' Lee'"></div>
-        <div v-html="name+' Lee'"></div> 
+        <div v-html="name+' Lee'"></div>
     </div>
-    <script src="/vue.js"></script>
     <script>
-        var app =new Vue({
-            el: '#app',
+        var app = new Vue({
+            el:"#app",
             data:{
-                name: '<h1>dell</h1>',
-                // name: 'dell',
+                // name:"<h1>Dell</h1>"
+                name:"Dell"
             }
         })
     </script>

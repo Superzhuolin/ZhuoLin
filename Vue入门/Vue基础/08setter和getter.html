@@ -5,39 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="/vue.js"></script>
     <style>
      
     </style>
 </head>
 <body>
     <div id="app">{{fullName}}</div>
-    <script src="/vue.js"></script>
     <script>
         var app = new Vue({
             el: '#app',
-            data:{
-               firstName: 'John',
-               lastName: 'Doe',
+             data:{
+                firstName:"Dell",
+                lastName:"Lee",
             },
             computed:{
-               /*   fullName:function(){
-                    return  this.firstName + ' ' + this.lastName;
-                } */
                 fullName:{
-                    // 取属性值的时候执行
                     get:function(){
-                      return  this.firstName + ' ' + this.lastName;
-                    },
-                    // 设置属性值的时候执行
+                        return this.firstName+" "+this.lastName;
+                    } ,
                     set:function(value){
-                        //firstName与lastName的变化引起fullName的变化
-                        var arr = value.split(' ');
-                        this.firstName = arr[0];
-                        this.lastName = arr[1];
-                        console.log(value);
+                        var arr = value.split(" ");
+                        this.firstName=arr[0];
+                        this.lastName=arr[1];
                     }
                 }
-            }
+            },
         })
     </script>
 </body>

@@ -9,13 +9,13 @@
 <body>
     <div id="app">
         <!-- 模板占位符号:帮助我们包裹元素,但在循环过程中不会被渲染到页面上 -->
-        <template v-for="(item,index) of list" >
+        <template v-for="(item,index) of list" :key="item.id" >
             <div>
                  {{index}}: {{item.text}} 
             </div>
-            <span>
+            <!-- <span>
                  {{index}}: {{item.text}} 
-            </span>
+            </span> -->
         </template>
       
     </div>
@@ -25,9 +25,11 @@
       var app = new Vue({
         el:"#app",
         data:{
-            list:[{id:18512151,text:"hello"},{id:18512152,text:"world"},
-            {id:18512153,text:"Lee"}]
-            
+            list:[
+                {id:18512151,text:"hello"},
+                {id:18512152,text:"world"},
+                {id:18512153,text:"Lee"}
+            ]
         }
       })
 

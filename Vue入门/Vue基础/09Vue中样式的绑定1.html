@@ -13,9 +13,10 @@
 </head>
 <body>
     <div id="app">
-        <!-- 1.class的对象绑定 -->
-        <!-- 1.<div @click="handleDivClick" :class="{activated: isActivated}"> -->
-        <!-- 2.class和数组的绑定   数组里面的内容表示一个变量,class上会显示变量的内容-->
+        <!-- 有冒号:  后面跟着js表达式 -->
+        <!-- <div @click="handleDivClick" :class="{activated:isActivated}">
+            Hello World!
+        </div> -->
         <div @click="handleDivClick" :class="[activated,one]">
             Hello World!
         </div>
@@ -25,22 +26,12 @@
         var app = new Vue({
             el: '#app',
             data:{
-                // 1.isActivated:false,
-                activated:"",
-                one:"one",
+                activated:'',
+                one:"one"
             },
-            methods: {
-                handleDivClick: function(){
-                    //1. this.isActivated = !this.isActivated;
-
-                   /*  if(this.activated  ==="activated"){
-                        this.activated = "";
-                    }else{
-                        this.activated = "activated";
-                    } */
-                    // 简写
-                    this.activated = this.activated  ==="activated"?
-                                        "":"activated";
+            methods:{
+                handleDivClick:function(){
+                    this.activated= this.activated==="activated"?"":"activated";
                 }
             }
         })
