@@ -9,32 +9,13 @@
 <body>
     <div id="app">
         <!-- 父组件对子进行参数传递,子组件可以对数据进行校验约束 -->
-        <child :content="'ddddddd'"></child>
     </div>
     <script src="/vue.js"></script>
     <script>
         Vue.component("child",{
-            // props:["content"],
-            props:{
-                // content:String   //子组件接受的content必须是String类型
-                // content:[String,Number]   //子组件接受的content必须是String或Number类型
-                content:{
-                    type:String,
-                    // required:false,      //若为true该属性必须要传
-                    // default:"default value"  //不传时的默认值（default）
-                    validator:function(value){   //校验器：传入的字符串长度必须大于五
-                        return (value.length>5)
-                    }
-                }
-            },
-            template:"<div>{{content}}</div>",
+            template:"<div></div>"
         })
-        var app = new Vue({
-            el:"#app",
 
-
-            
-        })
     </script>
 </body>
 </html>

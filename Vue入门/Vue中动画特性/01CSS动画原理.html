@@ -7,37 +7,35 @@
     <title>Document</title>
 </head>
 <style>
-    .v-enter, 
-    .v-leave-to{
+    .v-enter,.v-leave{
         opacity: 0;
     }
-    .v-enter-active,
-    .v-leave-active{
-        transition: opacity 1s;
+    .v-enter-active,.v-leave-active{
+        /* 对opacity进行transition监控,若opacity发生变化,会慢慢的从0变到对应的opacity值*/
+        transition: opacity 2s; 
     }
 </style>
 <body>
     <div id="app">
-        <!-- transition包裹内容里面会有过渡动画效果 
-            v-show、v-if甚至是动态组件都可以-->
         <transition >
-            <div v-show="show">hello world</div>
+            <div v-if="show" >hello</div>
         </transition>
-
-        <button @click="handleclick">切换</button>
+        <button @click="handleClick">切换</button>
     </div>
 <script src="/vue.js"></script>
     <script>
+
         var app = new Vue({
-            el: '#app',
+            el:"#app",
             data:{
-                show:true,
+                show:true
             },
-            methods: {
-                handleclick: function(){
-                    this.show = !this.show;
+            methods:{
+                handleClick:function(){
+                    this.show=!this.show;
                 }
-            },
+            }
+
         })
     </script>
 </body>

@@ -11,9 +11,10 @@
     <div id="app">
         <!-- 入场动画 -->
         <transition  name="fade" 
-        @before-enter="handleBeforeEnter"
+        @before-enter="handleBeforeEnter",
         @enter="handleEnter"
-        @after-enter="handleAfterEnter">  <!-- before-enter显示之前触发事件 -->
+        @after-leave="handleAfterEnter"
+        >  <!-- before-enter显示之前触发事件 -->
         <!-- 出场动画 -->
         <!-- <transition  name="fade" 
         @before-leave="handleBeforeEnter"
@@ -35,20 +36,20 @@
                 handleclick: function(){
                     this.show = !this.show;
                 },
-                handleBeforeEnter: function(el){
+                handleBeforeEnter:function(el){
                     el.style.color="red"
                 },
                 handleEnter:function(el,done){
-                    setTimeout(function(){
+                    setTimeout(()=>{
                         el.style.color="green";
-                    },2000);
-                    setTimeout(function(){
-                        el.style.color="green";
-                        done();//表示事件执行完毕
-                    },4000);
+                    },2000)
+                    setTimeout(()=>{
+                        done();
+                    },4000)
+                   
                 },
                 handleAfterEnter:function(el){
-                    el.style.color="black";
+                        el.style.color="#000";
                 }
             },
         })

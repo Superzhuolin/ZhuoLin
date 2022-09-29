@@ -20,7 +20,7 @@
     <script>
         Vue.component("row",{
             // 将要显示的内容放在content中存储
-            /*  子组件中的data必须是函数而不能是对象,同时返回一个对象    
+            /*  2.子组件中的data必须是函数而不能是对象,同时返回一个对象    
                     让每一个子组件返回不一样的对象,进行独立存储,而不互相影响 */ 
            /*  data:{
                 content:"this is a row"
@@ -35,9 +35,6 @@
 
         var app = new Vue({
             el:"#app",
-            data:{
-
-            }
         })
     </script>
 </body>

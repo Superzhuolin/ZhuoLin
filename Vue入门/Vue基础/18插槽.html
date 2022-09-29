@@ -8,26 +8,24 @@
 </head>
 <body>
     <div id="app">
-        <child>
+        <child >
             <!-- 像是往子组件里面插入了内容，所以称为插槽 -->
-            <H1>Dell</H1>
+            <h1> 好</h1>
         </child>
     </div>
     <script src="/vue.js"></script>
     <script> 
         // 插槽 （子组件使用父组件传入的内容）    非常重要
         Vue.component('child',{
+            props:["content"],
             // 还要展示一段父组件传递过来的值   ES6语法
             template:`<div>
-                         <p>hello</p>
-                         <slot>默认值</slot>   
-                      </div>`,
-                      //slot 显示的是父组件向子组件插入的标签
+                            <slot>默认值</slot>
+                      </div>`
         })
 
         var app = new Vue({
             el: '#app',
-            
         })
     </script>
 </body>

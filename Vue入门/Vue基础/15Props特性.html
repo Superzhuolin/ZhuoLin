@@ -8,33 +8,28 @@
 </head>
 <body>
     <div id="app">
-        <!--Props特性：父组件通过属性向子组件传值时，子组件恰好声明了该组件 
-        传递的值是不会在页面标签上显示的   子组件可以获取父组件传递的值
-        非Props特性：父组件通过属性向子组件传值时，子组件没有声明了该组件内容   使用不多!!
-        （此时无法获取内容） 传递的值是会在页面标签上显示的   
-    -->
-
-        <child :content="'ddddddd'"></child>
+        <child content="hello"></child>
     </div>
     <script src="/vue.js"></script>
     <script>
         Vue.component("child",{
-            // props:["content"],
-            props:{
-                // content:String   //子组件接受的content必须是String类型
-                // content:[String,Number]   //子组件接受的content必须是String或Number类型
-                // content:{
-                   
-                // }
-            },
-            template:"<div>1321</div>",
+            // props:{
+            //     content:{
+            //         type:[String,Number],
+            //         required:false,
+            //         default:"default",
+            //         // validator:(value)=>value.length>6,//参数检验 
+            //     }, 
+            // },
+            template:"<div>'content'</div>"
         })
+
         var app = new Vue({
             el:"#app",
-
-
-            
+            data:{
+            }
         })
+
     </script>
 </body>
 </html>

@@ -12,9 +12,12 @@
 <body>
     <div id="app">
         <!-- 简写(自定义class名字)
-        使用animated.css库的样式必须使用自定义的方式，class类里面必须包含animated-->
+        使用animated.css库的样式必须使用自定义的方式，
+        class类里面必须包含animated 后面跟动画效果名字 -->
         <transition 
-        enter-active-class="animated bounce" leave-active-class="animated shake">
+         enter-active-class="animated bounce"
+         leave-active-class="animated shake"
+         >
             <div v-show="show">hello world</div>
         </transition>
 

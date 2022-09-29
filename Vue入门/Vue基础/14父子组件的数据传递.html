@@ -4,55 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>父子组件数据传递</title>
 </head>
 <body>
     <div id="app">
-        <!-- 1.1父组件通过属性的方式向子组件传递数据  -->
-        <!-- 2.2父组件监听子组件变化   组件变化触发handleIncrease事件-->
-        <counter :counter="1" @incre="handleIncrease"></counter>
-        <counter :counter="2" @incre="handleIncrease"></counter>
+        <!-- 
+            父传子:
+                1.父组件通过属性形式传递数据 
+                    子组件不能修改父组件传递过来的数据(单项数据流)
+            子传父:通过事件触发方式传值
+         -->
+        <counter :count="1" @change="increase"></counter>
+        <counter :count="2" @change="increase"></counter>
         <div>{{total}}</div>
     </div>
     <script src="/vue.js"></script>
     <script>
-        /* 1.父组件向子组件传递数据:     父组件通过属性的方式向子组件传递数据 
-               单项数据流:子组件不能随意的修改父组件传递的参数,只能用不能修改
-           2.子组件向父组件传值:
-        */
-        // 定义局部组件
-        var counter={
-            // 1.2子组件接受父组件传递的内容:
-            props:["counter"],
-            data:function(){
+        var counter= {
+            props:["count"],
+            data:function(){ 
                 return {
-                    number:this.counter  //1.用接受父组件传来的值
+                    number:this.count
                 }
             },
-            template:"<div @click='handleClick'>{{number}}</div>",
-            methods: {
-                handleClick: function(){
-                    // this.number ++;
+            template:"<div @click='add'>{{number}}</div>",
+            methods:{
+                add:function(){
                     this.number = this.number+2;
-                    // 2.1子组件被点击时,向外触犯事件
-                    this.$emit('incre',2);
-                },
-               
-            },
+                    this.$emit("change",2);
+                }
+            }
         }
-        var app = new Vue({
+
+        var vm = new Vue({
             el:"#app",
-            // 注册局部组件counter
-            components:{
-                counter:counter,
-            },
             data:{
-                total:3,
+                total:3
+            },
+            components:{
+                counter
             },
             methods:{
-                // 2.3接受子组件传入的参数step
-                 handleIncrease:function(step){
-                    this.total += step;
+                increase:function(step){
+                    this.total +=step;
                 }
             }
         })

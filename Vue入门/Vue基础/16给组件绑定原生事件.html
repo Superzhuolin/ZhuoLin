@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <!-- 自定义事件 -->
-        <child @click="handleClick"></child>
+        <child @lick="handleClick"></child>
     </div>
-    <script src="/vue.js"></script>
     <script>
         Vue.component("child",{
             // 两层传递太过于麻烦
@@ -20,12 +19,12 @@
             methods: {
                 Click:function(){
                     alert("Click !");
-                    this.$emit("click");
+                    this.$emit("lick");
                 }
             },
         })
 
-        var app = new Vue({
+         var app = new Vue({
             el:"#app",
             methods: {
                 handleClick:function(){

@@ -9,18 +9,18 @@
 <body>
     <div id="app">
         <child>
-            <div  slot="container">container</div>
-            <div  slot="header">header</div>
+            <div slot="header">header </div>
+            <div slot="footer">footer</div>
         </child>
     </div>
     <script src="/vue.js"></script>
     <script> 
-        // 具名插槽 （子组件使用父组件传入的内容）    非常重要
+        // 具名插槽 :给插槽起名字
+        //          （子组件使用父组件传入的内容）    非常重要
         Vue.component('child',{
             template:`<div>
-                         <slot name="container"></slot>   
-                         <div class="content">content</div> 
-                         <slot name="header"></slot>   
+                            <slot name="header">default</slot>
+                            <slot name="footer">default</slot>
                       </div>`,
         })
 
