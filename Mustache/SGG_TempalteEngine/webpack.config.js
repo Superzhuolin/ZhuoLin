@@ -19,5 +19,8 @@ module.exports = {
         port: 8080,
         // 虚拟打包的路径，bundle.js文件没有真正的生成
         publicPath: "/xuni/"
+
+        // 在8080提供静态服务,把www文件夹的东西静态显示出来,然后把/xuni/的文件虚拟打包到
+        // src虚拟路径中去
     }
 };
