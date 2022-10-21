@@ -8,13 +8,13 @@
 <body>
     <div id="container"></div>
 
-    <script src="jslib/mustache.js"></script>
+    <script src="mustache.js"></script>
     <script>
         var templateStr = `
             <ul>
                 {{#arr}}
                     <li>
-                        {{name}}的爱好是：
+                        {{name}}年龄{{age}},爱好是：
                         <ol>
                             {{#hobbies}} 
                                 <li>{{.}}</li>

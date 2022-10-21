@@ -8,16 +8,32 @@
 <body>
     <div id="container"></div>
 
-    <script src="jslib/mustache.js"></script>
+    <script src="mustache.js"></script>
     <script>
         var templateStr = `
-            {{#m}}
-                <h1>你好</h1>
-            {{/m}}
+            <ul>
+                {{#arr}}
+                    <li>
+                        {{name}}年龄{{age}},爱好是：
+                        {{#m}}
+                            <ol>
+                                {{#hobbies}} 
+                                    <li>{{.}}</li>
+                                {{/hobbies}} 
+                            </ol>
+                        {{/m}}
+                    </li>    
+                {{/arr}}
+            </ul>
         `;
 
         var data = {
-            m: false
+            arr: [
+                {'name': '小明', 'age': 12, 'hobbies': ['游泳', '羽毛球']},
+                {'name': '小红', 'age': 11, 'hobbies': ['编程', '写作文', '看报纸']},
+                {'name': '小强', 'age': 13, 'hobbies': ['打台球']},
+            ],
+            m :true,
         };
 
         var domStr = Mustache.render(templateStr, data);
