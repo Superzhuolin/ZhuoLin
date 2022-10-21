@@ -1,6 +1,9 @@
 import parseTemplateToTokens from './parseTemplateToTokens.js';
 import renderTemplate from './renderTemplate.js';
-
+// import {ha} from "./ha"
+import * as ha from "./ha"
+console.log(221);
+ha.ha();
 // 全局提供SSG_TemplateEngine对象
 window.SSG_TemplateEngine = {
     // 渲染方法
