@@ -6,6 +6,10 @@ export default function nestTokens(tokens) {
     // 栈结构，存放栈顶操作的小tokens;
     // 栈顶（靠近端口的，最新进入的）的tokens数组中当前操作的这个tokens小数组
     var sections = [];
+    // 收集器，天生指向nestedTokens结果数组，引用类型值，所以指向的是同一个数组
+    // 收集器的指向会变化，当遇见#的时候，收集器会指向这个token的下标为2的新数组
+    var collector = nestedTokens;
+
     console.log(tokens);
     // 遍历每个tokens
     for (let i = 0; i < tokens.length; i++) {
@@ -13,25 +17,23 @@ export default function nestTokens(tokens) {
         // 对token的首项进行判断
         switch (token[0]) {
             case "#":
-                // console.log(token);
-                // 给这个token下标为2的项(即属性名)创建一个数组,以收集子元素
-                token[2] = [];
+                // 收集器中放入这个token
+                collector.push(token);
                 // 入栈
                 sections.push(token);
-                nestedTokens.push(token);
+                // 收集器换人
+                collector = token[2] = [];
                 break;
             case "/":
-                // 出栈,pop()会返回刚弹出的项
-                let section_pop = sections.pop();
-                nestedTokens.push(section_pop);
+                // 出栈.pop()会返回刚刚弹出的项
+               sections.pop();
+                // 改变收集器为结构队尾(队尾才是栈顶,即数组下标为2处)
+                collector = sections.length > 0 ? sections[sections.length - 1][2] : nestedTokens;
                 break;
             default:
-                // 判断,栈队列当前情况+
-                if (sections.length == 0) {
-                    nestedTokens.push(token);
-                } else {
-                    sections[sections.length - 1][2].push(token);
-                }
+                // 甭管当前的collector是谁，可能是结果nestedTokens，也可能是某个token的下标为2的数组，
+                // 甭管是谁，推入collctor即可。
+                collector.push(token);
         }
     }
     return nestedTokens;
