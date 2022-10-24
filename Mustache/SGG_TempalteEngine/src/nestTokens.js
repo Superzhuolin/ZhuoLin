@@ -10,7 +10,6 @@ export default function nestTokens(tokens) {
     // 收集器的指向会变化，当遇见#的时候，收集器会指向这个token的下标为2的新数组
     var collector = nestedTokens;
 
-    console.log(tokens);
     // 遍历每个tokens
     for (let i = 0; i < tokens.length; i++) {
         let token = tokens[i];

@@ -9,5 +9,23 @@
         }
     }
     那么lookup(dataObj, 'a.b.c')结果就是100
-    不忽悠大家，这个函数是某个大厂的面试题
+    某个大厂的面试题
 */
+// dataObj数据对象,keyName属性名
+export default function lookup(dataObj, keyName) {
+    // console.log(dataObj, keyName);
+    // 判断keyName中是否存在.
+    if (keyName.indexOf(".") != -1) {
+        var keys = keyName.split(".");
+        var temp = dataObj;//设置临时变量,寻找最终值
+        // console.log(keys);
+
+        for (let i = 0; i < keys.length; i++) {
+            // 每遍历一层,迭代更新一次变量(一层层剥)
+            temp = temp[keys[i]];
+        }
+        return temp;
+    }
+    // 若不存在 . 
+    return dataObj[keyName];
+}
