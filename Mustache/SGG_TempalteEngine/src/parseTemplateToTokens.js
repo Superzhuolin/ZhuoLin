@@ -5,7 +5,7 @@ import Scanner from "./Scanner";
     将模板字符串变为tokens数组
 */ 
 export default function parseTemplateToTokens(templateStr){
-    var tokens=[];
+    var tokens=[];  //存储内容
     // 创建扫描器
     var scanner = new Scanner(templateStr);
     var words;
@@ -22,13 +22,13 @@ export default function parseTemplateToTokens(templateStr){
         words = scanner.scanUtil("}}"); // 收集开始标记之前文字
         if (words != "") {
             // 这个words就是{{}}中间的东西。判断一下首字符
-            if(words[0] == "#"){
+            if(words[0] == "#"){ //循环属性
                 // 存起来，从下标为1的项开始存，因为下标为0的项是#
                 tokens.push(["#",words.substring(1)]);
-            }else if(words[0]=="/"){
+            }else if(words[0]=="/"){ //循环属性
                 // 存起来，从下标为1的项开始存，因为下标为0的项是/
                 tokens.push(["/",words.substring]);
-            }else{
+            }else{//正常属性
                 tokens.push(["name",words]);//存起来
             }
         }

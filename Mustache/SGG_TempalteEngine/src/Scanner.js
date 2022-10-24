@@ -3,15 +3,12 @@
 */
 export default class Scanner {
     constructor(templateStr) {
-        // 将模板字符串写到实例身上
-        this.templateStr = templateStr;
-        // 指针
-        this.pos = 0;
-        // 尾巴，一开始就是模板字符串原文
-        this.tail = templateStr;
+        this.templateStr = templateStr;// 将模板字符串写到实例身上
+        this.pos = 0; // 指针
+        this.tail = templateStr;// 尾巴，起始为模板字符串原文
     }
 
-    // 功能弱，就是走过指定内容，没有返回值
+    // 功能弱，就是走过指定内容，没有返回值(作用:跳过 {{ }} )
     scan(tag) {
         if (this.tail.indexOf(tag) == 0) {
             // tag有多长，比如{{长度是2，就让指针后移多少位
@@ -22,6 +19,7 @@ export default class Scanner {
     }
 
     // 让指针进行扫描，直到遇见指定内容结束，并且能够返回结束之前路过的文字
+    // 作用:返回遇到 {{ }} 之前的内容
     scanUtil(stopTag) {
         // 记录一下执行本方法的时候pos的值
         const pos_backup = this.pos;
