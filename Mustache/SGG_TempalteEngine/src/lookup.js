@@ -14,8 +14,8 @@
 // dataObj数据对象,keyName属性名
 export default function lookup(dataObj, keyName) {
     // console.log(dataObj, keyName);
-    // 判断keyName中是否存在.
-    if (keyName.indexOf(".") != -1) {
+    // 判断keyName中是否存在. ,但不能是.本身
+    if (keyName.indexOf(".") != -1 && keyName != ".") {
         var keys = keyName.split(".");
         var temp = dataObj;//设置临时变量,寻找最终值
         // console.log(keys);

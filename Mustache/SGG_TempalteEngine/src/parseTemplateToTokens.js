@@ -10,12 +10,33 @@ export default function parseTemplateToTokens(templateStr){
     var scanner = new Scanner(templateStr);
     var words;
     // 扫描器工作
-    // console.log(templateStr);/*  */
     while (!scanner.eos()) {
         words = scanner.scanUtil("{{"); // 收集开始标记之前文字
        
         if(words !=""){
-            tokens.push(["text",words]);//存起来
+            // 去掉空格，智能判断是普通文字的空格，还是标签中的空格
+            // 标签中的空格不能去掉，比如<div class="box">不能去掉class前面的空格
+            let isJJH = false; //是否在尖角号<> 里面 ,默认不在
+            var _words = ""; // 空白字符串
+            for (let i = 0; i < words.length; i++) {
+                // 判断是否在标签中
+                if (words[i] == "<") {
+                    isJJH = true;
+                } else if (words[i] == ">") {
+                    isJJH = false;
+                }
+                // 如果这项不是空格,拼接上
+                if(!/\s/.test(words[i])){
+                    _words += words[i];
+                }else{
+                    //是空格,只有在当它在标签内时,才拼接上
+                    if(isJJH){
+                        _words += words[i];
+                    }
+                }
+            }
+            console.log(_words);
+            tokens.push(["text",_words]);//存起来,去掉空格
         }
         scanner.scan("{{"); //过双大括号
 

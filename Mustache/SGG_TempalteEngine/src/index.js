@@ -10,13 +10,6 @@ window.SGG_TempalteEngine = {
         var tokens = parseTemplateToTokens(templateStr);
         // 调用renderTemplate函数，让tokens数组变为dom字符串
         var domStr = renderTemplate(tokens, data);
-
-        lookup ({
-            m:{
-                n:{
-                    p:123
-                }
-            }
-        },"m.n.p")
+        return domStr;
     }
 }
