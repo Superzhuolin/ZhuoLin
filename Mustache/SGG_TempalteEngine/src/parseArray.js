@@ -24,16 +24,14 @@ export default function parseArray(token,data){
     // console.log(token, data);
     // 得到整体数据data中这个数组要使用的部分数据
     var v = lookup(data,token[1]);
+    // console.log(v);
     var resulutStr = "";
     // 遍历v数组,v一定是数组(不做布尔值情况)
-    // 注意，下面这个循环可能是整个包中最难思考的一个循环
+    // 注意，下面这个循环可能是整个包中最难思考的一个循环!!!
     // 它是遍历数据，而不是遍历tokens。数组中的数据有几条，就要遍历几条。
-    // for(let i =0;i<token.length;i++){
-    //     resulutStr += renderTemplate(token[2],v[i]);
-    // }
     for(let i =0;i<v.length;i++){
         resulutStr += renderTemplate(token[2],{ 
-            ...v[i],
+            ...v[i], //处理 . 的情况
             ".":v[i]
         });
     }

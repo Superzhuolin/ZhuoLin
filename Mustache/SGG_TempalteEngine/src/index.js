@@ -1,7 +1,6 @@
 import parseTemplateToTokens from "./parseTemplateToTokens"
 import renderTemplate from "./renderTemplate"
 
-import lookup from "./lookup"
 
 // 全局提供SGG_TempalteEngine对象
 window.SGG_TempalteEngine = {
