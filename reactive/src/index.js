@@ -1,33 +1,28 @@
-// import observe from './observe.js';
+import observe from './observe.js';
+import Observe from './Observer';
 // import Watcher from './Watcher.js';
+import defineReative from "./defineReactive"
 
-var obj = {};
-/* Object.defineProperty()方法会直接在一个对象上定义一个新属性，
-或者修改一个对象的现有属性，并返回此对象。 
-1.定义对象 2.定义属性 3.定义属性值*/
-
-// 1.数据对象 2.键名 3.值
-function defineReative(data,key,val){
-    Object.defineProperty(data,key, {
-        enumerable:true, //可枚举
-        configurable:true,//可被配置,比如delete
-        // 变量的赋值与得值若有函数,则会调用get/set()
-        get() {
-            console.log("正在访问obj的"+key+"属性");
-            return val;
-        },
-        set(newValue) {
-            console.log("正在改变obj的" + key + "属性为", newValue);
-            if(val == newValue){
-                return;
-            }
-            val = newValue;
+var obj = {
+    a: {
+        m: { 
+            n: 5
         }
-    })
+    }
+};
+
+// 创建observer函数,注意函数的名字没r
+// 参数value是要侦测的对象  value传入的值实际上是defineReative中闭包的val
+function observe(value){
+    // 该函数只为对象服务,若不是对象,什么都不做
+    if(typeof value != "object") return;
+    // 定义ob存储obser实例
+    var ob;
+    // value.__ob__ 用于存储obser实例   __ob__ 是为了不跟常见属性重名
+    if(typeof  value.__ob__ !== "undefined"){
+        ob = value.__ob__ ;
+    }else{
+        ob = new Observe(value);
+    }
 }
-defineReative(obj,"a",10);
-defineReative(obj,"b",100);
-console.log(obj.a);  
-obj.b = 20;
-obj.b ++;
-console.log(obj.b);  
+observe(obj);
