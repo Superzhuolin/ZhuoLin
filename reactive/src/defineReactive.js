@@ -5,7 +5,7 @@ import observe from './observe.js';
 1.定义对象 2.定义属性 3.定义属性值*/
 // 1.数据对象 2.键名 3.值
 export default function defineReative(data, key, val) {
-    console.log("defineReative",key);
+    // console.log("defineReative",key);
     // 若传入参数个数为2个
     if (arguments.length == 2) {
         val = data[key];

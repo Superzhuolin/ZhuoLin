@@ -15,11 +15,11 @@ var obj = {
                 f:666
             }
         }
-    }
+    },
+    g:[22,33,44,55]
 };
 
 
 observe(obj);
-// obj.b++;
-// obj.a.m=10;
-console.log(obj.c.d.e.f);
+obj.g.push(66,77,88);
+console.log(obj.g);
