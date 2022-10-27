@@ -21,5 +21,14 @@ var obj = {
 
 
 observe(obj);
-obj.g.push(66,77,88);
-console.log(obj.g);
+
+obj.a.m.n=88;
+// obj.g.push(66);
+console.log(obj);
+
+// obj.g = 10;
+// obj.g.push(66,77,88);
+// console.log(obj.g);
+// obj.g.splice(2,1,[88,99,[100]]);
+// console.log(obj.g);
+// obj[2].push(100);
