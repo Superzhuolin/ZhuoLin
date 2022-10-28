@@ -21,6 +21,12 @@ export default function defineReative(data, key, val) {
         // 变量的赋值与得值若有函数,则会调用get/set()
         get() { //收集依赖
             console.log("正在访问"+ key + "属性");
+            if(Dep.target){
+                dep.depend();
+                if(childOb){
+                    childOb.dep.depend();
+                }
+            }
             return val;
         },
         set(newValue) { //设置依赖
