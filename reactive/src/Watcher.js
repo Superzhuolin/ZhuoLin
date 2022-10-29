@@ -1,3 +1,5 @@
+import Dep from "./Dep";
+
 var uid = 0;
 
 // 保存每次Watcher东西的回调函数,数组中要保存拥有watcher的dep
@@ -12,13 +14,34 @@ export default class Watcher {
         this.value = this.get();
     }
     update(){
-
+        this.run();
     }
     get(){
         // 进入依赖收集阶段.让全局的Dep.target设置为watcher本身,则进入依赖收集阶段
+        Dep.target = this;
+        const obj = this.target;
+        var value;
+        // 只要能找就一直找
+        try{
+            value = this.getter(obj);//obj为被获取属性值的对象
+        }finally{
+            Dep.target = null;
+        }
+        return value;
+    }
+    run(){
+        this.getAndInvoke(this.callback);  //得到并唤起
+    }
+    getAndInvoke(cb){
+        const value = this.get();
+        if(value !== this.value || typeof value =="object"){
+            const oldValue = this.value;
+            this.value =value;
+            cb.call(this.target,value,oldValue);
+        }
     }
 
-/* 当决定某个watcher要放在那个dep时,需要让dep先读取数据(让变量指向watcher),
+/* 当决定某个watcher要放在那个dep时,需要让   先读取数据(让变量指向watcher),
     然后在代码中使用该变量,就会触发getter.从而对该键进行求值触发一连串getter
     (内层嵌套),从而找到该watcher是管那个data的,最后需要将全局变量改回null  */
 }; 

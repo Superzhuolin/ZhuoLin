@@ -9,7 +9,7 @@ export default class Dep{  //发布订阅模式
         this.subs = [];
     }
     //添加订阅 
-    addSub(){
+    addSub(sub){
         this.subs.push(sub);
     }
     // 添加依赖
@@ -21,7 +21,7 @@ export default class Dep{  //发布订阅模式
 
             // getter会将全局唯一的dep.target读取  正读取数据的watcher
             //并把watcher收集到dep中
-            this.addSub(dep.target);
+            this.addSub(Dep.target);
         }
     }
  

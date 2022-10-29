@@ -1,5 +1,5 @@
 import observe from './observe.js';
-// import Watcher from './Watcher.js';
+import Watcher from './Watcher.js';
 import defineReative from "./defineReactive"
 
 var obj = {
@@ -21,9 +21,12 @@ var obj = {
 
 
 observe(obj);
-
+new Watcher(obj,"a.m.n",(val)=>{
+    console.log("★★★★★★", val);
+}) //相当于watch作用
 obj.a.m.n=88;
-// obj.g.push(66);
+
+// // obj.g.push(66);
 console.log(obj);
 
 // obj.g = 10;
