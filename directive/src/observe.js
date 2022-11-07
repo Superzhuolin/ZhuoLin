@@ -1,5 +1,13 @@
-import Observer from './Observer';
-
-/* 逐层往下oberver递归  递归到最后一层结束 */
-// 创建observer函数,注意函数的名字没r
-// 参数value是要侦测的对象  value传入的值实际上是defineReative中闭包的val
+import Observer from './Observer.js';
+export default function (value) {
+    // 如果value不是对象，什么都不做
+    if (typeof value != 'object') return;
+    // 定义ob
+    var ob;
+    if (typeof value.__ob__ !== 'undefined') {
+        ob = value.__ob__;
+    } else {
+        ob = new Observer(value);
+    }
+    return ob;
+}

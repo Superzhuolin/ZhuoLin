@@ -6,6 +6,23 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="app">
+            <h3 class="title">你好{{a}}</h3>
+            <input type="text" v-model="a">
+            <ul>
+                <li>A</li>
+                <li>B</li>
+                <li>C</li>
+            </ul>
+    </div>
     <script src="/xuni/bundle.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                a:10
+            }
+        })
+    </script>
 </body>
 </html>
