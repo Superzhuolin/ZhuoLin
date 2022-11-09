@@ -18,7 +18,7 @@ export default function defineReactive(data, key, val) {
         configurable: true,
         // getter
         get() {
-            // console.log('你试图访问' + key + '属性');
+            console.log('你试图访问' + key + '属性');
             // 如果现在处于依赖收集阶段
             if (Dep.target) {
                 dep.depend();

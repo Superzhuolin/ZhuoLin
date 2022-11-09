@@ -7,22 +7,43 @@
 </head>
 <body>
     <div id="app">
-            <h3 class="title">你好{{a}}</h3>
-            <input type="text" v-model="a">
+            你好{{b.m.n}}
+            <br>
+            <input type="text" v-model="b.m.n">
             <ul>
                 <li>A</li>
                 <li>B</li>
                 <li>C</li>
             </ul>
     </div>
+    <button onclick="add()">按我+1</button>
     <script src="/xuni/bundle.js"></script>
     <script>
-        new Vue({
+        var vm = new Vue({
             el:"#app",
             data:{
-                a:10
+                a:10,
+                b:{
+                    m:{ 
+                        n:7
+                    }
+                }
+            },
+            watch:{
+                a(){
+                }
+            },
+            created(){
+
+            },
+            update(){
+                
             }
         })
+        // console.log(vm);
+        function add(){
+            vm.b.m.n++;
+        }
     </script>
 </body>
 </html>
