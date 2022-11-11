@@ -1,0 +1,18 @@
+.d.ts 把ts变成js时保存ts文件的具体类型
+
+exports是webpack@5才开始支持的
+
+webpack-dev-server提供8080端口运行
+webpack是构建工具
+
+diff算法是发生在虚拟dom之间的,即新老的虚拟dom进行diff比较
+
+
+虚拟节点上的属性:
+children
+data:属性与样式
+elm:对于的真正dom节点  undefined表示该结点未上树
+key:该节点的唯一标识
+sel(selector):选择器
+
+h函数不会真正的产生dom,但是可以输出
