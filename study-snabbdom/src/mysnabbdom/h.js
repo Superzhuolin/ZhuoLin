@@ -5,7 +5,7 @@ import vnode from "./vnode";
 // 形态① h('div', {}, '文字')
 // 形态② h('div', {}, [])
 // 形态③ h('div', {}, h())
-// h函数执行的结果一定是对象,同时不用再执行h函数了(测试语句已执行)
+// h函数执行的结果一定是对象;不用再执行h函数了(测试语句已执行)
 export default function (sel, data, c) {
     // 检查参数个数
     if (arguments.length != 3) {
@@ -16,7 +16,7 @@ export default function (sel, data, c) {
         // 形态①
         return vnode(sel, data, undefined, c, undefined);
     } else if (Array.isArray(c)) {
-        // 形态② 
+        // 形态② 是数组
         let children = [];
         // 遍历c,收集children
         for (let i = 0; i < c.length; i++) {

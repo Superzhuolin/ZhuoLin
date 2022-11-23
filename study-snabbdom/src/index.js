@@ -7,7 +7,7 @@ const myVnode1 = h("section", {}, [
     h("p", { key: "C" }, "C"),
 ]);
 // const myVnode1 = h("section",{},"老dom,破文字,无子节点");
-
+console.log(myVnode1);
 // 获取盒子和按钮
 const container = document.getElementById("container");
 const btn = document.getElementById("btn");
