@@ -1,24 +1,25 @@
 import h from "./mysnabbdom/h"
+import patch  from "./mysnabbdom/patch"
 
-var myVnode1 = h("div", {}, [
-    h("p", {}, "嘿嘿"),
-    h("p", {}, "哈哈"),
-    h("p", {}, [
-        h("span", {}, "A"),
-        h("span", {}, "B"),
-    ]),
-    h("p", {}, h("p", {}, "dd"),),
-]);
-const myVnode2 = h("ul", { class: { "box": true } }, [  //若有子元素,可以用数组嵌套
-    h("li", {}, "苹果"),
-    h("li", {}, [
-        h("div", {}, [
-            h("p", {}, "嘿嘿"),
-            h("p", {}, "嘻嘻")
-        ])
-    ]),
-    h("li", {}, "雪梨"),
-    h("li", {}, h("span", {}, "火龙果")),  //若只有一个子元素,则数组可省略(多个只显示第二个)
+// const myVnode1 = h("section",{},[
+//     h("p",{},"A"),
+//     h("p",{},"B"),
+//     h("p",{},"C"),
+// ]);
+const myVnode1 = h("section",{},"老dom,破文字,无子节点");
+
+// 获取盒子和按钮
+const container = document.getElementById("container");
+const btn = document.getElementById("btn");
+
+patch(container,myVnode1);
+// const myVnode2 = h("section", {}, "你好");
+const myVnode2 = h("section",{},[
+    h("p",{},"A"),
+    h("p",{},"B"),
+    h("p",{},"C"),
 ]);
 
-console.log(myVnode2);
+btn.onclick = function(){
+    patch(myVnode1,myVnode2);
+}
