@@ -35,4 +35,8 @@ h函数不会真正的产生dom,但是可以输出
 删除情况:
 
 
-
+遇到困难:elm属性从哪里来?
+1.虚拟节点的elm属性来自h函数对vnode方法的调用
+2.dom节点的elm属性 <== patch方法:
+①不同节点:createElement方法中vnode.elm = domNode 赋值
+②相同节点:
