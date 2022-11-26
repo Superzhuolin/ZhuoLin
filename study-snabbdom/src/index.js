@@ -7,6 +7,7 @@ const myVnode1 = h("section", {}, [
     h("p", { key: "B" }, "B"),
     h("p", { key: "C" }, "C"),
     h("p", { key: "D" }, "D"),
+    h("p", { key: "E" }, "E"),
 ]);
 // const myVnode1 = h("section",{},"老dom,破文字,无子节点");
 
@@ -26,11 +27,14 @@ patch(container, myVnode1);
 //     h("p", { key: "C" }, "C"),
 // ]);
 const myVnode2 = h("section", {}, [
-    h("p", { key: "A" }, "A"),
     h("p", { key: "B" }, "B"),
-    h("p", { key: "E" }, "E"),
+    h("p", { key: "C2" }, "C2"),
+    h("p", { key: "Q" }, "Q"),
+    h("p", { key: "C1" }, "C1"),
+    h("p", { key: "A" }, "A"),
+    h("p", { key: "C" }, "C"),
+    h("p", { key: "C3" }, "C3"),
 ]);
-
 btn.onclick = function () {
     patch(myVnode1, myVnode2);
 }
