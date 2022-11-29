@@ -3,11 +3,9 @@ import createElement from "./createElement";
 import patchVnode from "./patchVnode";
 
 export default function (oldVnode, newVnode) {
-
     // 首先判断传入的第一个参数,是dom节点还是虚拟节点
     if (oldVnode.sel == "" || oldVnode.sel == undefined) {
         // 传入的第一个参数是dom节点,此时将其包装为虚拟节点(选择器里将大写的标签名变为小写)
-        // console.log(222, oldVnode);   //将虚拟dom中的elm属性设置dom节点
         oldVnode = vnode(oldVnode.tagName.toLowerCase(), {}, [], undefined, oldVnode);
         // elm:elmenmt 元素  sel:selector选择器
     }

@@ -3,15 +3,17 @@ import updateChildren from "./updateChildren";
 
 // 同一个节点:精细化比较
 export default function patchVnode(oldVnode, newVnode) {
+    console.log(1323, newVnode);
+
     // 判断新旧vnode是否是同一个对象
-    if (oldVnode === newVnode) return; //直接返回
+    if (oldVnode === newVnode) return; //同一个对象,直接返回
     if (newVnode.text != undefined &&
         (newVnode.children == undefined || newVnode.children == 0)) {
         // ①新节点有文字(newVnode.text不为空,children为空或为0)
         console.log("newVnode有text属性");
         if (newVnode.text != oldVnode.text) {
-            // 如果newVnode.text和oldVnode.text不同,则让新的text写入老的elm的文本
-            // 如果老的elm有children也会比替代消失
+            // 如果新老节点的文本不同,则让新的text写入老的elm的文本
+            // ps:若老的elm有children也会被替代消失
             console.log(oldVnode.elm); //<section>你好</section>
             oldVnode.elm.innerText = newVnode.text;
         }

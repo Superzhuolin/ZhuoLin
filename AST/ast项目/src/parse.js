@@ -14,6 +14,8 @@ export default function (templateString) {
     while (index < templateString.length - 1) {
         // console.log(templateString[index]);
         rest = templateString.substring(index);
+    
+    
         if (startRegExp.test(rest)) {            //开始标记
             let tag = rest.match(startRegExp)[1];
             let attrsString = rest.match(startRegExp)[2];

@@ -10,24 +10,26 @@
 <body>
     <script>
         // 试输出斐波那契数列的前10项，即1、1、2、3、5、8、13、21、34、55
+        // debugger;
         // 缓存对象
-        var cache  = {};
+        var cache = {};
         // 创建递归函数
-        function fib(n){
-            debugger;
+        function fib(n) {
+            console.log("cache:",cache);
             console.count("记数");
-            console.log("进入fib函数"+n);
+            console.log("进入fib函数" + n);
             // 判断缓存对象中是否有该值
-            if(cache.hasOwnProperty(n)){ //他能判断一个对象是否包含自定义属性而不是原型链上的属性
-                console.log("命中缓存不用计算",n);
-                return cache[n];
+            if (cache.hasOwnProperty(n)) {
+                //hasOwnProperty能判断该对象是否包含自定义属性而不是原型链上的属性
+                console.log("缓存有该值,直接返回缓存值", n);
+                return cache[n];  //用变量当做对象键名 
             }
             // 递归必须要有递归终点
-            var v = n==1||n==0 ? 1 :fib(n-1)+fib(n-2);
+            var v = (n == 1 || n == 0) ? 1 : fib(n - 1) + fib(n - 2);
             cache[n] = v;
-            return  v;
+            return v;
         }
-        console.log(fib(6));
+        console.log("结果为:",fib(6));
         // 递归输出前9项
         // for (let i = 0; i < 9; i++) {
         //     console.log(fib(i));

@@ -1,5 +1,5 @@
 
-//将传入的虚拟节点创建为孤儿dom节点,但不进行插入
+//将传入的虚拟节点创建为孤儿dom节点
         // elm:elmenmt 元素  sel:selector选择器
 export default function createElement(vnode){
     // console.log('目的:将虚拟节点',vnode,"真正变为dom");
@@ -23,7 +23,6 @@ export default function createElement(vnode){
     }
     // 补充dom节点的elm元素
     vnode.elm = domNode;
-    // console.log(121,vnode.elm);
     // 返回纯dom对象elm
     return vnode.elm;
 }
