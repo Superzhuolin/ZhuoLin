@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
         // 1. 定义Map
         /* 语法一：构造函数--声明时赋值
         参数：a. 必须是二维数组， b.二维数组 Map单元格是 键值对 的形式 */
-        const map = new Map([["name", "孙悟空"], ["age", 18], ["sex", "男"]]);
-        
+        // const map = new Map([["name", "孙悟空"], ["age", 18], ["sex", "男"]]);
+
         /* 语法二：构造函数--声明后再赋值
          书写方式：Map对象.set(键名 , 数值) */
-        // const map = new Map();
-        // map.set("name","孙悟空")
+        const map = new Map();
+        map.set("name", "孙悟空").set("age", 18);
         console.log(map);
         console.log(map.size);  //size属性返回Map结构的成员总数
 
         /*  2. 获取Map数据   通过键名=>键值
         语法形式：Map数据类型.get(‘键名’)  ==>  person.get(‘name’) */
-        console.log(map.get("name")); 
+        console.log(map.get("name"));
 
         /*  3. 判断是否是Map中的数据
         语法形式：Map数据类型.has(‘键名’) */
@@ -40,10 +42,11 @@
         // console.log(map);
 
         // 6. 遍历Map
-        map.forEach((key,item,)=>{
-            console.info(item,key)
+        map.forEach((key, value) => {
+            console.info(value, key)
         })
 
     </script>
 </body>
+
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 1、Set():es6新增的数据结构
+        特性:所有元素都是唯一的，没有重复的值，我们一般称为集合。
+        Set本身是一个构造函数，用来生成 Set 数据结构
+
+        2、增删改查方法
+        2.1 添加元素add
+        添加某个值，返回 Set 结构本身，当添加实例中已经存在的元素，set不会进行处理添加*
+        */
+        let list = new Set();
+        list.add(1)
+        console.log(list.size); //size属性返回Map结构的成员总数
+        console.log(list);
+
+        list.add(2).add(3).add(3)   // 2只被添加了一次
+
+        /* 2.2 删除元素 delete
+       删除某个值，返回一个布尔值，表示删除是否成功 */
+    //    var result = list.delete(3);
+
+       /* 2.3 判断某元素是否存在has
+        返回一个布尔值，判断该值是否为Set的成员 */
+        console.log(list.has(3));
+
+        /* 2.4 清除所有元素clear
+            清除所有成员，没有返回值 */
+        // list.clear();
+        console.log(list);
+        
+        /* 3、遍历方法
+        3.1 遍历 keys()
+        返回键名的遍历器，相等于返回键值遍历器values() */
+        let list2 = new Set(['a', 'b', 'c'])
+        console.log(list2);
+            // for (let key of list2.keys()) {
+            //     console.log(key)//a,b,c
+            // }
+        /* 3.2 遍历 values() 返回键值的遍历器 */
+        for (let value of list2.values()) {
+                console.log(value)//a,b,c
+            }
+    </script>
+</body>
+</html>

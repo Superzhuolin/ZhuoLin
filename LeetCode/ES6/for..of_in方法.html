@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ps:操作对象用for...in        其余(包括数组)用for...of   
+
+        // const foods = ["番茄炒蛋", "可乐鸡翅", "土豆炖鸡"];
+        // for(const food of foods){
+        //     console.log(food);
+        // }
+
+        const map = new Map([["name", "孙悟空"], ["age", 18], ["sex", "男"]]);
+        // for (const prop of map){
+        //     console.log(prop);
+        // }
+        for (const [key,value] of map){
+            // console.log(key,value);
+        }
+
+        //  作操对象用for...in
+        const person = {
+            name :"孙悟空",
+            age:18,
+            sex:"男"
+        }
+        for (const key in person){
+            console.log(key,person[key]);
+        }
+    </script>
+</body>
+</html>

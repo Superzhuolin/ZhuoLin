@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var head ="";
+        let dummy = new listNode();
+        dummy.next = head;
+        let curr = dummy;
+        while(curr.next !== null && curr.next.next !== null){
+            let n1 = curr.next;
+            let n2 = curr.next.next;
+            curr.next = n2;
+            n1.next = n2.next;
+            n2.next = n1;
+            curr = n1;
+        }
+        return dummy.next;
+
+    </script>
+</body>
+
+</html>

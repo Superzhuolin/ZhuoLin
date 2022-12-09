@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const team = ["易建联","郭艾伦","翟晓川","赵晓伟","周琦"];
+        const [captain,assitant,...players] = team;  //解构
+        console.log( captain,assitant,players);
+
+        const team1 = [captain,assitant,...players];
+        console.log(team1);
+
+        // 数组合并
+        const food = ["番茄炒蛋","可乐鸡翅","土豆炖鸡"];
+        const drink = ["可乐","酸梅汁"];
+        const sum = food.concat(drink); //方法1
+        const sum1 = [...food,"七喜",...drink]; //方法2:扩展方法
+        console.log(sum);
+        console.log(sum1);
+    </script>
+</body>
+</html>
