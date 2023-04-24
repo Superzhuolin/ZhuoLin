@@ -55,6 +55,9 @@ export default {
   },
   mounted(){
     this.getDetailInfo();
+  },
+  activated(){ //页面重新渲染时执行
+      this.getDetailInfo();
   }
 };
 </script>

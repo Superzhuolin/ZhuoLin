@@ -14,6 +14,6 @@ export default {
 }
 
 .v-enter-active, .v-leave-active {
-  transition: opacity 2s;
+  transition: opacity 2s; 
 }
 </style>
